@@ -29,7 +29,7 @@ Future takePicture(
 
     if (saveToGallery) {
       try {
-        await Gal.putImage(byteData.toString());
+        await Gal.putImage(fileName);
       } catch (e) {
         print(e);
       }
