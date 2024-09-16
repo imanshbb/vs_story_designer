@@ -29,9 +29,16 @@ Future takePicture(
 
     if (saveToGallery) {
       try {
-        await Gal.putImage(fileName);
+        await Gal.putImage(
+          byteData.buffer.toString(),
+        );
+        return true;
       } catch (e) {
         print(e);
+        print(
+          byteData.buffer.toString(),
+        );
+        return false;
       }
     } else {
       return imagePath;
