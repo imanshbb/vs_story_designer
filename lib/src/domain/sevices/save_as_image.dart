@@ -28,7 +28,7 @@ Future takePicture(
     await capturedFile.writeAsBytes(pngBytes);
 
     if (saveToGallery) {
-      await Gal.putImage("${fileName}_${DateTime.now()}.png");
+      await Gal.putImage(imagePath);
     } else {
       return imagePath;
     }
