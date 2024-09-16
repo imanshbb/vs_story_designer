@@ -12,23 +12,13 @@ Future takePicture(
     required saveToGallery,
     required fileName}) async {
   try {
-    /// converter widget to image
-    RenderRepaintBoundary boundary =
-        contentKey.currentContext.findRenderObject();
-
-    ui.Image image = await boundary.toImage(pixelRatio: 3);
-
-    ByteData? byteData = await image.toByteData(format: ui.ImageByteFormat.png);
-    Uint8List pngBytes = byteData!.buffer.asUint8List();
-
     /// create file
     final String dir = (await getApplicationDocumentsDirectory()).path;
     String imagePath = '$dir/${fileName}_${DateTime.now()}.png';
-    File capturedFile = File(imagePath);
-    await capturedFile.writeAsBytes(pngBytes);
 
     if (saveToGallery) {
       await Gal.putImage(fileName);
+      return true;
     } else {
       return imagePath;
     }
