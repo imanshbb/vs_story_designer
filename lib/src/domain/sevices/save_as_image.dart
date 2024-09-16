@@ -29,15 +29,11 @@ Future takePicture(
 
     if (saveToGallery) {
       try {
-        await Gal.putImage(
-          byteData.buffer.toString(),
+        await Gal.putImageBytes(
+          pngBytes,
         );
         return true;
       } catch (e) {
-        print(e);
-        print(
-          byteData.buffer.toString(),
-        );
         return false;
       }
     } else {
