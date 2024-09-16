@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:gal/gal.dart';
 import 'package:path_provider/path_provider.dart';
 
 Future takePicture(
@@ -27,12 +28,7 @@ Future takePicture(
     await capturedFile.writeAsBytes(pngBytes);
 
     if (saveToGallery) {
-      final result = await Future.delayed(const Duration(seconds: 1));
-      if (result != null) {
-        return true;
-      } else {
-        return false;
-      }
+      await Gal.putImage("${fileName}_${DateTime.now()}.png");
     } else {
       return imagePath;
     }
