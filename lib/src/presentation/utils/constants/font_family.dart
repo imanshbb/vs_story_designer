@@ -142,7 +142,6 @@ class AppFonts {
     FontType.ewert,
     FontType.unifrakturMaguntia,
     FontType.iranSans,
-    FontType.leleZar,
   ];
 
   static TextTheme getTextThemeENUM(FontType val) {
