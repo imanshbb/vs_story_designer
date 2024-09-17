@@ -48,6 +48,7 @@ class AppFonts {
   // ];
 
   static const fontFamilyListENUM = [
+    FontType.openSans,
     FontType.laleZar,
     FontType.vazirMatn,
     FontType.rubik,
@@ -66,7 +67,6 @@ class AppFonts {
     FontType.mada,
     FontType.balooBhaiJaan2,
     FontType.arefRuqaaInk,
-    FontType.openSans,
     FontType.baskerville,
     FontType.cormorant,
     FontType.sourceSerif,
@@ -163,6 +163,8 @@ class AppFonts {
 
   static TextTheme getTextThemeENUM(FontType val) {
     switch (val) {
+      case FontType.openSans:
+        return GoogleFonts.openSansTextTheme();
       case FontType.laleZar:
         return GoogleFonts.lalezarTextTheme();
       case FontType.vazirMatn:
@@ -261,9 +263,6 @@ class AppFonts {
 
       case FontType.baskerville:
         return GoogleFonts.baskervvilleTextTheme();
-
-      case FontType.openSans:
-        return GoogleFonts.openSansTextTheme();
 
       case FontType.cormorant:
         return GoogleFonts.cormorantTextTheme();

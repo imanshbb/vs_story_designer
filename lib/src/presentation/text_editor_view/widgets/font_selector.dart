@@ -37,8 +37,8 @@ class FontSelector extends StatelessWidget {
                   editorNotifier.fontFamilyController.jumpToPage(index);
                 },
                 child: Container(
-                  height: _size.width * 0.1,
-                  width: _size.width * 0.1,
+                  height: _size.width * 0.2,
+                  width: _size.width * 0.2,
                   alignment: Alignment.center,
                   margin: const EdgeInsets.all(2),
                   decoration: BoxDecoration(
@@ -49,7 +49,7 @@ class FontSelector extends StatelessWidget {
                       border: Border.all(color: Colors.white)),
                   child: Center(
                     child: Text(
-                      'Aa',
+                      'فرحی گرام',
                       style: AppFonts.getTextThemeENUM(
                               controlNotifier.fontList![index])
                           .bodyLarge!
