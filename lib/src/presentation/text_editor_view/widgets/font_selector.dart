@@ -49,7 +49,7 @@ class FontSelector extends StatelessWidget {
                       border: Border.all(color: Colors.white)),
                   child: Center(
                     child: Text(
-                      'فرحی گرام',
+                      'فرحی‌گرام',
                       style: AppFonts.getTextThemeENUM(
                               controlNotifier.fontList![index])
                           .bodyLarge!
@@ -60,6 +60,7 @@ class FontSelector extends StatelessWidget {
                               //     : 'vs_story_designer'
                               ))
                           .copyWith(
+                              fontSize: 8.0,
                               color: index == editorNotifier.fontFamilyIndex
                                   ? Colors.red
                                   : Colors.white,
