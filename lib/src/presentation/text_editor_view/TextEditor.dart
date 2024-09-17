@@ -64,9 +64,12 @@ class _TextEditorState extends State<TextEditor> {
                         ),
 
                         /// text size
-                        const Align(
-                          alignment: Alignment.centerLeft,
-                          child: SizeSliderWidget(),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 10.0),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: SizeSliderWidget(),
+                          ),
                         ),
 
                         /// top tools

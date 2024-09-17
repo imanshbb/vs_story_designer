@@ -175,7 +175,7 @@ class _PaintingState extends State<Painting> {
                   child: Padding(
                     padding: EdgeInsets.only(
                       bottom: 140,
-                      left: 40,
+                      left: 10,
                     ),
                     child: SizeSliderWidget(),
                   ),
