@@ -66,7 +66,6 @@ enum FontType {
   roboto,
   karma,
   rougeScript,
-  rubik,
   siliguri,
   meeraInimai,
   slabo27px,
@@ -110,6 +109,22 @@ enum FontType {
   ewert,
   unifrakturMaguntia,
   laleZar,
+  vazirMatn,
+  rubik,
+  handJet,
+  blaka,
+  qahiri,
+  marhey,
+  gulzar,
+  harmattan,
+  kufam,
+  vibes,
+  notoSansArabic,
+  blakaHollow,
+  jomhuria,
+  mada,
+  balooBhaiJaan2,
+  arefRuqaaInk
 }
 
 class VSStoryDesigner extends StatefulWidget {

@@ -96,7 +96,7 @@ class AppFonts {
     FontType.roboto,
     FontType.karma,
     FontType.rougeScript,
-    FontType.rubik,
+
     FontType.siliguri,
     FontType.meeraInimai,
     FontType.slabo27px,
@@ -142,6 +142,23 @@ class AppFonts {
     FontType.ewert,
     FontType.unifrakturMaguntia,
     FontType.laleZar,
+    FontType.vazirMatn,
+    FontType.rubik,
+    FontType.handJet,
+    FontType.vazirMatn,
+    FontType.blaka,
+    FontType.qahiri,
+    FontType.marhey,
+    FontType.gulzar,
+    FontType.harmattan,
+    FontType.kufam,
+    FontType.vibes,
+    FontType.notoSansArabic,
+    FontType.blakaHollow,
+    FontType.jomhuria,
+    FontType.mada,
+    FontType.balooBhaiJaan2,
+    FontType.arefRuqaaInk,
   ];
 
   static TextTheme getTextThemeENUM(FontType val) {
@@ -286,9 +303,6 @@ class AppFonts {
       case FontType.rougeScript:
         return GoogleFonts.rougeScriptTextTheme();
 
-      case FontType.rubik:
-        return GoogleFonts.rubikTextTheme();
-
       case FontType.siliguri:
         return GoogleFonts.hindSiliguriTextTheme();
 
@@ -371,6 +385,38 @@ class AppFonts {
         return GoogleFonts.unifrakturMaguntiaTextTheme();
       case FontType.laleZar:
         return GoogleFonts.lalezarTextTheme();
+      case FontType.vazirMatn:
+        return GoogleFonts.vazirmatnTextTheme();
+      case FontType.rubik:
+        return GoogleFonts.rubikTextTheme();
+      case FontType.handJet:
+        return GoogleFonts.handjetTextTheme();
+      case FontType.blaka:
+        return GoogleFonts.blakaTextTheme();
+      case FontType.qahiri:
+        return GoogleFonts.qahiriTextTheme();
+      case FontType.marhey:
+        return GoogleFonts.marheyTextTheme();
+      case FontType.gulzar:
+        return GoogleFonts.gulzarTextTheme();
+      case FontType.harmattan:
+        return GoogleFonts.harmattanTextTheme();
+      case FontType.kufam:
+        return GoogleFonts.kufamTextTheme();
+      case FontType.vibes:
+        return GoogleFonts.vibesTextTheme();
+      case FontType.notoSansArabic:
+        return GoogleFonts.notoSansArabicTextTheme();
+      case FontType.blakaHollow:
+        return GoogleFonts.blakaHollowTextTheme();
+      case FontType.jomhuria:
+        return GoogleFonts.jomhuriaTextTheme();
+      case FontType.mada:
+        return GoogleFonts.madaTextTheme();
+      case FontType.balooBhaiJaan2:
+        return GoogleFonts.balooBhaijaan2TextTheme();
+      case FontType.arefRuqaaInk:
+        return GoogleFonts.arefRuqaaInkTextTheme();
 
 ////////////////////////////////////////////////
       default:
@@ -378,6 +424,23 @@ class AppFonts {
     }
   }
 }
+
+  // rubik,
+  // handJet,
+  // vazirMatn,
+  // blaka,
+  // quhiri,
+  // marhey,
+  // gulzar,
+  // harmattan,
+  // kufam,
+  // vibes,
+  // notoSansArabic,
+  // blakaHollow,
+  // jomhuria,
+  // mada,
+  // balooBhaiJaan2,
+  // arefRuqaaInk
 
 
 
