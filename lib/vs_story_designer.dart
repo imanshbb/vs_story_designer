@@ -109,7 +109,6 @@ enum FontType {
   rubikVinyl,
   ewert,
   unifrakturMaguntia,
-  iranSans,
 }
 
 class VSStoryDesigner extends StatefulWidget {

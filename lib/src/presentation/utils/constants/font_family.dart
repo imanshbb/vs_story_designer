@@ -141,7 +141,6 @@ class AppFonts {
     FontType.rubikVinyl,
     FontType.ewert,
     FontType.unifrakturMaguntia,
-    FontType.iranSans,
   ];
 
   static TextTheme getTextThemeENUM(FontType val) {
@@ -369,10 +368,6 @@ class AppFonts {
         return GoogleFonts.ewertTextTheme();
       case FontType.unifrakturMaguntia:
         return GoogleFonts.unifrakturMaguntiaTextTheme();
-      case FontType.iranSans:
-        return const TextTheme(
-          bodyMedium: TextStyle(fontFamily: 'IranSans'),
-        );
 
 ////////////////////////////////////////////////
       default:
