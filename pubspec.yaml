@@ -78,11 +78,11 @@ flutter:
 
     - family: Lalezar
       fonts:
-        - asset: packages/vs_story_designer/lib/assets/fonts/Lalezar.ttf
+        - asset: packages/vs_story_designer/assets/fonts/Lalezar.ttf
 
     - family: MonoSpace.ttf
       fonts:
-        - asset: packages/vs_story_designer/lib/assets/fonts/MonoSpace.ttf
+        - asset: packages/vs_story_designer/assets/fonts/MonoSpace.ttf
 
     # - family: Varela
     #   fonts:
