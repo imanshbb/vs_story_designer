@@ -74,7 +74,7 @@ flutter:
 
     - family: IranSans
       fonts:
-        - asset: packages/vs_story_designer/lib/assets/fonts/IranSans.ttf
+        - asset: packages/vs_story_designer/assets/fonts/IranSans.ttf
 
     - family: Lalezar
       fonts:
