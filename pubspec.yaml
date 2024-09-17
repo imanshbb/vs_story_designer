@@ -70,19 +70,19 @@ flutter:
     - packages/vs_story_designer/assets/icons/video_trim.png
     - packages/vs_story_designer/assets/images/instagram_logo.png
 
-  # fonts:
+  fonts:
 
-    # - family: Alegreya
-    #   fonts:
-    #     - asset: packages/vs_story_designer/assets/fonts/Alegreya-VariableFont_wght.ttf
+    - family: IranSans
+      fonts:
+        - asset: packages/vs_story_designer/lib/assets/fonts/IranSan.ttf
 
-    # - family: B612
-    #   fonts:
-    #     - asset: packages/vs_story_designer/assets/fonts/B612-Regular.ttf
+    - family: Lalezar
+      fonts:
+        - asset: packages/vs_story_designer/lib/assets/fonts/Lalezar.ttf
 
-    # - family: TitilliumWeb
-    #   fonts:
-    #     - asset: packages/vs_story_designer/assets/fonts/TitilliumWeb-Regular.ttf
+    - family: MonoSpace.ttf
+      fonts:
+        - asset: packages/vs_story_designer/lib/assets/fonts/MonoSpace.ttf
 
     # - family: Varela
     #   fonts:
