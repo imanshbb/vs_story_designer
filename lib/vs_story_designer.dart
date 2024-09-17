@@ -18,6 +18,23 @@ export 'package:vs_story_designer/vs_story_designer.dart';
 enum ThemeType { dark, light }
 
 enum FontType {
+  laleZar,
+  vazirMatn,
+  rubik,
+  handJet,
+  blaka,
+  qahiri,
+  marhey,
+  gulzar,
+  harmattan,
+  kufam,
+  vibes,
+  notoSansArabic,
+  blakaHollow,
+  jomhuria,
+  mada,
+  balooBhaiJaan2,
+  arefRuqaaInk,
   openSans,
   baskerville,
   cormorant,
@@ -108,23 +125,6 @@ enum FontType {
   rubikVinyl,
   ewert,
   unifrakturMaguntia,
-  laleZar,
-  vazirMatn,
-  rubik,
-  handJet,
-  blaka,
-  qahiri,
-  marhey,
-  gulzar,
-  harmattan,
-  kufam,
-  vibes,
-  notoSansArabic,
-  blakaHollow,
-  jomhuria,
-  mada,
-  balooBhaiJaan2,
-  arefRuqaaInk
 }
 
 class VSStoryDesigner extends StatefulWidget {
