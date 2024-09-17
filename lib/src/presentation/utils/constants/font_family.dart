@@ -141,6 +141,7 @@ class AppFonts {
     FontType.rubikVinyl,
     FontType.ewert,
     FontType.unifrakturMaguntia,
+    FontType.laleZar,
   ];
 
   static TextTheme getTextThemeENUM(FontType val) {
@@ -368,6 +369,8 @@ class AppFonts {
         return GoogleFonts.ewertTextTheme();
       case FontType.unifrakturMaguntia:
         return GoogleFonts.unifrakturMaguntiaTextTheme();
+      case FontType.laleZar:
+        return GoogleFonts.lalezarTextTheme();
 
 ////////////////////////////////////////////////
       default:
