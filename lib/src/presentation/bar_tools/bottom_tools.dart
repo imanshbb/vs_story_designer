@@ -40,10 +40,10 @@ class BottomTools extends StatelessWidget {
           paintingNotifier, __) {
         return Container(
           height: 95,
-          decoration: const BoxDecoration(color: Colors.red),
+          decoration: const BoxDecoration(color: Colors.transparent),
           child: Row(
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               /// preview gallery
               Row(
@@ -78,14 +78,15 @@ class BottomTools extends StatelessWidget {
                                         border: Border.all(
                                             color: Colors.white, width: 1.5)),
                                     child: const Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: 0, right: 2),
-                                            child: Icon(Icons.image, size: 28),
-                                          ),
-                                        ]),
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                              left: 0, right: 2),
+                                          child: Icon(Icons.image, size: 28),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               )
