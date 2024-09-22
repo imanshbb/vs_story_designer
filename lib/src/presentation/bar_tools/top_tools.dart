@@ -193,7 +193,7 @@ class _TopToolsState extends State<TopTools> {
                                       .path;
                               String imagePath = '$dir/${DateTime.now()}.png';
                               File capturedFile = File(imagePath);
-                              capturedFile.writeAsBytes(value!);
+                              await capturedFile.writeAsBytes(value!);
                               print(
                                   'thiissss: ${capturedFile.writeAsBytes(value)}');
                               await Gal.putImage(capturedFile.path);
