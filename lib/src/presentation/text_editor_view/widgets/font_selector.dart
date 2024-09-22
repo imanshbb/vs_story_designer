@@ -54,7 +54,7 @@ class FontSelector extends StatelessWidget {
           break;
 
         default:
-          text.add(AppFonts.fontFamilyListENUM[i].toString().substring(8));
+          text.add(AppFonts.fontFamilyListENUM[i].toString().substring(9));
       }
     }
 
@@ -83,7 +83,7 @@ class FontSelector extends StatelessWidget {
                 },
                 child: Container(
                   height: _size.width * 0.2,
-                  width: _size.width * 0.2,
+                  width: _size.width * 0.4,
                   alignment: Alignment.center,
                   margin: const EdgeInsets.all(2),
                   decoration: BoxDecoration(
