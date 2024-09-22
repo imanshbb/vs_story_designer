@@ -399,13 +399,14 @@ class MainViewState extends State<MainView> {
                           ),
                         ),
 
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 18.0),
-                          child: Visibility(
-                            visible: !controlNotifier.isTextEditing &&
-                                !controlNotifier.isPainting,
-                            child: Align(
-                              alignment: Alignment.bottomCenter,
+                        Visibility(
+                          visible: !controlNotifier.isTextEditing &&
+                              !controlNotifier.isPainting,
+                          child: Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Positioned(
+                              bottom: 130,
+                              left: double.infinity / 2,
                               child: BottomPageTools(
                                 contentKey: contentKey,
                                 context: context,
