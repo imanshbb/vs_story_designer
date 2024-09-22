@@ -177,15 +177,12 @@ class DraggableWidget extends StatelessWidget {
       required PaintingStyle paintingStyle,
       bool background = false}) {
     // if (draggableWidget.animationType == TextAnimationType.none) {
-    return Screenshot(
-      controller: MainViewState.screenshotController,
-      child: Text(draggableWidget.text,
-          textAlign: draggableWidget.textAlign,
-          style: _textStyle(
-              controlNotifier: controlNotifier,
-              paintingStyle: paintingStyle,
-              background: background)),
-    );
+    return Text(draggableWidget.text,
+        textAlign: draggableWidget.textAlign,
+        style: _textStyle(
+            controlNotifier: controlNotifier,
+            paintingStyle: paintingStyle,
+            background: background));
     // }
     //  else {
     // return DefaultTextStyle(
