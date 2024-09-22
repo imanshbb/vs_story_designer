@@ -45,11 +45,6 @@ class DraggableWidget extends StatelessWidget {
         Provider.of<ControlNotifier>(this.context, listen: false);
     Widget overlayWidget;
 
-    GlobalKey valueKey1 = GlobalKey();
-    GlobalKey valueKey2 = GlobalKey();
-    GlobalKey valueKey3 = GlobalKey();
-    GlobalKey valueKeys = GlobalKey();
-
     switch (draggableWidget.type) {
       case ItemType.text:
         overlayWidget = IntrinsicWidth(
@@ -65,21 +60,21 @@ class DraggableWidget extends StatelessWidget {
               child: AnimatedOnTapButton(
                 onTap: () => _onTap(context, draggableWidget, _controlProvider),
                 child: Stack(
-                  key: valueKeys,
                   alignment: Alignment.center,
                   children: [
                     Center(
-                      child: _text(
-                          valueKey: valueKey1,
-                          background: true,
-                          paintingStyle: PaintingStyle.fill,
-                          controlNotifier: _controlProvider),
+                      child: Screenshot(
+                        controller: ScreenshotController(),
+                        child: _text(
+                            background: true,
+                            paintingStyle: PaintingStyle.fill,
+                            controlNotifier: _controlProvider),
+                      ),
                     ),
                     IgnorePointer(
                       ignoring: true,
                       child: Center(
                         child: _text(
-                            valueKey: valueKey2,
                             background: true,
                             paintingStyle: PaintingStyle.stroke,
                             controlNotifier: _controlProvider),
@@ -91,7 +86,6 @@ class DraggableWidget extends StatelessWidget {
                         children: [
                           Center(
                             child: _text(
-                                valueKey: valueKey3,
                                 paintingStyle: PaintingStyle.fill,
                                 controlNotifier: _controlProvider),
                           ),
@@ -185,19 +179,14 @@ class DraggableWidget extends StatelessWidget {
   Widget _text(
       {required ControlNotifier controlNotifier,
       required PaintingStyle paintingStyle,
-      required Key valueKey,
       bool background = false}) {
     // if (draggableWidget.animationType == TextAnimationType.none) {
-    return Screenshot(
-      key: valueKey,
-      controller: screenshotController,
-      child: Text(draggableWidget.text,
-          textAlign: draggableWidget.textAlign,
-          style: _textStyle(
-              controlNotifier: controlNotifier,
-              paintingStyle: paintingStyle,
-              background: background)),
-    );
+    return Text(draggableWidget.text,
+        textAlign: draggableWidget.textAlign,
+        style: _textStyle(
+            controlNotifier: controlNotifier,
+            paintingStyle: paintingStyle,
+            background: background));
     // }
     //  else {
     // return DefaultTextStyle(
