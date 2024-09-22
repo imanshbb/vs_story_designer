@@ -75,148 +75,154 @@ class _TopToolsState extends State<TopTools> {
                 //   onTap: () => controlNotifier.isPhotoFilter =
                 //   !controlNotifier.isPhotoFilter,
                 // ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
-                  child: GestureDetector(
-                    onTap: () async {
-                      if (paintingNotifier.lines.isNotEmpty ||
-                          itemNotifier.draggableWidget.isNotEmpty) {
-                        showDialog(
-                            context: context,
-                            barrierDismissible: false,
-                            builder: (BuildContext context) {
-                              return Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Card(
-                                      color: Colors.white,
-                                      child: Container(
-                                          margin: const EdgeInsets.all(50),
-                                          child:
-                                              const CircularProgressIndicator())),
-                                ],
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8.0, right: 10),
+                      child: GestureDetector(
+                        onTap: () async {
+                          if (paintingNotifier.lines.isNotEmpty ||
+                              itemNotifier.draggableWidget.isNotEmpty) {
+                            showDialog(
+                                context: context,
+                                barrierDismissible: false,
+                                builder: (BuildContext context) {
+                                  return Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Card(
+                                          color: Colors.white,
+                                          child: Container(
+                                              margin: const EdgeInsets.all(50),
+                                              child:
+                                                  const CircularProgressIndicator())),
+                                    ],
+                                  );
+                                });
+                            for (var element in itemNotifier.draggableWidget) {
+                              if (element.type == ItemType.gif ||
+                                  element.animationType !=
+                                      TextAnimationType.none) {
+                                setState(() {
+                                  _createVideo = true;
+                                });
+                              }
+                            }
+                            if (_createVideo) {
+                              debugPrint('creating video');
+                              await widget.renderWidget!();
+                            } else {
+                              debugPrint('creating image');
+
+                              var response = await MainViewState
+                                  .screenshotController
+                                  .capture()
+                                  .then(
+                                (value) async {
+                                  final String dir =
+                                      (await getApplicationDocumentsDirectory())
+                                          .path;
+                                  String imagePath =
+                                      '$dir/${DateTime.now()}.png';
+                                  File capturedFile = File(imagePath);
+                                  await capturedFile.writeAsBytes(value!);
+
+                                  await Gal.putImage(capturedFile.path);
+
+                                  return true;
+                                },
                               );
-                            });
-                        for (var element in itemNotifier.draggableWidget) {
-                          if (element.type == ItemType.gif ||
-                              element.animationType != TextAnimationType.none) {
-                            setState(() {
-                              _createVideo = true;
-                            });
+                              if (response) {
+                                showToast('Successfully saved');
+                              } else {}
+                            }
+                            // ignore: use_build_context_synchronously
+                            Navigator.of(context, rootNavigator: true).pop();
+                          } else {
+                            showToast('یک تغییر ایجاد کنید');
                           }
-                        }
-                        if (_createVideo) {
-                          debugPrint('creating video');
-                          await widget.renderWidget!();
-                        } else {
-                          debugPrint('creating image');
-
-                          var response = await MainViewState
-                              .screenshotController
-                              .capture()
-                              .then(
-                            (value) async {
-                              final String dir =
-                                  (await getApplicationDocumentsDirectory())
-                                      .path;
-                              String imagePath = '$dir/${DateTime.now()}.png';
-                              File capturedFile = File(imagePath);
-                              await capturedFile.writeAsBytes(value!);
-
-                              await Gal.putImage(capturedFile.path);
-
-                              return true;
-                            },
-                          );
-                          if (response) {
-                            showToast('Successfully saved');
-                          } else {}
-                        }
-                        // ignore: use_build_context_synchronously
-                        Navigator.of(context, rootNavigator: true).pop();
-                      } else {
-                        showToast('یک تغییر ایجاد کنید');
-                      }
-                    },
-                    child: Container(
-                      width: 70,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: const Center(
-                        child: Text(
-                          'کپی متن',
-                          style: TextStyle(
-                            fontFamily: 'IranSans',
-                            fontSize: 12.0,
+                        },
+                        child: Container(
+                          width: 70,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const Center(
+                            child: Text(
+                              'کپی متن',
+                              style: TextStyle(
+                                fontFamily: 'IranSans',
+                                fontSize: 12.0,
+                              ),
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ),
-
-                ToolButton(
-                  backGroundColor: Colors.black12,
-                  onTap: () async {
-                    if (paintingNotifier.lines.isNotEmpty ||
-                        itemNotifier.draggableWidget.isNotEmpty) {
-                      showDialog(
-                          context: context,
-                          barrierDismissible: false,
-                          builder: (BuildContext context) {
-                            return Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Card(
-                                    color: Colors.white,
-                                    child: Container(
-                                        margin: const EdgeInsets.all(50),
-                                        child:
-                                            const CircularProgressIndicator())),
-                              ],
-                            );
-                          });
-                      for (var element in itemNotifier.draggableWidget) {
-                        if (element.type == ItemType.gif ||
-                            element.animationType != TextAnimationType.none) {
-                          setState(() {
-                            _createVideo = true;
-                          });
+                    ToolButton(
+                      backGroundColor: Colors.black12,
+                      onTap: () async {
+                        if (paintingNotifier.lines.isNotEmpty ||
+                            itemNotifier.draggableWidget.isNotEmpty) {
+                          showDialog(
+                              context: context,
+                              barrierDismissible: false,
+                              builder: (BuildContext context) {
+                                return Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Card(
+                                        color: Colors.white,
+                                        child: Container(
+                                            margin: const EdgeInsets.all(50),
+                                            child:
+                                                const CircularProgressIndicator())),
+                                  ],
+                                );
+                              });
+                          for (var element in itemNotifier.draggableWidget) {
+                            if (element.type == ItemType.gif ||
+                                element.animationType !=
+                                    TextAnimationType.none) {
+                              setState(() {
+                                _createVideo = true;
+                              });
+                            }
+                          }
+                          if (_createVideo) {
+                            debugPrint('creating video');
+                            await widget.renderWidget!();
+                          } else {
+                            debugPrint('creating image');
+                            var response = await takePicture(
+                                contentKey: widget.contentKey,
+                                context: context,
+                                saveToGallery: true,
+                                fileName: controlNotifier.folderName);
+                            if (response) {
+                              showToast('Successfully saved');
+                            } else {}
+                          }
+                          // ignore: use_build_context_synchronously
+                          Navigator.of(context, rootNavigator: true).pop();
+                        } else {
+                          showToast('یک تغییر ایجاد کنید');
                         }
-                      }
-                      if (_createVideo) {
-                        debugPrint('creating video');
-                        await widget.renderWidget!();
-                      } else {
-                        debugPrint('creating image');
-                        var response = await takePicture(
-                            contentKey: widget.contentKey,
-                            context: context,
-                            saveToGallery: true,
-                            fileName: controlNotifier.folderName);
-                        if (response) {
-                          showToast('Successfully saved');
-                        } else {}
-                      }
-                      // ignore: use_build_context_synchronously
-                      Navigator.of(context, rootNavigator: true).pop();
-                    } else {
-                      showToast('یک تغییر ایجاد کنید');
-                    }
 
-                    setState(() {
-                      _createVideo = false;
-                    });
-                  },
-                  child: const ImageIcon(
-                    AssetImage('assets/icons/download.png',
-                        package: 'vs_story_designer'),
-                    color: Colors.white,
-                    size: 20,
-                  ),
+                        setState(() {
+                          _createVideo = false;
+                        });
+                      },
+                      child: const ImageIcon(
+                        AssetImage('assets/icons/download.png',
+                            package: 'vs_story_designer'),
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

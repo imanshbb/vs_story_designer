@@ -171,6 +171,7 @@ class MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return PopScope(
       onPopInvoked: (val) => _popScope,
       child: Material(
@@ -405,7 +406,8 @@ class MainViewState extends State<MainView> {
                           child: Align(
                             alignment: Alignment.bottomCenter,
                             child: Padding(
-                              padding: const EdgeInsets.only(bottom: 130),
+                              padding: EdgeInsets.only(
+                                  bottom: 120, left: size.width / 3),
                               child: BottomPageTools(
                                 contentKey: contentKey,
                                 context: context,
