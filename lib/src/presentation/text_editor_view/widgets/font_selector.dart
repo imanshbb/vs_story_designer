@@ -83,32 +83,32 @@ class FontSelector extends StatelessWidget {
                     editorNotifier.fontFamilyController.jumpToPage(index);
                   },
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                    padding: const EdgeInsets.only(right: 3.0),
                     child: Container(
                       height: _size.width * 0.02,
                       width: 160,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        color: index == editorNotifier.fontFamilyIndex
-                            ? Colors.white
-                            : Colors.black.withOpacity(0.4),
+                        // color: index == editorNotifier.fontFamilyIndex
+                        //     ? Colors.white
+                        //     : Colors.black.withOpacity(0.4),
                         shape: BoxShape.rectangle,
                         border: Border.all(color: Colors.white),
                         borderRadius: BorderRadius.circular(10),
-                        // gradient: index == editorNotifier.fontFamilyIndex
-                        //     ? const LinearGradient(
-                        //         colors: [
-                        //           Colors.white,
-                        //         ],
-                        //       )
-                        //     : const LinearGradient(
-                        //         colors: [
-                        //           Color(0xff274589),
-                        //           Color(0xff5AB7C2),
-                        //         ],
-                        //         transform:
-                        //             GradientRotation(BorderSide.strokeAlignCenter),
-                        //       ),
+                        gradient: index == editorNotifier.fontFamilyIndex
+                            ? const LinearGradient(
+                                colors: [
+                                  Colors.white,
+                                ],
+                              )
+                            : LinearGradient(
+                                colors: [
+                                  const Color(0xff274589).withOpacity(0.6),
+                                  const Color(0xff5AB7C2).withOpacity(0.6),
+                                ],
+                                transform: const GradientRotation(
+                                    BorderSide.strokeAlignCenter),
+                              ),
                       ),
                       child: Center(
                         child: Text(
@@ -125,7 +125,7 @@ class FontSelector extends StatelessWidget {
                                   //     : 'vs_story_designer'
                                   ))
                               .copyWith(
-                                  fontSize: 14.0,
+                                  fontSize: 16.0,
                                   color: index == editorNotifier.fontFamilyIndex
                                       ? Colors.red
                                       : Colors.white,
