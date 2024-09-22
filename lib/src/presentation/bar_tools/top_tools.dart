@@ -140,10 +140,10 @@ class _TopToolsState extends State<TopTools> {
                 //   onTap: () => controlNotifier.isPhotoFilter =
                 //   !controlNotifier.isPhotoFilter,
                 // ),
-                ToolButton(
-                  onTap: () {},
+                Padding(
+                  padding: const EdgeInsets.only(top: 3.0),
                   child: Container(
-                    width: 90,
+                    width: 70,
                     height: 40,
                     decoration: BoxDecoration(
                       color: Colors.white,
