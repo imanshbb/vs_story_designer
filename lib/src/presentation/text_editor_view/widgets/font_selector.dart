@@ -61,7 +61,7 @@ class FontSelector extends StatelessWidget {
     return Consumer2<TextEditingNotifier, ControlNotifier>(
       builder: (context, editorNotifier, controlNotifier, child) {
         return SizedBox(
-          height: _size.width * 0.18,
+          height: _size.width * 0.14,
           width: _size.width,
           // alignment: Alignment.center,
           child: Expanded(
@@ -82,51 +82,55 @@ class FontSelector extends StatelessWidget {
                     editorNotifier.fontFamilyIndex = index;
                     editorNotifier.fontFamilyController.jumpToPage(index);
                   },
-                  child: Container(
-                    height: _size.width * 0.02,
-                    width: 120,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: index == editorNotifier.fontFamilyIndex
-                          ? Colors.white
-                          : Colors.black.withOpacity(0.4),
-                      border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(10),
-                      // gradient: index == editorNotifier.fontFamilyIndex
-                      //     ? const LinearGradient(
-                      //         colors: [
-                      //           Colors.white,
-                      //         ],
-                      //       )
-                      //     : const LinearGradient(
-                      //         colors: [
-                      //           Color(0xff274589),
-                      //           Color(0xff5AB7C2),
-                      //         ],
-                      //         transform:
-                      //             GradientRotation(BorderSide.strokeAlignCenter),
-                      //       ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        text[index],
-                        textAlign: TextAlign.center,
-                        maxLines: 1,
-                        style: AppFonts.getTextThemeENUM(
-                                controlNotifier.fontList![index])
-                            .bodyLarge!
-                            .merge(const TextStyle(
-                                // fontFamily: controlNotifier.fontList![index],
-                                // package: controlNotifier.isCustomFontList
-                                //     ? null
-                                //     : 'vs_story_designer'
-                                ))
-                            .copyWith(
-                                fontSize: 14.0,
-                                color: index == editorNotifier.fontFamilyIndex
-                                    ? Colors.red
-                                    : Colors.white,
-                                fontWeight: FontWeight.bold),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                    child: Container(
+                      height: _size.width * 0.02,
+                      width: 160,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: index == editorNotifier.fontFamilyIndex
+                            ? Colors.white
+                            : Colors.black.withOpacity(0.4),
+                        shape: BoxShape.rectangle,
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(10),
+                        // gradient: index == editorNotifier.fontFamilyIndex
+                        //     ? const LinearGradient(
+                        //         colors: [
+                        //           Colors.white,
+                        //         ],
+                        //       )
+                        //     : const LinearGradient(
+                        //         colors: [
+                        //           Color(0xff274589),
+                        //           Color(0xff5AB7C2),
+                        //         ],
+                        //         transform:
+                        //             GradientRotation(BorderSide.strokeAlignCenter),
+                        //       ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          text[index],
+                          textAlign: TextAlign.center,
+                          maxLines: 1,
+                          style: AppFonts.getTextThemeENUM(
+                                  controlNotifier.fontList![index])
+                              .bodyLarge!
+                              .merge(const TextStyle(
+                                  // fontFamily: controlNotifier.fontList![index],
+                                  // package: controlNotifier.isCustomFontList
+                                  //     ? null
+                                  //     : 'vs_story_designer'
+                                  ))
+                              .copyWith(
+                                  fontSize: 14.0,
+                                  color: index == editorNotifier.fontFamilyIndex
+                                      ? Colors.red
+                                      : Colors.white,
+                                  fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
