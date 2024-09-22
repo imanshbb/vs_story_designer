@@ -265,33 +265,29 @@ class MainViewState extends State<MainView> {
 
                                           ///list items
                                           ...itemProvider.draggableWidget
-                                              .map((editableItem) => Screenshot(
-                                                    controller: MainViewState
-                                                        .screenshotController,
-                                                    child: DraggableWidget(
-                                                      context: context,
-                                                      draggableWidget:
-                                                          editableItem,
-                                                      onPointerDown: (details) {
-                                                        _updateItemPosition(
-                                                          editableItem,
-                                                          details,
-                                                        );
-                                                      },
-                                                      onPointerUp: (details) {
-                                                        _deleteItemOnCoordinates(
-                                                          editableItem,
-                                                          details,
-                                                        );
-                                                      },
-                                                      onPointerMove: (details) {
-                                                        _deletePosition(
-                                                          editableItem,
-                                                          details,
-                                                        );
-                                                      },
-                                                    ),
-                                                  )),
+                                              .map((editableItem) => DraggableWidget(
+                                                context: context,
+                                                draggableWidget:
+                                                    editableItem,
+                                                onPointerDown: (details) {
+                                                  _updateItemPosition(
+                                                    editableItem,
+                                                    details,
+                                                  );
+                                                },
+                                                onPointerUp: (details) {
+                                                  _deleteItemOnCoordinates(
+                                                    editableItem,
+                                                    details,
+                                                  );
+                                                },
+                                                onPointerMove: (details) {
+                                                  _deletePosition(
+                                                    editableItem,
+                                                    details,
+                                                  );
+                                                },
+                                              )),
 
                                           /// finger paint
                                           IgnorePointer(
