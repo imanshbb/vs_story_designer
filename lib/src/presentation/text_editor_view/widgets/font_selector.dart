@@ -49,9 +49,6 @@ class FontSelector extends StatelessWidget {
         case FontType.kufam:
           text.add('کوفام');
           break;
-        case FontType.kufam:
-          text.add('کوفام');
-          break;
         default:
           text.add('unknown');
       }
