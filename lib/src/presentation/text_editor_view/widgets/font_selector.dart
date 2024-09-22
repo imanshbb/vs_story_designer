@@ -7,6 +7,7 @@ import 'package:vs_story_designer/src/domain/providers/notifiers/control_provide
 import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/font_family.dart';
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
+import 'package:vs_story_designer/vs_story_designer.dart';
 
 class FontSelector extends StatelessWidget {
   const FontSelector({super.key});
@@ -24,7 +25,28 @@ class FontSelector extends StatelessWidget {
             controller: editorNotifier.fontFamilyController,
             itemCount: controlNotifier.fontList!.length,
             onPageChanged: (index) {
-              editorNotifier.fontFamilyIndex = index;
+              String text = '';
+              switch (AppFonts.fontFamilyListENUM[index]) {
+                case FontType.laleZar:
+                  text = 'لاله‌زار';
+                  break;
+                case FontType.vazirMatn:
+                  text = 'وزیرمتن';
+                  break;
+                case FontType.rubik:
+                  text = 'روبیک';
+                  break;
+                case FontType.handJet:
+                  text = 'هندجت';
+                  break;
+                case FontType.blaka:
+                  text = 'بلاکا';
+                  break;
+                default:
+                  text = 'unknum';
+              }
+              // editorNotifier.text = .
+              // editorNotifier.fontFamilyIndex = index;
               HapticFeedback.heavyImpact();
             },
             physics: const BouncingScrollPhysics(),
@@ -45,7 +67,7 @@ class FontSelector extends StatelessWidget {
                       color: index == editorNotifier.fontFamilyIndex
                           ? Colors.white
                           : Colors.black.withOpacity(0.4),
-                      shape: BoxShape.circle,
+                      shape: BoxShape.rectangle,
                       border: Border.all(color: Colors.white)),
                   child: Center(
                     child: Text(

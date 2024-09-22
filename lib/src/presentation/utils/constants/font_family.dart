@@ -53,7 +53,6 @@ class AppFonts {
     FontType.vazirMatn,
     FontType.rubik,
     FontType.handJet,
-    FontType.vazirMatn,
     FontType.blaka,
     FontType.qahiri,
     FontType.marhey,
