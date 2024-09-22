@@ -406,8 +406,8 @@ class MainViewState extends State<MainView> {
                           child: Align(
                             alignment: Alignment.bottomCenter,
                             child: Padding(
-                              padding: EdgeInsets.only(
-                                  bottom: 120, left: size.width / 3),
+                              padding: const EdgeInsets.only(
+                                  bottom: 120, left: double.infinity / 2),
                               child: BottomPageTools(
                                 contentKey: contentKey,
                                 context: context,

@@ -113,35 +113,35 @@ class BottomTools extends StatelessWidget {
               //       }),
 
               /// center logo
-              // controlNotifier.middleBottomWidget != null
-              //     ? Center(
-              //         child: Container(
-              //             width: _size.width / 3,
-              //             height: 80,
-              //             alignment: Alignment.bottomCenter,
-              //             child: controlNotifier.middleBottomWidget),
-              //       )
-              //     : Center(
-              //         child: Column(
-              //           mainAxisSize: MainAxisSize.min,
-              //           children: [
-              //             Image.asset(
-              //               'assets/images/instagram_logo.png',
-              //               package: 'vs_story_designer',
-              //               color: Colors.white,
-              //               height: 42,
-              //             ),
-              //             const Text(
-              //               'Story Designer',
-              //               style: TextStyle(
-              //                   color: Colors.white38,
-              //                   letterSpacing: 1.5,
-              //                   fontSize: 9.2,
-              //                   fontWeight: FontWeight.bold),
-              //             ),
-              //           ],
-              //         ),
-              //       ),
+              controlNotifier.middleBottomWidget != null
+                  ? Center(
+                      child: Container(
+                          width: _size.width / 3,
+                          height: 80,
+                          alignment: Alignment.bottomCenter,
+                          child: controlNotifier.middleBottomWidget),
+                    )
+                  : Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Image.asset(
+                            'assets/images/instagram_logo.png',
+                            package: 'vs_story_designer',
+                            color: Colors.white,
+                            height: 42,
+                          ),
+                          const Text(
+                            'Story Designer',
+                            style: TextStyle(
+                                color: Colors.white38,
+                                letterSpacing: 1.5,
+                                fontSize: 9.2,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
 
               /// save final image to gallery
 
