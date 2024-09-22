@@ -399,23 +399,26 @@ class MainViewState extends State<MainView> {
                           ),
                         ),
 
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 18.0),
+                          child: Visibility(
+                            visible: !controlNotifier.isTextEditing &&
+                                !controlNotifier.isPainting,
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: BottomPageTools(
+                                contentKey: contentKey,
+                                context: context,
+                              ),
+                            ),
+                          ),
+                        ),
+
                         /// delete item when the item is in position
                         DeleteItem(
                           activeItem: _activeItem,
                           animationsDuration: const Duration(milliseconds: 300),
                           isDeletePosition: _isDeletePosition,
-                        ),
-
-                        Visibility(
-                          visible: !controlNotifier.isTextEditing &&
-                              !controlNotifier.isPainting,
-                          child: Align(
-                            alignment: Alignment.bottomCenter,
-                            child: BottomPageTools(
-                              contentKey: contentKey,
-                              context: context,
-                            ),
-                          ),
                         ),
 
                         /// bottom tools
