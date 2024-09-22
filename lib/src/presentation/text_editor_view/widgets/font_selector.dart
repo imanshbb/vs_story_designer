@@ -57,7 +57,7 @@ class FontSelector extends StatelessWidget {
     return Consumer2<TextEditingNotifier, ControlNotifier>(
       builder: (context, editorNotifier, controlNotifier, child) {
         return Container(
-          height: _size.width * 0.3,
+          height: _size.width * 0.2,
           width: _size.width,
           alignment: Alignment.center,
           child: PageView.builder(
@@ -79,7 +79,7 @@ class FontSelector extends StatelessWidget {
                 },
                 child: Container(
                   height: _size.width * 0.3,
-                  width: _size.width * 0.3,
+                  width: _size.width * 0.4,
                   alignment: Alignment.center,
                   margin: const EdgeInsets.all(2),
                   decoration: BoxDecoration(
@@ -101,7 +101,7 @@ class FontSelector extends StatelessWidget {
                               //     : 'vs_story_designer'
                               ))
                           .copyWith(
-                              fontSize: 8.0,
+                              fontSize: 14.0,
                               color: index == editorNotifier.fontFamilyIndex
                                   ? Colors.red
                                   : Colors.white,
