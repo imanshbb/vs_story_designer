@@ -7,6 +7,7 @@ import 'package:gal/gal.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:screenshot/screenshot.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
@@ -180,17 +181,21 @@ class _TopToolsState extends State<TopTools> {
                           await widget.renderWidget!();
                         } else {
                           debugPrint('creating image');
+
                           var response = await MainViewState
                               .screenshotController
                               .capture()
                               .then(
                             (value) async {
+                              print('thiissss: $value');
                               final String dir =
                                   (await getApplicationDocumentsDirectory())
                                       .path;
                               String imagePath = '$dir/${DateTime.now()}.png';
                               File capturedFile = File(imagePath);
-                              await capturedFile.writeAsBytes(value!);
+                              capturedFile.writeAsBytes(value!);
+                              print(
+                                  'thiissss: ${capturedFile.writeAsBytes(value)}');
                               await Gal.putImage(capturedFile.path);
                             },
                           );
@@ -216,6 +221,7 @@ class _TopToolsState extends State<TopTools> {
                           'کپی متن',
                           style: TextStyle(
                             fontFamily: 'IranSans',
+                            fontSize: 12.0,
                           ),
                         ),
                       ),

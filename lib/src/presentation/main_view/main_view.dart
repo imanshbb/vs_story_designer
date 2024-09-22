@@ -353,7 +353,7 @@ class MainViewState extends State<MainView> {
                               child: Screenshot(
                                 controller: screenshotController,
                                 child: Text(
-                                  widget.centerText!,
+                                  widget.centerText! + 'oooooo',
                                   style: AppFonts.getTextThemeENUM(
                                           FontType.garamond)
                                       .bodyLarge!
