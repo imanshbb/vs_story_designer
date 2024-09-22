@@ -103,8 +103,8 @@ class FontSelector extends StatelessWidget {
                               )
                             : LinearGradient(
                                 colors: [
-                                  const Color(0xff274589).withOpacity(0.6),
-                                  const Color(0xff5AB7C2).withOpacity(0.6),
+                                  const Color(0xff274589).withOpacity(0.2),
+                                  const Color(0xff5AB7C2).withOpacity(0.2),
                                 ],
                                 transform: const GradientRotation(
                                     BorderSide.strokeAlignCenter),

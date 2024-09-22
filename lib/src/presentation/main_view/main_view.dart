@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 // import 'package:fluttertoast/fluttertoast.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:provider/provider.dart';
+import 'package:screenshot/screenshot.dart';
 import 'package:vs_media_picker/vs_media_picker.dart';
 import 'package:vs_story_designer/src/domain/models/editable_items.dart';
 import 'package:vs_story_designer/src/domain/models/painting_model.dart';
@@ -100,10 +101,10 @@ class MainView extends StatefulWidget {
       this.mediaPath});
 
   @override
-  _MainViewState createState() => _MainViewState();
+  MainViewState createState() => MainViewState();
 }
 
-class _MainViewState extends State<MainView> {
+class MainViewState extends State<MainView> {
   /// content container key
   final GlobalKey contentKey = GlobalKey();
 
@@ -122,6 +123,8 @@ class _MainViewState extends State<MainView> {
 
   /// screen size
   final _screenSize = MediaQueryData.fromView(WidgetsBinding.instance.window);
+
+  static ScreenshotController screenshotController = ScreenshotController();
 
   /// recorder controller
   // final WidgetRecorderController _recorderController =
@@ -347,30 +350,33 @@ class _MainViewState extends State<MainView> {
                             ignoring: true,
                             child: Align(
                               alignment: const Alignment(0, -0.1),
-                              child: Text(
-                                widget.centerText!,
-                                style: AppFonts.getTextThemeENUM(
-                                        FontType.garamond)
-                                    .bodyLarge!
-                                    .merge(
-                                      TextStyle(
-                                        package: 'vs_story_designer',
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 25,
-                                        color: Colors.white.withOpacity(0.5),
-                                        shadows: !controlNotifier
-                                                .enableTextShadow
-                                            ? []
-                                            : <Shadow>[
-                                                Shadow(
-                                                    offset:
-                                                        const Offset(1.0, 1.0),
-                                                    blurRadius: 3.0,
-                                                    color: Colors.black45
-                                                        .withOpacity(0.3))
-                                              ],
+                              child: Screenshot(
+                                controller: screenshotController,
+                                child: Text(
+                                  widget.centerText!,
+                                  style: AppFonts.getTextThemeENUM(
+                                          FontType.garamond)
+                                      .bodyLarge!
+                                      .merge(
+                                        TextStyle(
+                                          package: 'vs_story_designer',
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 25,
+                                          color: Colors.white.withOpacity(0.5),
+                                          shadows:
+                                              !controlNotifier.enableTextShadow
+                                                  ? []
+                                                  : <Shadow>[
+                                                      Shadow(
+                                                          offset: const Offset(
+                                                              1.0, 1.0),
+                                                          blurRadius: 3.0,
+                                                          color: Colors.black45
+                                                              .withOpacity(0.3))
+                                                    ],
+                                        ),
                                       ),
-                                    ),
+                                ),
                               ),
                             ),
                           ),

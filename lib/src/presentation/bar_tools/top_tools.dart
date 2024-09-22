@@ -1,12 +1,17 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:gal/gal.dart';
 import 'package:oktoast/oktoast.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
 import 'package:vs_story_designer/src/domain/sevices/save_as_image.dart';
+import 'package:vs_story_designer/src/presentation/main_view/main_view.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/item_type.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/text_animation_type.dart';
 import 'package:vs_story_designer/src/presentation/utils/modal_sheets.dart';
@@ -142,26 +147,7 @@ class _TopToolsState extends State<TopTools> {
                 // ),
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
-                  child: Container(
-                    width: 70,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        'کپی متن',
-                        style: TextStyle(
-                          fontFamily: 'IranSans',
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-
-                ToolButton(
-                    backGroundColor: Colors.black12,
+                  child: GestureDetector(
                     onTap: () async {
                       if (paintingNotifier.lines.isNotEmpty ||
                           itemNotifier.draggableWidget.isNotEmpty) {
@@ -194,11 +180,20 @@ class _TopToolsState extends State<TopTools> {
                           await widget.renderWidget!();
                         } else {
                           debugPrint('creating image');
-                          var response = await takePicture(
-                              contentKey: widget.contentKey,
-                              context: context,
-                              saveToGallery: true,
-                              fileName: controlNotifier.folderName);
+                          var response = await MainViewState
+                              .screenshotController
+                              .capture()
+                              .then(
+                            (value) async {
+                              final String dir =
+                                  (await getApplicationDocumentsDirectory())
+                                      .path;
+                              String imagePath = '$dir/${DateTime.now()}.png';
+                              File capturedFile = File(imagePath);
+                              await capturedFile.writeAsBytes(value!);
+                              await Gal.putImage(capturedFile.path);
+                            },
+                          );
                           if (response) {
                             showToast('Successfully saved');
                           } else {}
@@ -208,17 +203,86 @@ class _TopToolsState extends State<TopTools> {
                       } else {
                         showToast('یک تغییر ایجاد کنید');
                       }
-
-                      setState(() {
-                        _createVideo = false;
-                      });
                     },
-                    child: const ImageIcon(
-                      AssetImage('assets/icons/download.png',
-                          package: 'vs_story_designer'),
-                      color: Colors.white,
-                      size: 20,
-                    )),
+                    child: Container(
+                      width: 70,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          'کپی متن',
+                          style: TextStyle(
+                            fontFamily: 'IranSans',
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
+                ToolButton(
+                  backGroundColor: Colors.black12,
+                  onTap: () async {
+                    if (paintingNotifier.lines.isNotEmpty ||
+                        itemNotifier.draggableWidget.isNotEmpty) {
+                      showDialog(
+                          context: context,
+                          barrierDismissible: false,
+                          builder: (BuildContext context) {
+                            return Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Card(
+                                    color: Colors.white,
+                                    child: Container(
+                                        margin: const EdgeInsets.all(50),
+                                        child:
+                                            const CircularProgressIndicator())),
+                              ],
+                            );
+                          });
+                      for (var element in itemNotifier.draggableWidget) {
+                        if (element.type == ItemType.gif ||
+                            element.animationType != TextAnimationType.none) {
+                          setState(() {
+                            _createVideo = true;
+                          });
+                        }
+                      }
+                      if (_createVideo) {
+                        debugPrint('creating video');
+                        await widget.renderWidget!();
+                      } else {
+                        debugPrint('creating image');
+                        var response = await takePicture(
+                            contentKey: widget.contentKey,
+                            context: context,
+                            saveToGallery: true,
+                            fileName: controlNotifier.folderName);
+                        if (response) {
+                          showToast('Successfully saved');
+                        } else {}
+                      }
+                      // ignore: use_build_context_synchronously
+                      Navigator.of(context, rootNavigator: true).pop();
+                    } else {
+                      showToast('یک تغییر ایجاد کنید');
+                    }
+
+                    setState(() {
+                      _createVideo = false;
+                    });
+                  },
+                  child: const ImageIcon(
+                    AssetImage('assets/icons/download.png',
+                        package: 'vs_story_designer'),
+                    color: Colors.white,
+                    size: 20,
+                  ),
+                ),
               ],
             ),
           ),
