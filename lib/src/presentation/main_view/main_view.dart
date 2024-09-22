@@ -268,28 +268,34 @@ class MainViewState extends State<MainView> {
                                               .map((editableItem) => Screenshot(
                                                     controller:
                                                         screenshotController,
-                                                    child: DraggableWidget(
-                                                      context: context,
-                                                      draggableWidget:
-                                                          editableItem,
-                                                      onPointerDown: (details) {
-                                                        _updateItemPosition(
-                                                          editableItem,
-                                                          details,
-                                                        );
-                                                      },
-                                                      onPointerUp: (details) {
-                                                        _deleteItemOnCoordinates(
-                                                          editableItem,
-                                                          details,
-                                                        );
-                                                      },
-                                                      onPointerMove: (details) {
-                                                        _deletePosition(
-                                                          editableItem,
-                                                          details,
-                                                        );
-                                                      },
+                                                    child: Screenshot(
+                                                      controller:
+                                                          screenshotController,
+                                                      child: DraggableWidget(
+                                                        context: context,
+                                                        draggableWidget:
+                                                            editableItem,
+                                                        onPointerDown:
+                                                            (details) {
+                                                          _updateItemPosition(
+                                                            editableItem,
+                                                            details,
+                                                          );
+                                                        },
+                                                        onPointerUp: (details) {
+                                                          _deleteItemOnCoordinates(
+                                                            editableItem,
+                                                            details,
+                                                          );
+                                                        },
+                                                        onPointerMove:
+                                                            (details) {
+                                                          _deletePosition(
+                                                            editableItem,
+                                                            details,
+                                                          );
+                                                        },
+                                                      ),
                                                     ),
                                                   )),
 
