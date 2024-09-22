@@ -40,10 +40,10 @@ class BottomTools extends StatelessWidget {
           paintingNotifier, __) {
         return Container(
           height: 95,
-          decoration: const BoxDecoration(color: Colors.transparent),
+          decoration: const BoxDecoration(color: Colors.red),
           child: Row(
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               /// preview gallery
               Row(
@@ -70,10 +70,25 @@ class BottomTools extends StatelessWidget {
                                               curve: Curves.ease);
                                     }
                                   },
-                                  child: const CoverThumbnail(
-                                    thumbnailQuality: 150,
+                                  child: Container(
+                                    padding: const EdgeInsets.all(10),
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(8),
+                                        border: Border.all(
+                                            color: Colors.white, width: 1.5)),
+                                    child: const Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                left: 0, right: 2),
+                                            child: Icon(Icons.image, size: 28),
+                                          ),
+                                        ]),
                                   ),
-                                ))
+                                ),
+                              )
 
                             /// return clear [imagePath] provider
                             : GestureDetector(
@@ -178,7 +193,41 @@ class BottomTools extends StatelessWidget {
                   child: const Row(mainAxisSize: MainAxisSize.min, children: [
                     Padding(
                       padding: EdgeInsets.only(left: 0, right: 2),
-                      child: Icon(Icons.share_sharp, size: 28),
+                      child: Icon(Icons.emoji_emotions, size: 28),
+                    ),
+                  ]),
+                ),
+              ),
+              AnimatedOnTapButton(
+                onTap: () {
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return Container(
+                        height: 200,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: const BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            topRight: Radius.circular(10),
+                          ),
+                        ),
+                        child: const Text('data'),
+                      );
+                    },
+                  );
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Colors.white, width: 1.5)),
+                  child: const Row(mainAxisSize: MainAxisSize.min, children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: 0, right: 2),
+                      child: Icon(Icons.imagesearch_roller_sharp, size: 28),
                     ),
                   ]),
                 ),
