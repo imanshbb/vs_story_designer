@@ -48,51 +48,47 @@ class DraggableWidget extends StatelessWidget {
       case ItemType.text:
         overlayWidget = IntrinsicWidth(
           child: IntrinsicHeight(
-            child: Screenshot(
-              controller: MainViewState.screenshotController,
-              child: Container(
-                constraints: BoxConstraints(
-                  minHeight: 50,
-                  minWidth: 50,
-                  maxWidth: _size.width - 120,
-                ),
-                width: draggableWidget.deletePosition ? 100 : null,
-                height: draggableWidget.deletePosition ? 100 : null,
-                child: AnimatedOnTapButton(
-                  onTap: () =>
-                      _onTap(context, draggableWidget, _controlProvider),
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Center(
+            child: Container(
+              constraints: BoxConstraints(
+                minHeight: 50,
+                minWidth: 50,
+                maxWidth: _size.width - 120,
+              ),
+              width: draggableWidget.deletePosition ? 100 : null,
+              height: draggableWidget.deletePosition ? 100 : null,
+              child: AnimatedOnTapButton(
+                onTap: () => _onTap(context, draggableWidget, _controlProvider),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Center(
+                      child: _text(
+                          background: true,
+                          paintingStyle: PaintingStyle.fill,
+                          controlNotifier: _controlProvider),
+                    ),
+                    IgnorePointer(
+                      ignoring: true,
+                      child: Center(
                         child: _text(
                             background: true,
-                            paintingStyle: PaintingStyle.fill,
+                            paintingStyle: PaintingStyle.stroke,
                             controlNotifier: _controlProvider),
                       ),
-                      IgnorePointer(
-                        ignoring: true,
-                        child: Center(
-                          child: _text(
-                              background: true,
-                              paintingStyle: PaintingStyle.stroke,
-                              controlNotifier: _controlProvider),
-                        ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 0, top: 0),
+                      child: Stack(
+                        children: [
+                          Center(
+                            child: _text(
+                                paintingStyle: PaintingStyle.fill,
+                                controlNotifier: _controlProvider),
+                          ),
+                        ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 0, top: 0),
-                        child: Stack(
-                          children: [
-                            Center(
-                              child: _text(
-                                  paintingStyle: PaintingStyle.fill,
-                                  controlNotifier: _controlProvider),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
+                    )
+                  ],
                 ),
               ),
             ),

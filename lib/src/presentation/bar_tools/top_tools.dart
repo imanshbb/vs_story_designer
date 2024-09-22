@@ -186,7 +186,6 @@ class _TopToolsState extends State<TopTools> {
                               .capture()
                               .then(
                             (value) async {
-                              print('thiissss: $value');
                               final String dir =
                                   (await getApplicationDocumentsDirectory())
                                       .path;
@@ -195,8 +194,8 @@ class _TopToolsState extends State<TopTools> {
                               await capturedFile.writeAsBytes(value!);
 
                               await Gal.putImage(capturedFile.path);
-                              print(
-                                  'thiissss: ${capturedFile.writeAsBytes(value)}');
+
+                              return true;
                             },
                           );
                           if (response) {
