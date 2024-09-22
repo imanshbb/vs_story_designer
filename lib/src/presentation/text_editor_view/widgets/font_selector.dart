@@ -57,7 +57,7 @@ class FontSelector extends StatelessWidget {
     return Consumer2<TextEditingNotifier, ControlNotifier>(
       builder: (context, editorNotifier, controlNotifier, child) {
         return Container(
-          height: _size.width * 0.3,
+          height: _size.width * 0.2,
           // width: _size.width,
           alignment: Alignment.center,
           child: PageView.builder(
@@ -78,8 +78,8 @@ class FontSelector extends StatelessWidget {
                   editorNotifier.fontFamilyController.jumpToPage(index);
                 },
                 child: Container(
-                  height: _size.width * 0.3,
-                  width: _size.width * 0.3,
+                  height: _size.width * 0.2,
+                  width: _size.width * 0.2,
                   alignment: Alignment.center,
                   margin: const EdgeInsets.all(2),
                   decoration: BoxDecoration(
