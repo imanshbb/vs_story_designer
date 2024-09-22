@@ -79,7 +79,7 @@ class FontSelector extends StatelessWidget {
                 },
                 child: Container(
                   height: _size.width * 0.4,
-                  width: _size.width * 0.8,
+                  // width: _size.width * 0.8,
                   alignment: Alignment.center,
                   margin: const EdgeInsets.all(2),
                   decoration: BoxDecoration(
@@ -91,24 +91,27 @@ class FontSelector extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Center(
-                    child: Text(
-                      text[index],
-                      textAlign: TextAlign.center,
-                      style: AppFonts.getTextThemeENUM(
-                              controlNotifier.fontList![index])
-                          .bodyLarge!
-                          .merge(const TextStyle(
-                              // fontFamily: controlNotifier.fontList![index],
-                              // package: controlNotifier.isCustomFontList
-                              //     ? null
-                              //     : 'vs_story_designer'
-                              ))
-                          .copyWith(
-                              fontSize: 12.0,
-                              color: index == editorNotifier.fontFamilyIndex
-                                  ? Colors.red
-                                  : Colors.white,
-                              fontWeight: FontWeight.bold),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                      child: Text(
+                        text[index],
+                        textAlign: TextAlign.center,
+                        style: AppFonts.getTextThemeENUM(
+                                controlNotifier.fontList![index])
+                            .bodyLarge!
+                            .merge(const TextStyle(
+                                // fontFamily: controlNotifier.fontList![index],
+                                // package: controlNotifier.isCustomFontList
+                                //     ? null
+                                //     : 'vs_story_designer'
+                                ))
+                            .copyWith(
+                                fontSize: 12.0,
+                                color: index == editorNotifier.fontFamilyIndex
+                                    ? Colors.red
+                                    : Colors.white,
+                                fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                 ),
