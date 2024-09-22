@@ -25,6 +25,7 @@ class DraggableWidget extends StatelessWidget {
   final Function(PointerUpEvent)? onPointerUp;
   final Function(PointerMoveEvent)? onPointerMove;
   final BuildContext context;
+  static ScreenshotController screenshotController = ScreenshotController();
   const DraggableWidget({
     super.key,
     required this.context,
@@ -175,7 +176,6 @@ class DraggableWidget extends StatelessWidget {
       {required ControlNotifier controlNotifier,
       required PaintingStyle paintingStyle,
       bool background = false}) {
-    ScreenshotController screenshotController = ScreenshotController();
     // if (draggableWidget.animationType == TextAnimationType.none) {
     return Screenshot(
       controller: screenshotController,

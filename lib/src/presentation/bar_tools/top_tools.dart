@@ -11,6 +11,7 @@ import 'package:vs_story_designer/src/domain/providers/notifiers/control_provide
 import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
 import 'package:vs_story_designer/src/domain/sevices/save_as_image.dart';
+import 'package:vs_story_designer/src/presentation/draggable_items/draggable_widget.dart';
 import 'package:vs_story_designer/src/presentation/main_view/main_view.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/item_type.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/text_animation_type.dart';
@@ -114,7 +115,24 @@ class _TopToolsState extends State<TopTools> {
                             } else {
                               debugPrint('creating image');
 
-                              var response = true;
+                              var response = await DraggableWidget
+                                  .screenshotController
+                                  .capture()
+                                  .then(
+                                (value) async {
+                                  final String dir =
+                                      (await getApplicationDocumentsDirectory())
+                                          .path;
+                                  String imagePath =
+                                      '$dir/${DateTime.now()}.png';
+                                  File capturedFile = File(imagePath);
+                                  await capturedFile.writeAsBytes(value!);
+
+                                  await Gal.putImage(capturedFile.path);
+                                  return true;
+                                },
+                              );
+
                               if (response) {
                                 showToast('Successfully saved');
                               } else {}
