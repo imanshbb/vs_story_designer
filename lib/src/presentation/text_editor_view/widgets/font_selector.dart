@@ -98,6 +98,7 @@ class FontSelector extends StatelessWidget {
                     child: Text(
                       text[index],
                       textAlign: TextAlign.center,
+                      maxLines: 1,
                       style: AppFonts.getTextThemeENUM(
                               controlNotifier.fontList![index])
                           .bodyLarge!
@@ -108,11 +109,12 @@ class FontSelector extends StatelessWidget {
                               //     : 'vs_story_designer'
                               ))
                           .copyWith(
-                              fontSize: 12.0,
-                              color: index == editorNotifier.fontFamilyIndex
-                                  ? Colors.red
-                                  : Colors.white,
-                              fontWeight: FontWeight.bold),
+                            fontSize: 14.0,
+                            color: index == editorNotifier.fontFamilyIndex
+                                ? Colors.red
+                                : Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                     ),
                   ),
                 ),
