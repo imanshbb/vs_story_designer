@@ -125,11 +125,12 @@ class FontSelector extends StatelessWidget {
                                 //     : 'vs_story_designer'
                                 ))
                             .copyWith(
-                                fontSize: 17.0,
-                                color: index == editorNotifier.fontFamilyIndex
-                                    ? Colors.red
-                                    : Colors.white,
-                                fontWeight: FontWeight.bold),
+                              fontSize: 17.0,
+                              color: index == editorNotifier.fontFamilyIndex
+                                  ? const Color(0xff274589)
+                                  : Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                       ),
                     ),
                   ),

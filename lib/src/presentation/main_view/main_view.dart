@@ -387,15 +387,16 @@ class MainViewState extends State<MainView> {
                           visible: !controlNotifier.isTextEditing &&
                               !controlNotifier.isPainting,
                           child: Align(
-                              alignment: Alignment.topCenter,
-                              child: TopTools(
-                                contentKey: contentKey,
-                                context: context,
-                                // renderWidget: () => startRecording(
-                                //     controlNotifier: controlNotifier,
-                                //     renderingNotifier: renderingNotifier,
-                                //     saveOnGallery: true),
-                              )),
+                            alignment: Alignment.topCenter,
+                            child: TopTools(
+                              contentKey: contentKey,
+                              context: context,
+                              // renderWidget: () => startRecording(
+                              //     controlNotifier: controlNotifier,
+                              //     renderingNotifier: renderingNotifier,
+                              //     saveOnGallery: true),
+                            ),
+                          ),
                         ),
 
                         /// delete item when the item is in position
@@ -403,6 +404,18 @@ class MainViewState extends State<MainView> {
                           activeItem: _activeItem,
                           animationsDuration: const Duration(milliseconds: 300),
                           isDeletePosition: _isDeletePosition,
+                        ),
+
+                        Visibility(
+                          visible: !controlNotifier.isTextEditing &&
+                              !controlNotifier.isPainting,
+                          child: Align(
+                            alignment: Alignment.bottomCenter,
+                            child: BottomPageTools(
+                              contentKey: contentKey,
+                              context: context,
+                            ),
+                          ),
                         ),
 
                         /// bottom tools
