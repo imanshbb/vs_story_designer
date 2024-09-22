@@ -83,7 +83,7 @@ class FontSelector extends StatelessWidget {
                 },
                 child: Container(
                   height: _size.width * 0.02,
-                  width: _size.width * 0.3,
+                  width: 120,
                   alignment: Alignment.center,
                   margin: const EdgeInsets.all(2),
                   decoration: BoxDecoration(

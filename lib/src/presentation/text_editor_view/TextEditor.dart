@@ -65,7 +65,7 @@ class _TextEditorState extends State<TextEditor> {
 
                         /// text size
                         const Padding(
-                          padding: EdgeInsets.only(left: 14.0),
+                          padding: EdgeInsets.only(left: 1.0),
                           child: Align(
                             alignment: Alignment.centerLeft,
                             child: SizeSliderWidget(),
@@ -87,7 +87,7 @@ class _TextEditorState extends State<TextEditor> {
                           visible: editorNotifier.isFontFamily &&
                               !editorNotifier.isTextAnimation,
                           child: const Align(
-                            alignment: Alignment.bottomLeft,
+                            alignment: Alignment.bottomCenter,
                             child: Padding(
                               padding: EdgeInsets.only(bottom: 20),
                               child: FontSelector(),

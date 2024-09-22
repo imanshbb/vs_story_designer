@@ -306,7 +306,7 @@ class DraggableWidget extends StatelessWidget {
         .removeAt(_itemProvider.draggableWidget.indexOf(item));
     _editorProvider.fontFamilyController = PageController(
       initialPage: item.fontFamily,
-      viewportFraction: .1,
+      viewportFraction: .4,
     );
 
     /// create new text item
