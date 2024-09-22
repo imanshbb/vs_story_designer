@@ -70,26 +70,10 @@ class BottomTools extends StatelessWidget {
                                               curve: Curves.ease);
                                     }
                                   },
-                                  child: Container(
-                                    padding: const EdgeInsets.all(10),
-                                    decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(8),
-                                        border: Border.all(
-                                            color: Colors.white, width: 1.5)),
-                                    child: const Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                              left: 0, right: 2),
-                                          child: Icon(Icons.image, size: 28),
-                                        ),
-                                      ],
-                                    ),
+                                  child: const CoverThumbnail(
+                                    thumbnailQuality: 150,
                                   ),
-                                ),
-                              )
+                                ))
 
                             /// return clear [imagePath] provider
                             : GestureDetector(
@@ -228,7 +212,7 @@ class BottomTools extends StatelessWidget {
                   child: const Row(mainAxisSize: MainAxisSize.min, children: [
                     Padding(
                       padding: EdgeInsets.only(left: 0, right: 2),
-                      child: Icon(Icons.imagesearch_roller_sharp, size: 28),
+                      child: Icon(Icons.image, size: 28),
                     ),
                   ]),
                 ),
