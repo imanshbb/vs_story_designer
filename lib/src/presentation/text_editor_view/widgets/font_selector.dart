@@ -82,7 +82,7 @@ class FontSelector extends StatelessWidget {
                   editorNotifier.fontFamilyController.jumpToPage(index);
                 },
                 child: Container(
-                  height: _size.width * 0.17,
+                  height: _size.width * 0.12,
                   width: _size.width * 0.2,
                   alignment: Alignment.center,
                   margin: const EdgeInsets.all(2),
