@@ -54,7 +54,7 @@ class _TextEditorState extends State<TextEditor> {
                     decoration:
                         BoxDecoration(color: Colors.black.withOpacity(0.5)),
                     height: _size.height,
-                    width: _size.width,
+                    // width: _size.width,
                     child: Stack(
                       children: [
                         /// text field

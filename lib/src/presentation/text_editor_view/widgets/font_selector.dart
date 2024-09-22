@@ -19,6 +19,9 @@ class FontSelector extends StatelessWidget {
     var _size = MediaQuery.of(context).size;
     for (int i = 0; i < AppFonts.fontFamilyListENUM.length; i++) {
       switch (AppFonts.fontFamilyListENUM[i]) {
+        case FontType.openSans:
+          text.add('عادی');
+          break;
         case FontType.laleZar:
           text.add('لاله‌زار');
           break;
@@ -49,6 +52,7 @@ class FontSelector extends StatelessWidget {
         case FontType.kufam:
           text.add('کوفام');
           break;
+
         default:
           text.add('unknown');
       }
