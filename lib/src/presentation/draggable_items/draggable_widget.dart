@@ -45,10 +45,10 @@ class DraggableWidget extends StatelessWidget {
         Provider.of<ControlNotifier>(this.context, listen: false);
     Widget overlayWidget;
 
-    Key valueKey1 = GlobalKey();
-    Key valueKey2 = GlobalKey();
-    Key valueKey3 = GlobalKey();
-    Key valueKeys = GlobalKey();
+    GlobalKey valueKey1 = GlobalKey();
+    GlobalKey valueKey2 = GlobalKey();
+    GlobalKey valueKey3 = GlobalKey();
+    GlobalKey valueKeys = GlobalKey();
 
     switch (draggableWidget.type) {
       case ItemType.text:
