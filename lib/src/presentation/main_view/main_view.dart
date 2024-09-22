@@ -264,29 +264,33 @@ class MainViewState extends State<MainView> {
                                           ),
 
                                           ///list items
-                                          ...itemProvider.draggableWidget.map(
-                                              (editableItem) => DraggableWidget(
-                                                    context: context,
-                                                    draggableWidget:
-                                                        editableItem,
-                                                    onPointerDown: (details) {
-                                                      _updateItemPosition(
-                                                        editableItem,
-                                                        details,
-                                                      );
-                                                    },
-                                                    onPointerUp: (details) {
-                                                      _deleteItemOnCoordinates(
-                                                        editableItem,
-                                                        details,
-                                                      );
-                                                    },
-                                                    onPointerMove: (details) {
-                                                      _deletePosition(
-                                                        editableItem,
-                                                        details,
-                                                      );
-                                                    },
+                                          ...itemProvider.draggableWidget
+                                              .map((editableItem) => Screenshot(
+                                                    controller: MainViewState
+                                                        .screenshotController,
+                                                    child: DraggableWidget(
+                                                      context: context,
+                                                      draggableWidget:
+                                                          editableItem,
+                                                      onPointerDown: (details) {
+                                                        _updateItemPosition(
+                                                          editableItem,
+                                                          details,
+                                                        );
+                                                      },
+                                                      onPointerUp: (details) {
+                                                        _deleteItemOnCoordinates(
+                                                          editableItem,
+                                                          details,
+                                                        );
+                                                      },
+                                                      onPointerMove: (details) {
+                                                        _deletePosition(
+                                                          editableItem,
+                                                          details,
+                                                        );
+                                                      },
+                                                    ),
                                                   )),
 
                                           /// finger paint
@@ -350,33 +354,30 @@ class MainViewState extends State<MainView> {
                             ignoring: true,
                             child: Align(
                               alignment: const Alignment(0, -0.1),
-                              child: Screenshot(
-                                controller: screenshotController,
-                                child: Text(
-                                  widget.centerText! + 'oooooo',
-                                  style: AppFonts.getTextThemeENUM(
-                                          FontType.garamond)
-                                      .bodyLarge!
-                                      .merge(
-                                        TextStyle(
-                                          package: 'vs_story_designer',
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 25,
-                                          color: Colors.white.withOpacity(0.5),
-                                          shadows:
-                                              !controlNotifier.enableTextShadow
-                                                  ? []
-                                                  : <Shadow>[
-                                                      Shadow(
-                                                          offset: const Offset(
-                                                              1.0, 1.0),
-                                                          blurRadius: 3.0,
-                                                          color: Colors.black45
-                                                              .withOpacity(0.3))
-                                                    ],
-                                        ),
+                              child: Text(
+                                widget.centerText!,
+                                style: AppFonts.getTextThemeENUM(
+                                        FontType.garamond)
+                                    .bodyLarge!
+                                    .merge(
+                                      TextStyle(
+                                        package: 'vs_story_designer',
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 25,
+                                        color: Colors.white.withOpacity(0.5),
+                                        shadows: !controlNotifier
+                                                .enableTextShadow
+                                            ? []
+                                            : <Shadow>[
+                                                Shadow(
+                                                    offset:
+                                                        const Offset(1.0, 1.0),
+                                                    blurRadius: 3.0,
+                                                    color: Colors.black45
+                                                        .withOpacity(0.3))
+                                              ],
                                       ),
-                                ),
+                                    ),
                               ),
                             ),
                           ),
