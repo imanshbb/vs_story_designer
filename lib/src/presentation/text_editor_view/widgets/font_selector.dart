@@ -49,7 +49,7 @@ class FontSelector extends StatelessWidget {
                       border: Border.all(color: Colors.white)),
                   child: Center(
                     child: Text(
-                      'فرحی‌گرام',
+                      editorNotifier.text,
                       style: AppFonts.getTextThemeENUM(
                               controlNotifier.fontList![index])
                           .bodyLarge!
