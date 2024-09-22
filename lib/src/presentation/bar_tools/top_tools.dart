@@ -140,20 +140,23 @@ class _TopToolsState extends State<TopTools> {
                 //   onTap: () => controlNotifier.isPhotoFilter =
                 //   !controlNotifier.isPhotoFilter,
                 // ),
-                Container(
-                  width: 90,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Center(
-                      child: Text(
-                        'کپی متن',
-                        style: TextStyle(
-                          fontFamily: 'IranSans',
+                ToolButton(
+                  onTap: () {},
+                  child: Container(
+                    width: 90,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Center(
+                        child: Text(
+                          'کپی متن',
+                          style: TextStyle(
+                            fontFamily: 'IranSans',
+                          ),
                         ),
                       ),
                     ),
