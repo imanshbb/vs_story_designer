@@ -141,7 +141,8 @@ class _TopToolsState extends State<TopTools> {
                 //   !controlNotifier.isPhotoFilter,
                 // ),
                 Container(
-                  width: 140,
+                  width: 110,
+                  height: 20,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
