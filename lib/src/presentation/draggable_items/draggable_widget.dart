@@ -7,11 +7,13 @@ import 'package:align_positioned/align_positioned.dart';
 import 'package:flutter/material.dart';
 // import 'package:modal_gif_picker/modal_gif_picker.dart';
 import 'package:provider/provider.dart';
+import 'package:screenshot/screenshot.dart';
 import 'package:vs_story_designer/src/domain/models/editable_items.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/gradient_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
+import 'package:vs_story_designer/src/presentation/main_view/main_view.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/font_family.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/item_type.dart';
 // import 'package:vs_story_designer/src/presentation/utils/constants/text_animation_type.dart';
@@ -175,12 +177,15 @@ class DraggableWidget extends StatelessWidget {
       required PaintingStyle paintingStyle,
       bool background = false}) {
     // if (draggableWidget.animationType == TextAnimationType.none) {
-    return Text(draggableWidget.text,
-        textAlign: draggableWidget.textAlign,
-        style: _textStyle(
-            controlNotifier: controlNotifier,
-            paintingStyle: paintingStyle,
-            background: background));
+    return Screenshot(
+      controller: MainViewState.screenshotController,
+      child: Text(draggableWidget.text,
+          textAlign: draggableWidget.textAlign,
+          style: _textStyle(
+              controlNotifier: controlNotifier,
+              paintingStyle: paintingStyle,
+              background: background)),
+    );
     // }
     //  else {
     // return DefaultTextStyle(
