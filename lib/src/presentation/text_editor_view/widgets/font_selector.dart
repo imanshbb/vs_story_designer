@@ -61,7 +61,7 @@ class FontSelector extends StatelessWidget {
     return Consumer2<TextEditingNotifier, ControlNotifier>(
       builder: (context, editorNotifier, controlNotifier, child) {
         return Container(
-          height: _size.width * 0.2,
+          height: _size.width * 0.18,
           // width: _size.width * 0.2,
           alignment: Alignment.center,
           child: PageView.builder(
@@ -73,8 +73,8 @@ class FontSelector extends StatelessWidget {
               HapticFeedback.heavyImpact();
             },
             physics: const BouncingScrollPhysics(),
-            // allowImplicitScrolling: true,
-            // pageSnapping: false,
+            allowImplicitScrolling: true,
+            pageSnapping: false,
             itemBuilder: (context, index) {
               return AnimatedOnTapButton(
                 onTap: () {
@@ -83,7 +83,7 @@ class FontSelector extends StatelessWidget {
                 },
                 child: Container(
                   // height: _size.width * 0.01,
-                  width: _size.width * 0.4,
+                  width: _size.width * 0.2,
                   alignment: Alignment.center,
                   margin: const EdgeInsets.all(2),
                   decoration: BoxDecoration(
@@ -109,12 +109,11 @@ class FontSelector extends StatelessWidget {
                               //     : 'vs_story_designer'
                               ))
                           .copyWith(
-                            fontSize: 14.0,
-                            color: index == editorNotifier.fontFamilyIndex
-                                ? Colors.red
-                                : Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
+                              fontSize: 14.0,
+                              color: index == editorNotifier.fontFamilyIndex
+                                  ? Colors.red
+                                  : Colors.white,
+                              fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
