@@ -23,19 +23,37 @@ class FontSelector extends StatelessWidget {
           text.add('لاله‌زار');
           break;
         case FontType.vazirMatn:
-          text.add('لاله‌زار');
+          text.add('وزیر متن');
           break;
         case FontType.rubik:
-          text.add('لاله‌زار');
+          text.add('روبیک');
           break;
         case FontType.handJet:
-          text.add('لاله‌زار');
+          text.add('هندجت');
           break;
         case FontType.blaka:
-          text.add('لاله‌زار');
+          text.add('بلاکا');
+          break;
+        case FontType.qahiri:
+          text.add('qahiri');
+          break;
+        case FontType.marhey:
+          text.add('marhey');
+          break;
+        case FontType.gulzar:
+          text.add('گلزار');
+          break;
+        case FontType.harmattan:
+          text.add('harmattan');
+          break;
+        case FontType.kufam:
+          text.add('کوفام');
+          break;
+        case FontType.kufam:
+          text.add('کوفام');
           break;
         default:
-          text.add('لاله‌زار');
+          text.add('unknown');
       }
     }
 
