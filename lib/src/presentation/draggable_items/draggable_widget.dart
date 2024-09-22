@@ -26,6 +26,10 @@ class DraggableWidget extends StatelessWidget {
   final Function(PointerMoveEvent)? onPointerMove;
   final BuildContext context;
   static ScreenshotController screenshotController = ScreenshotController();
+  static final riKey1 = const Key('__RIKEY1__');
+  static final riKey2 = const Key('__RIKEY2__');
+  static final riKey3 = const Key('__RIKEY3__');
+
   const DraggableWidget({
     super.key,
     required this.context,
@@ -63,6 +67,7 @@ class DraggableWidget extends StatelessWidget {
                   children: [
                     Center(
                       child: _text(
+                          riKey1: riKey1,
                           background: true,
                           paintingStyle: PaintingStyle.fill,
                           controlNotifier: _controlProvider),
@@ -71,6 +76,7 @@ class DraggableWidget extends StatelessWidget {
                       ignoring: true,
                       child: Center(
                         child: _text(
+                            riKey1: riKey2,
                             background: true,
                             paintingStyle: PaintingStyle.stroke,
                             controlNotifier: _controlProvider),
@@ -82,6 +88,7 @@ class DraggableWidget extends StatelessWidget {
                         children: [
                           Center(
                             child: _text(
+                                riKey1: riKey3,
                                 paintingStyle: PaintingStyle.fill,
                                 controlNotifier: _controlProvider),
                           ),
@@ -175,11 +182,13 @@ class DraggableWidget extends StatelessWidget {
   Widget _text(
       {required ControlNotifier controlNotifier,
       required PaintingStyle paintingStyle,
+      required Key riKey1,
       bool background = false}) {
     // if (draggableWidget.animationType == TextAnimationType.none) {
     return Screenshot(
       controller: screenshotController,
       child: Text(draggableWidget.text,
+          key: riKey1,
           textAlign: draggableWidget.textAlign,
           style: _textStyle(
               controlNotifier: controlNotifier,
