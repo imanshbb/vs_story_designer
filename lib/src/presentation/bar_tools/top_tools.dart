@@ -141,7 +141,7 @@ class _TopToolsState extends State<TopTools> {
                 //   !controlNotifier.isPhotoFilter,
                 // ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 3.0),
+                  padding: const EdgeInsets.only(top: 8.0),
                   child: Container(
                     width: 70,
                     height: 40,
@@ -149,14 +149,11 @@ class _TopToolsState extends State<TopTools> {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Center(
-                        child: Text(
-                          'کپی متن',
-                          style: TextStyle(
-                            fontFamily: 'IranSans',
-                          ),
+                    child: const Center(
+                      child: Text(
+                        'کپی متن',
+                        style: TextStyle(
+                          fontFamily: 'IranSans',
                         ),
                       ),
                     ),
