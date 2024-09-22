@@ -404,9 +404,8 @@ class MainViewState extends State<MainView> {
                               !controlNotifier.isPainting,
                           child: Align(
                             alignment: Alignment.bottomCenter,
-                            child: Positioned(
-                              bottom: 130,
-                              left: double.infinity / 2,
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 130),
                               child: BottomPageTools(
                                 contentKey: contentKey,
                                 context: context,
