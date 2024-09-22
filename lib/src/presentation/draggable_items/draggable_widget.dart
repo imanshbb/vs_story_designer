@@ -64,7 +64,7 @@ class DraggableWidget extends StatelessWidget {
                   children: [
                     Center(
                       child: Screenshot(
-                        controller: ScreenshotController(),
+                        controller: screenshotController,
                         child: _text(
                             background: true,
                             paintingStyle: PaintingStyle.fill,

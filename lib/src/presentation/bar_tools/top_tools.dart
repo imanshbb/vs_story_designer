@@ -12,7 +12,6 @@ import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widge
 import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
 import 'package:vs_story_designer/src/domain/sevices/save_as_image.dart';
 import 'package:vs_story_designer/src/presentation/draggable_items/draggable_widget.dart';
-import 'package:vs_story_designer/src/presentation/main_view/main_view.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/item_type.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/text_animation_type.dart';
 import 'package:vs_story_designer/src/presentation/utils/modal_sheets.dart';
