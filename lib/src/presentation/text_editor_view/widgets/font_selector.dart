@@ -14,7 +14,31 @@ class FontSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> text = [];
+
     var _size = MediaQuery.of(context).size;
+    for (int i = 0; i < AppFonts.fontFamilyListENUM.length; i++) {
+      switch (AppFonts.fontFamilyListENUM[i]) {
+        case FontType.laleZar:
+          text.add('لاله‌زار');
+          break;
+        case FontType.vazirMatn:
+          text.add('لاله‌زار');
+          break;
+        case FontType.rubik:
+          text.add('لاله‌زار');
+          break;
+        case FontType.handJet:
+          text.add('لاله‌زار');
+          break;
+        case FontType.blaka:
+          text.add('لاله‌زار');
+          break;
+        default:
+          text.add('لاله‌زار');
+      }
+    }
+
     return Consumer2<TextEditingNotifier, ControlNotifier>(
       builder: (context, editorNotifier, controlNotifier, child) {
         return Container(
@@ -25,26 +49,6 @@ class FontSelector extends StatelessWidget {
             controller: editorNotifier.fontFamilyController,
             itemCount: controlNotifier.fontList!.length,
             onPageChanged: (index) {
-              String text = '';
-              switch (AppFonts.fontFamilyListENUM[index]) {
-                case FontType.laleZar:
-                  text = 'لاله‌زار';
-                  break;
-                case FontType.vazirMatn:
-                  text = 'وزیرمتن';
-                  break;
-                case FontType.rubik:
-                  text = 'روبیک';
-                  break;
-                case FontType.handJet:
-                  text = 'هندجت';
-                  break;
-                case FontType.blaka:
-                  text = 'بلاکا';
-                  break;
-                default:
-                  text = 'unknum';
-              }
               // editorNotifier.text = .
               // editorNotifier.fontFamilyIndex = index;
               HapticFeedback.heavyImpact();
@@ -71,7 +75,7 @@ class FontSelector extends StatelessWidget {
                       border: Border.all(color: Colors.white)),
                   child: Center(
                     child: Text(
-                      editorNotifier.text,
+                      text[index],
                       style: AppFonts.getTextThemeENUM(
                               controlNotifier.fontList![index])
                           .bodyLarge!
