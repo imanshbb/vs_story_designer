@@ -54,7 +54,7 @@ class FontSelector extends StatelessWidget {
           break;
 
         default:
-          text.add('unknown');
+          text.add(AppFonts.fontFamilyListENUM[i].toString().substring(8));
       }
     }
 
