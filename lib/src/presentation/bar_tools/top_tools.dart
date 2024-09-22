@@ -114,24 +114,7 @@ class _TopToolsState extends State<TopTools> {
                             } else {
                               debugPrint('creating image');
 
-                              var response = await MainViewState
-                                  .screenshotController
-                                  .capture()
-                                  .then(
-                                (value) async {
-                                  final String dir =
-                                      (await getApplicationDocumentsDirectory())
-                                          .path;
-                                  String imagePath =
-                                      '$dir/${DateTime.now()}.png';
-                                  File capturedFile = File(imagePath);
-                                  await capturedFile.writeAsBytes(value!);
-
-                                  await Gal.putImage(capturedFile.path);
-
-                                  return true;
-                                },
-                              );
+                              var response = true;
                               if (response) {
                                 showToast('Successfully saved');
                               } else {}

@@ -9,7 +9,6 @@ import 'package:flutter/services.dart';
 // import 'package:fluttertoast/fluttertoast.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:provider/provider.dart';
-import 'package:screenshot/screenshot.dart';
 import 'package:vs_media_picker/vs_media_picker.dart';
 import 'package:vs_story_designer/src/domain/models/editable_items.dart';
 import 'package:vs_story_designer/src/domain/models/painting_model.dart';
@@ -123,8 +122,6 @@ class MainViewState extends State<MainView> {
 
   /// screen size
   final _screenSize = MediaQueryData.fromView(WidgetsBinding.instance.window);
-
-  static ScreenshotController screenshotController = ScreenshotController();
 
   /// recorder controller
   // final WidgetRecorderController _recorderController =
@@ -265,34 +262,30 @@ class MainViewState extends State<MainView> {
                                           ),
 
                                           ///list items
-                                          ...itemProvider.draggableWidget
-                                              .map((editableItem) => Screenshot(
-                                                    controller:
-                                                        screenshotController,
-                                                    child: DraggableWidget(
-                                                      context: context,
-                                                      draggableWidget:
-                                                          editableItem,
-                                                      onPointerDown: (details) {
-                                                        _updateItemPosition(
-                                                          editableItem,
-                                                          details,
-                                                        );
-                                                      },
-                                                      onPointerUp: (details) {
-                                                        _deleteItemOnCoordinates(
-                                                          editableItem,
-                                                          details,
-                                                        );
-                                                      },
-                                                      onPointerMove: (details) {
-                                                        _deletePosition(
-                                                          editableItem,
-                                                          details,
-                                                        );
-                                                      },
-                                                    ),
-                                                  )),
+                                          ...itemProvider.draggableWidget.map(
+                                            (editableItem) => DraggableWidget(
+                                              context: context,
+                                              draggableWidget: editableItem,
+                                              onPointerDown: (details) {
+                                                _updateItemPosition(
+                                                  editableItem,
+                                                  details,
+                                                );
+                                              },
+                                              onPointerUp: (details) {
+                                                _deleteItemOnCoordinates(
+                                                  editableItem,
+                                                  details,
+                                                );
+                                              },
+                                              onPointerMove: (details) {
+                                                _deletePosition(
+                                                  editableItem,
+                                                  details,
+                                                );
+                                              },
+                                            ),
+                                          ),
 
                                           /// finger paint
                                           IgnorePointer(

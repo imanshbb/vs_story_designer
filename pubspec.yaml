@@ -34,7 +34,7 @@ dependencies:
 
   flutter_screenutil: ^5.9.0
   gal: ^2.3.0
-  screenshot: ^3.0.0
+  # screenshot: ^3.0.0
 
 dev_dependencies:
   flutter_test:
