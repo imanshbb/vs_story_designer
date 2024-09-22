@@ -92,7 +92,7 @@ class FontSelector extends StatelessWidget {
                   ),
                   child: Center(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 200.0),
                       child: Text(
                         text[index],
                         textAlign: TextAlign.center,
