@@ -57,7 +57,7 @@ class FontSelector extends StatelessWidget {
     return Consumer2<TextEditingNotifier, ControlNotifier>(
       builder: (context, editorNotifier, controlNotifier, child) {
         return Container(
-          height: _size.width * 0.2,
+          height: _size.width * 0.3,
           width: _size.width,
           alignment: Alignment.center,
           child: PageView.builder(
@@ -72,40 +72,46 @@ class FontSelector extends StatelessWidget {
             allowImplicitScrolling: true,
             pageSnapping: false,
             itemBuilder: (context, index) {
-              return AnimatedOnTapButton(
-                onTap: () {
-                  editorNotifier.fontFamilyIndex = index;
-                  editorNotifier.fontFamilyController.jumpToPage(index);
-                },
-                child: Container(
-                  height: _size.width * 0.3,
-                  width: _size.width * 0.4,
-                  alignment: Alignment.center,
-                  margin: const EdgeInsets.all(2),
-                  decoration: BoxDecoration(
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                child: AnimatedOnTapButton(
+                  onTap: () {
+                    editorNotifier.fontFamilyIndex = index;
+                    editorNotifier.fontFamilyController.jumpToPage(index);
+                  },
+                  child: Container(
+                    height: _size.width * 0.4,
+                    width: _size.width * 0.8,
+                    alignment: Alignment.center,
+                    margin: const EdgeInsets.all(2),
+                    decoration: BoxDecoration(
                       color: index == editorNotifier.fontFamilyIndex
                           ? Colors.white
                           : Colors.black.withOpacity(0.4),
                       shape: BoxShape.rectangle,
-                      border: Border.all(color: Colors.white)),
-                  child: Center(
-                    child: Text(
-                      text[index],
-                      style: AppFonts.getTextThemeENUM(
-                              controlNotifier.fontList![index])
-                          .bodyLarge!
-                          .merge(const TextStyle(
-                              // fontFamily: controlNotifier.fontList![index],
-                              // package: controlNotifier.isCustomFontList
-                              //     ? null
-                              //     : 'vs_story_designer'
-                              ))
-                          .copyWith(
-                              fontSize: 14.0,
-                              color: index == editorNotifier.fontFamilyIndex
-                                  ? Colors.red
-                                  : Colors.white,
-                              fontWeight: FontWeight.bold),
+                      border: Border.all(color: Colors.white),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: Text(
+                        text[index],
+                        textAlign: TextAlign.center,
+                        style: AppFonts.getTextThemeENUM(
+                                controlNotifier.fontList![index])
+                            .bodyLarge!
+                            .merge(const TextStyle(
+                                // fontFamily: controlNotifier.fontList![index],
+                                // package: controlNotifier.isCustomFontList
+                                //     ? null
+                                //     : 'vs_story_designer'
+                                ))
+                            .copyWith(
+                                fontSize: 12.0,
+                                color: index == editorNotifier.fontFamilyIndex
+                                    ? Colors.red
+                                    : Colors.white,
+                                fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                 ),
