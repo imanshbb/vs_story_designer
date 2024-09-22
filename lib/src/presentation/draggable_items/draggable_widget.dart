@@ -26,9 +26,6 @@ class DraggableWidget extends StatelessWidget {
   final Function(PointerMoveEvent)? onPointerMove;
   final BuildContext context;
   static ScreenshotController screenshotController = ScreenshotController();
-  static final riKey1 = const Key('__RIKEY1__');
-  static final riKey2 = const Key('__RIKEY2__');
-  static final riKey3 = const Key('__RIKEY3__');
 
   const DraggableWidget({
     super.key,
@@ -48,6 +45,11 @@ class DraggableWidget extends StatelessWidget {
         Provider.of<ControlNotifier>(this.context, listen: false);
     Widget overlayWidget;
 
+    Key valueKey1 = GlobalKey();
+    Key valueKey2 = GlobalKey();
+    Key valueKey3 = GlobalKey();
+    Key valueKeys = GlobalKey();
+
     switch (draggableWidget.type) {
       case ItemType.text:
         overlayWidget = IntrinsicWidth(
@@ -63,11 +65,12 @@ class DraggableWidget extends StatelessWidget {
               child: AnimatedOnTapButton(
                 onTap: () => _onTap(context, draggableWidget, _controlProvider),
                 child: Stack(
+                  key: valueKeys,
                   alignment: Alignment.center,
                   children: [
                     Center(
                       child: _text(
-                          riKey1: riKey1,
+                          valueKey: valueKey1,
                           background: true,
                           paintingStyle: PaintingStyle.fill,
                           controlNotifier: _controlProvider),
@@ -76,7 +79,7 @@ class DraggableWidget extends StatelessWidget {
                       ignoring: true,
                       child: Center(
                         child: _text(
-                            riKey1: riKey2,
+                            valueKey: valueKey2,
                             background: true,
                             paintingStyle: PaintingStyle.stroke,
                             controlNotifier: _controlProvider),
@@ -88,7 +91,7 @@ class DraggableWidget extends StatelessWidget {
                         children: [
                           Center(
                             child: _text(
-                                riKey1: riKey3,
+                                valueKey: valueKey3,
                                 paintingStyle: PaintingStyle.fill,
                                 controlNotifier: _controlProvider),
                           ),
@@ -182,13 +185,13 @@ class DraggableWidget extends StatelessWidget {
   Widget _text(
       {required ControlNotifier controlNotifier,
       required PaintingStyle paintingStyle,
-      required Key riKey1,
+      required Key valueKey,
       bool background = false}) {
     // if (draggableWidget.animationType == TextAnimationType.none) {
     return Screenshot(
+      key: valueKey,
       controller: screenshotController,
       child: Text(draggableWidget.text,
-          key: riKey1,
           textAlign: draggableWidget.textAlign,
           style: _textStyle(
               controlNotifier: controlNotifier,
