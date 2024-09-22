@@ -87,7 +87,7 @@ class _TextEditorState extends State<TextEditor> {
                           visible: editorNotifier.isFontFamily &&
                               !editorNotifier.isTextAnimation,
                           child: const Align(
-                            alignment: Alignment.bottomCenter,
+                            alignment: Alignment.bottomLeft,
                             child: Padding(
                               padding: EdgeInsets.only(bottom: 20),
                               child: FontSelector(),

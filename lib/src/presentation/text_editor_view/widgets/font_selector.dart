@@ -89,7 +89,7 @@ class FontSelector extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: index == editorNotifier.fontFamilyIndex
                         ? Colors.white
-                        : const Color(0xff5AB7C2).withOpacity(0.4),
+                        : Colors.black.withOpacity(0.4),
                     shape: BoxShape.rectangle,
                     border: Border.all(color: Colors.white),
                     borderRadius: BorderRadius.circular(10),
