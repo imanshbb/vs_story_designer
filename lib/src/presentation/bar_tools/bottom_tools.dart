@@ -456,7 +456,7 @@ class _ModalWidgetState extends State<ModalWidget>
                       return SizedBox(
                         width: 100,
                         height: 100,
-                        child: Image.asset(r.background![index].url!),
+                        child: Image.network(r.background![index].url!),
                       );
                     },
                   );
