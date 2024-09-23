@@ -436,7 +436,7 @@ class _ModalWidgetState extends State<ModalWidget>
                         height: 100,
                         child: Gif(
                           controller: _controller,
-                          image: AssetImage(
+                          image: NetworkImage(
                             'https://farahigram.com/files${r.gif![index].url!}',
                           ),
                           autostart: Autostart.loop,
@@ -480,17 +480,8 @@ class _ModalWidgetState extends State<ModalWidget>
                       return SizedBox(
                         width: 100,
                         height: 100,
-                        child: Gif(
-                          controller: _controller,
-                          image: NetworkImage(
-                            'https://farahigram.com/files${r.gif![index].url!}',
-                          ),
-                          autostart: Autostart.loop,
-                          placeholder: (context) => const Text('Loading...'),
-                          onFetchCompleted: () {
-                            _controller.reset();
-                            _controller.forward();
-                          },
+                        child: Image.network(
+                          'https://farahigram.com/files${r.gif![index].url!}',
                         ),
                       );
                     },
