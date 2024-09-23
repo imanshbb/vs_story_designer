@@ -9,7 +9,7 @@ class TextEditingNotifier extends ChangeNotifier {
   int _fontFamilyIndex = 0;
   int _fontAnimationIndex = 0;
   TextAlign _textAlign = TextAlign.center;
-  Color _backGroundColor = Colors.transparent;
+  Color _backGroundColor = Colors.red;
   TextAnimationType _animationType = TextAnimationType.none;
   bool _isFontFamily = true;
   bool _isTextAnimation = false;
@@ -23,8 +23,13 @@ class TextEditingNotifier extends ChangeNotifier {
   final List<Color> _textColorBackGround = [
     Colors.transparent,
     Colors.black,
+    Colors.white,
     Colors.red,
-    Colors.white
+    Colors.blue,
+    Colors.green,
+    Colors.pink,
+    Colors.teal,
+    Colors.grey,
   ];
 
   int _currentAlign = 0;
