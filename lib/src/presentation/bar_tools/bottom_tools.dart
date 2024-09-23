@@ -99,6 +99,7 @@ class _BottomToolsState extends State<BottomTools>
                                       child: Icon(
                                         Icons.camera_alt_outlined,
                                         size: 28,
+                                        color: Color.fromARGB(255, 66, 66, 66),
                                       ),
                                     ),
                                   ],
@@ -207,6 +208,7 @@ class _BottomToolsState extends State<BottomTools>
                         child: Icon(
                           Icons.emoji_emotions_outlined,
                           size: 28,
+                          color: Color.fromARGB(255, 66, 66, 66),
                         ),
                       ),
                     ],
@@ -237,7 +239,11 @@ class _BottomToolsState extends State<BottomTools>
                     children: [
                       Padding(
                         padding: EdgeInsets.only(left: 0, right: 2),
-                        child: Icon(Icons.image_outlined, size: 28),
+                        child: Icon(
+                          Icons.image_outlined,
+                          size: 28,
+                          color: Color.fromARGB(255, 66, 66, 66),
+                        ),
                       ),
                     ],
                   ),
@@ -269,7 +275,8 @@ class _BottomToolsState extends State<BottomTools>
                         padding: EdgeInsets.only(left: 0, right: 2),
                         child: Icon(
                           Icons.gif,
-                          size: 28,
+                          size: 34,
+                          color: Color.fromARGB(255, 66, 66, 66),
                         ),
                       ),
                     ],
