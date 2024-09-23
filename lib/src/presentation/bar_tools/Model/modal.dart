@@ -1,7 +1,7 @@
 class ModalApi {
-  List<ItemsModel>? sticker;
-  List<ItemsModel>? gif;
-  List<ItemsModel>? background;
+  List<StickerModel>? sticker;
+  List<GifModel>? gif;
+  List<BackModel>? background;
 
   ModalApi({
     required this.sticker,
@@ -13,33 +13,61 @@ class ModalApi {
     if (json['sticker'] != null) {
       sticker = [];
       json['sticker'].forEach((v) {
-        sticker!.add(ItemsModel.fromJson(v));
+        sticker!.add(StickerModel.fromJson(v));
       });
     }
     if (json['gif'] != null) {
       gif = [];
       json['gif'].forEach((v) {
-        gif!.add(ItemsModel.fromJson(v));
+        gif!.add(GifModel.fromJson(v));
       });
     }
     if (json['background'] != null) {
       background = [];
       json['background'].forEach((v) {
-        background!.add(ItemsModel.fromJson(v));
+        background!.add(BackModel.fromJson(v));
       });
     }
   }
 }
 
-class ItemsModel {
+class StickerModel {
   String? title;
   String? url;
-  ItemsModel({
+  StickerModel({
     required this.title,
     required this.url,
   });
 
-  ItemsModel.fromJson(Map json) {
+  StickerModel.fromJson(Map json) {
+    title = json['title'];
+    url = json['url'];
+  }
+}
+
+class GifModel {
+  String? title;
+  String? url;
+  GifModel({
+    required this.title,
+    required this.url,
+  });
+
+  GifModel.fromJson(Map json) {
+    title = json['title'];
+    url = json['url'];
+  }
+}
+
+class BackModel {
+  String? title;
+  String? url;
+  BackModel({
+    required this.title,
+    required this.url,
+  });
+
+  BackModel.fromJson(Map json) {
     title = json['title'];
     url = json['url'];
   }
