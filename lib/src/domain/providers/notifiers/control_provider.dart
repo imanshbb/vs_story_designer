@@ -97,6 +97,7 @@ class ControlNotifier extends ChangeNotifier {
   List<List<Color>>? get gradientColors => _gradientColors;
   set gradientColors(List<List<Color>>? color) {
     _gradientColors = color;
+
     notifyListeners();
   }
 
@@ -107,6 +108,7 @@ class ControlNotifier extends ChangeNotifier {
   set middleBottomWidget(Widget? widget) {
     _middleBottomWidget = widget;
     notifyListeners();
+    ;
   }
 
   Future<bool>? _exitDialogWidget;
