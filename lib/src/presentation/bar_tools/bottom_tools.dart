@@ -482,7 +482,7 @@ class _ModalWidgetState extends State<ModalWidget>
                         height: 100,
                         child: Gif(
                           controller: _controller,
-                          image: AssetImage(
+                          image: NetworkImage(
                             'https://farahigram.com/files${r.gif![index].url!}',
                           ),
                           autostart: Autostart.loop,
