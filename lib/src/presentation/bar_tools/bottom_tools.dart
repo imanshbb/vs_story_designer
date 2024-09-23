@@ -1,6 +1,11 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
+import 'dart:io';
+
+import 'package:dartz/dartz.dart' as dartz;
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:gif/gif.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 import 'package:vs_media_picker/vs_media_picker.dart';
@@ -9,13 +14,14 @@ import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widge
 import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/scroll_notifier.dart';
 import 'package:vs_story_designer/src/domain/sevices/save_as_image.dart';
+import 'package:vs_story_designer/src/presentation/bar_tools/Model/modal.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/item_type.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/text_animation_type.dart';
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
 
 // import 'package:vs_story_designer/src/presentation/widgets/tool_button.dart';
 
-class BottomTools extends StatelessWidget {
+class BottomTools extends StatefulWidget {
   final GlobalKey contentKey;
   final Function(String imageUri) onDone;
   final Widget? onDoneButtonStyle;
@@ -30,6 +36,18 @@ class BottomTools extends StatelessWidget {
       this.renderWidget,
       this.onDoneButtonStyle,
       this.editorBackgroundColor});
+
+  @override
+  State<BottomTools> createState() => _BottomToolsState();
+}
+
+class _BottomToolsState extends State<BottomTools>
+    with TickerProviderStateMixin {
+  late final Future<Response>? response;
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -154,17 +172,8 @@ class BottomTools extends StatelessWidget {
                   showModalBottomSheet(
                     context: context,
                     builder: (context) {
-                      return Container(
-                        height: 200,
-                        width: MediaQuery.of(context).size.width,
-                        decoration: const BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                          ),
-                        ),
-                        child: const Text('data'),
+                      return const ModalWidget(
+                        model: 'sticker',
                       );
                     },
                   );
@@ -188,17 +197,8 @@ class BottomTools extends StatelessWidget {
                   showModalBottomSheet(
                     context: context,
                     builder: (context) {
-                      return Container(
-                        height: 200,
-                        width: MediaQuery.of(context).size.width,
-                        decoration: const BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                          ),
-                        ),
-                        child: const Text('data'),
+                      return const ModalWidget(
+                        model: 'bg',
                       );
                     },
                   );
@@ -215,6 +215,34 @@ class BottomTools extends StatelessWidget {
                       child: Icon(Icons.image, size: 28),
                     ),
                   ]),
+                ),
+              ),
+              AnimatedOnTapButton(
+                onTap: () {
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return const ModalWidget(
+                        model: 'gif',
+                      );
+                    },
+                  );
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Colors.white, width: 1.5)),
+                  child: const Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 0, right: 2),
+                        child: Icon(Icons.gif, size: 28),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               AnimatedOnTapButton(
@@ -249,11 +277,11 @@ class BottomTools extends StatelessWidget {
                       }
                       if (_createVideo) {
                         debugPrint('creating video');
-                        await renderWidget!();
+                        await widget.renderWidget!();
                       } else {
                         debugPrint('creating image');
                         await takePicture(
-                                contentKey: contentKey,
+                                contentKey: widget.contentKey,
                                 context: context,
                                 saveToGallery: false,
                                 fileName: controlNotifier.folderName)
@@ -261,7 +289,7 @@ class BottomTools extends StatelessWidget {
                           Navigator.of(context, rootNavigator: true).pop();
                           if (bytes != null) {
                             pngUri = bytes;
-                            onDone(pngUri);
+                            widget.onDone(pngUri);
                           } else {
                             // ignore: avoid_print
                             print("error");
@@ -277,7 +305,7 @@ class BottomTools extends StatelessWidget {
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(right: 15.0),
-                    child: onDoneButtonStyle ??
+                    child: widget.onDoneButtonStyle ??
                         Container(
                           padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
@@ -328,45 +356,173 @@ class BottomTools extends StatelessWidget {
       child: child,
     );
   }
+}
 
-  // /bagr  colors
+class ModalWidget extends StatefulWidget {
+  final String model;
+  const ModalWidget({
+    super.key,
+    required this.model,
+  });
 
-  // Widget _selectColor({onTap, controlProvider}) {
-  //   return Padding(
-  //     padding: const EdgeInsets.only(left: 5, right: 0, top: 0),
-  //     child: AnimatedOnTapButton(
-  //       onTap: onTap,
-  //       child: Container(
-  //         padding: const EdgeInsets.all(2),
-  //         decoration: BoxDecoration(
-  //             // border: Border.all(
-  //             //   color: Colors.white,
-  //             // ),
-  //             // borderRadius: BorderRadius.circular(8)
-  //             // // shape: BoxShape.circle,
-  //             ),
-  //         child: Container(
-  //           width: 45,
-  //           height: 45,
-  //           decoration: BoxDecoration(
-  //             border: Border.all(
-  //               color: Colors.white,
-  //             ),
-  //             borderRadius: BorderRadius.circular(8),
+  @override
+  State<ModalWidget> createState() => _ModalWidgetState();
+}
 
-  //             gradient: LinearGradient(
-  //                 begin: Alignment.topLeft,
-  //                 end: Alignment.bottomRight,
-  //                 colors: controlProvider
-  //                     .gradientColors![controlProvider.gradientIndex]),
-  //             // border: Border.all(
-  //             //     // color: Colors.white,
-  //             //     ),
-  //             //  shape: BoxShape.circle,
-  //           ),
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
+class _ModalWidgetState extends State<ModalWidget>
+    with TickerProviderStateMixin {
+  bool isLoading = false;
+  dartz.Either<Future, ModalApi>? modalData;
+  @override
+  void initState() {
+    Future.delayed(Duration.zero).then(
+      (value) async {
+        print('3');
+        setState(() {
+          isLoading = true;
+        });
+        modalData = await callApi();
+        print('4');
+        setState(() {
+          isLoading = false;
+        });
+      },
+    );
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final GifController _controller = GifController(vsync: this);
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      height: 200,
+      width: size.width,
+      decoration: const BoxDecoration(
+        color: Colors.black,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(10),
+          topRight: Radius.circular(10),
+        ),
+      ),
+      child: isLoading
+          ? const Center(
+              child: CircularProgressIndicator(),
+            )
+          : modalData!.fold(
+              (l) {
+                return const Text('اینترنت خود را بررسی کنید');
+              },
+              (r) {
+                print('5');
+                if (widget.model == 'gif') {
+                  return GridView.builder(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 10,
+                    ),
+                    itemCount: r.gif!.length,
+                    itemBuilder: (context, index) {
+                      return SizedBox(
+                        width: 100,
+                        height: 100,
+                        child: Gif(
+                          controller: _controller,
+                          image: AssetImage(
+                            r.gif![index].url!,
+                          ),
+                          autostart: Autostart.loop,
+                          placeholder: (context) => const Text('Loading...'),
+                          onFetchCompleted: () {
+                            _controller.reset();
+                            _controller.forward();
+                          },
+                        ),
+                      );
+                    },
+                  );
+                } else if (widget.model == 'bg') {
+                  return GridView.builder(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 10,
+                    ),
+                    itemCount: r.background!.length,
+                    itemBuilder: (context, index) {
+                      return SizedBox(
+                        width: 100,
+                        height: 100,
+                        child: Image.asset(r.background![index].url!),
+                      );
+                    },
+                  );
+                } else {
+                  return GridView.builder(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 10,
+                    ),
+                    itemCount: r.gif!.length,
+                    itemBuilder: (context, index) {
+                      return SizedBox(
+                        width: 100,
+                        height: 100,
+                        child: Gif(
+                          controller: _controller,
+                          image: AssetImage(
+                            r.gif![index].url!,
+                          ),
+                          autostart: Autostart.loop,
+                          placeholder: (context) => const Text('Loading...'),
+                          onFetchCompleted: () {
+                            _controller.reset();
+                            _controller.forward();
+                          },
+                        ),
+                      );
+                    },
+                  );
+                }
+              },
+            ),
+    );
+  }
+
+  callApi() async {
+    late ModalApi coverbuilderModel;
+
+    try {
+      var response = await Dio().post(
+        'https://farahigram.com/MainApp/AppCover',
+        data: {
+          'token': 'ace6e4a8-4928-4e2b-857c-9b762718620b',
+        },
+        options: Options(
+          headers: {
+            HttpHeaders.contentTypeHeader: 'application/json',
+          },
+        ),
+      );
+      if (response.statusCode == 200) {
+        print('1');
+        coverbuilderModel = ModalApi.fromJson(
+          response.data,
+        );
+        print('2');
+      }
+      return dartz.Left(coverbuilderModel);
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.badResponse) {
+        coverbuilderModel = ModalApi.fromJson(e.response?.data);
+        return const dartz.Left(null);
+      }
+      const dartz.Left(null);
+    }
+  }
 }

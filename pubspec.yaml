@@ -35,6 +35,9 @@ dependencies:
   flutter_screenutil: ^5.9.0
   gal: ^2.3.0
   screenshot: ^3.0.0
+  gif: ^2.3.0
+  dio: ^5.7.0
+  dartz: ^0.10.1
 
 dev_dependencies:
   flutter_test:
