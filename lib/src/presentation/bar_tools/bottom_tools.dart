@@ -411,10 +411,16 @@ class _ModalWidgetState extends State<ModalWidget>
             )
           : modalData!.fold(
               (l) {
-                return const Text('اینترنت خود را بررسی کنید');
+                return const Text(
+                  'اینترنت خود را بررسی کنید',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                );
               },
               (r) {
                 print('5');
+
                 if (widget.model == 'gif') {
                   return GridView.builder(
                     gridDelegate:
@@ -517,7 +523,7 @@ class _ModalWidgetState extends State<ModalWidget>
         );
         print('2');
       }
-      return dartz.Left(coverbuilderModel);
+      return dartz.Right(coverbuilderModel);
     } on DioException catch (e) {
       if (e.type == DioExceptionType.badResponse) {
         coverbuilderModel = ModalApi.fromJson(e.response?.data);
