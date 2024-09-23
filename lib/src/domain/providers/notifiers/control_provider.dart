@@ -97,7 +97,6 @@ class ControlNotifier extends ChangeNotifier {
   List<List<Color>>? get gradientColors => _gradientColors;
   set gradientColors(List<List<Color>>? color) {
     _gradientColors = color;
-
     notifyListeners();
   }
 

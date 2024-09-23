@@ -2,6 +2,7 @@
 
 import 'dart:async';
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -175,21 +176,20 @@ class MainViewState extends State<MainView> {
       return PopScope(
         onPopInvoked: (val) => _popScope,
         child: Material(
-          child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: widget.editorBackgroundColor == Colors.transparent
-                    ? value.gradientColors![value.gradientIndex]
-                    : widget.editorBackgroundColor != null
-                        ? [widget.editorBackgroundColor!]
-                        : value.gradientColors![value.gradientIndex],
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: widget.editorBackgroundColor == Colors.transparent
+                      ? value.gradientColors![value.gradientIndex]
+                      : widget.editorBackgroundColor != null
+                          ? [widget.editorBackgroundColor!]
+                          : value.gradientColors![value.gradientIndex],
+                ),
               ),
-            ),
-            child: ColorFiltered(
-              colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.5), BlendMode.dstIn),
               child: Consumer6<
                   ControlNotifier,
                   DraggableWidgetNotifier,
