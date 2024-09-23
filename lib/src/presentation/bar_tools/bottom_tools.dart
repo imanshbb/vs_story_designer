@@ -172,6 +172,7 @@ class _BottomToolsState extends State<BottomTools>
                   showModalBottomSheet(
                     context: context,
                     showDragHandle: true,
+                    backgroundColor: Colors.black,
                     builder: (context) {
                       return const ModalWidget(
                         model: 'sticker',
@@ -201,6 +202,7 @@ class _BottomToolsState extends State<BottomTools>
                   showModalBottomSheet(
                     context: context,
                     showDragHandle: true,
+                    backgroundColor: Colors.black,
                     builder: (context) {
                       return const ModalWidget(
                         model: 'bg',
@@ -214,12 +216,15 @@ class _BottomToolsState extends State<BottomTools>
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(color: Colors.white, width: 1.5)),
-                  child: const Row(mainAxisSize: MainAxisSize.min, children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 0, right: 2),
-                      child: Icon(Icons.image, size: 28),
-                    ),
-                  ]),
+                  child: const Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 0, right: 2),
+                        child: Icon(Icons.image, size: 28),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               AnimatedOnTapButton(
@@ -227,6 +232,7 @@ class _BottomToolsState extends State<BottomTools>
                   showModalBottomSheet(
                     context: context,
                     showDragHandle: true,
+                    backgroundColor: Colors.black,
                     builder: (context) {
                       return const ModalWidget(
                         model: 'gif',
