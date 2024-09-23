@@ -5,10 +5,13 @@ import 'dart:io';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gif/gif.dart';
 import 'package:oktoast/oktoast.dart';
+import 'package:pasteboard/pasteboard.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:vs_media_picker/vs_media_picker.dart';
+import 'package:super_clipboard/super_clipboard.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
@@ -482,20 +485,36 @@ class _ModalWidgetState extends State<ModalWidget>
                       ),
                       itemCount: r.gif!.length,
                       itemBuilder: (context, index) {
-                        return SizedBox(
-                          width: 100,
-                          height: 100,
-                          child: Gif(
-                            controller: _controller,
-                            image: NetworkImage(
-                              'https://farahigram.com/files${r.gif![index].url!}',
+                        return GestureDetector(
+                          onTap: () async {
+                            final String dir =
+                                (await getApplicationDocumentsDirectory()).path;
+                            // await Clipboard.setData(ClipboardData(
+                            //     text: 'content://$dir/image.png'));
+                            String imagePath = '$dir/${DateTime.now()}.png';
+                            File capturedFile = File(imagePath);
+
+                            final paths = [capturedFile.path];
+                            await Pasteboard.writeFiles(paths);
+
+                            await Pasteboard.files();
+                          },
+                          child: SizedBox(
+                            width: 100,
+                            height: 100,
+                            child: Gif(
+                              controller: _controller,
+                              image: NetworkImage(
+                                'https://farahigram.com/files${r.gif![index].url!}',
+                              ),
+                              autostart: Autostart.loop,
+                              placeholder: (context) =>
+                                  const Text('Loading...'),
+                              onFetchCompleted: () {
+                                _controller?.reset();
+                                _controller?.forward();
+                              },
                             ),
-                            autostart: Autostart.loop,
-                            placeholder: (context) => const Text('Loading...'),
-                            onFetchCompleted: () {
-                              _controller?.reset();
-                              _controller?.forward();
-                            },
                           ),
                         );
                       },
@@ -513,11 +532,26 @@ class _ModalWidgetState extends State<ModalWidget>
                       ),
                       itemCount: r.background!.length,
                       itemBuilder: (context, index) {
-                        return SizedBox(
-                          width: 100,
-                          height: 100,
-                          child: Image.network(
-                              'https://farahigram.com/files${r.background![index].url!}'),
+                        return GestureDetector(
+                          onTap: () async {
+                            final String dir =
+                                (await getApplicationDocumentsDirectory()).path;
+                            // await Clipboard.setData(ClipboardData(
+                            //     text: 'content://$dir/image.png'));
+                            String imagePath = '$dir/${DateTime.now()}.png';
+                            File capturedFile = File(imagePath);
+
+                            final paths = [capturedFile.path];
+                            await Pasteboard.writeFiles(paths);
+
+                            await Pasteboard.files();
+                          },
+                          child: SizedBox(
+                            width: 100,
+                            height: 100,
+                            child: Image.network(
+                                'https://farahigram.com/files${r.background![index].url!}'),
+                          ),
                         );
                       },
                     ),
@@ -534,11 +568,26 @@ class _ModalWidgetState extends State<ModalWidget>
                       ),
                       itemCount: r.gif!.length,
                       itemBuilder: (context, index) {
-                        return SizedBox(
-                          width: 100,
-                          height: 100,
-                          child: Image.network(
-                            'https://farahigram.com/files${r.gif![index].url!}',
+                        return GestureDetector(
+                          onTap: () async {
+                            final String dir =
+                                (await getApplicationDocumentsDirectory()).path;
+                            // await Clipboard.setData(ClipboardData(
+                            //     text: 'content://$dir/image.png'));
+                            String imagePath = '$dir/${DateTime.now()}.png';
+                            File capturedFile = File(imagePath);
+
+                            final paths = [capturedFile.path];
+                            await Pasteboard.writeFiles(paths);
+
+                            await Pasteboard.files();
+                          },
+                          child: SizedBox(
+                            width: 100,
+                            height: 100,
+                            child: Image.network(
+                              'https://farahigram.com/files${r.sticker![index].url!}',
+                            ),
                           ),
                         );
                       },
