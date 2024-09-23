@@ -494,7 +494,7 @@ class _ModalWidgetState extends State<ModalWidget>
 
                             final String dir =
                                 (await getApplicationDocumentsDirectory()).path;
-                            String imagePath = '$dir/${DateTime.now()}.png';
+                            String imagePath = '$dir/${DateTime.now()}';
                             File capturedFile = File(imagePath);
                             await capturedFile.writeAsBytes(response.data);
                             await Share.shareXFiles([XFile(capturedFile.path)]);
@@ -533,7 +533,17 @@ class _ModalWidgetState extends State<ModalWidget>
                       itemCount: r.background!.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
-                          onTap: () async {},
+                          onTap: () async {
+                            final response = await Dio().get(
+                                'https://farahigram.com/files${r.gif![index].url!}');
+
+                            final String dir =
+                                (await getApplicationDocumentsDirectory()).path;
+                            String imagePath = '$dir/${DateTime.now()}';
+                            File capturedFile = File(imagePath);
+                            await capturedFile.writeAsBytes(response.data);
+                            await Share.shareXFiles([XFile(capturedFile.path)]);
+                          },
                           child: SizedBox(
                             width: 100,
                             height: 100,
@@ -557,7 +567,17 @@ class _ModalWidgetState extends State<ModalWidget>
                       itemCount: r.sticker!.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
-                          onTap: () async {},
+                          onTap: () async {
+                            final response = await Dio().get(
+                                'https://farahigram.com/files${r.gif![index].url!}');
+
+                            final String dir =
+                                (await getApplicationDocumentsDirectory()).path;
+                            String imagePath = '$dir/${DateTime.now()}';
+                            File capturedFile = File(imagePath);
+                            await capturedFile.writeAsBytes(response.data);
+                            await Share.shareXFiles([XFile(capturedFile.path)]);
+                          },
                           child: SizedBox(
                             width: 100,
                             height: 100,
