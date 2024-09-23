@@ -3,7 +3,6 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:gal/gal.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:path_provider/path_provider.dart';
@@ -123,8 +122,8 @@ class _TopToolsState extends State<TopTools> {
                                   final String dir =
                                       (await getApplicationDocumentsDirectory())
                                           .path;
-                                  await Clipboard.setData(ClipboardData(
-                                      text: 'content://$dir/image.png'));
+                                  // await Clipboard.setData(ClipboardData(
+                                  //     text: 'content://$dir/image.png'));
                                   String imagePath =
                                       '$dir/${DateTime.now()}.png';
                                   File capturedFile = File(imagePath);
