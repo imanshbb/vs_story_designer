@@ -171,6 +171,7 @@ class _BottomToolsState extends State<BottomTools>
                 onTap: () {
                   showModalBottomSheet(
                     context: context,
+                    showDragHandle: true,
                     builder: (context) {
                       return const ModalWidget(
                         model: 'sticker',
@@ -184,18 +185,22 @@ class _BottomToolsState extends State<BottomTools>
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(color: Colors.white, width: 1.5)),
-                  child: const Row(mainAxisSize: MainAxisSize.min, children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 0, right: 2),
-                      child: Icon(Icons.emoji_emotions, size: 28),
-                    ),
-                  ]),
+                  child: const Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 0, right: 2),
+                        child: Icon(Icons.emoji_emotions, size: 28),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               AnimatedOnTapButton(
                 onTap: () {
                   showModalBottomSheet(
                     context: context,
+                    showDragHandle: true,
                     builder: (context) {
                       return const ModalWidget(
                         model: 'bg',
@@ -221,6 +226,7 @@ class _BottomToolsState extends State<BottomTools>
                 onTap: () {
                   showModalBottomSheet(
                     context: context,
+                    showDragHandle: true,
                     builder: (context) {
                       return const ModalWidget(
                         model: 'gif',
@@ -373,30 +379,39 @@ class _ModalWidgetState extends State<ModalWidget>
     with TickerProviderStateMixin {
   bool isLoading = false;
   dartz.Either<dynamic, ModalApi>? modalData;
+  GifController? _controller;
   @override
   void initState() {
-    Future.delayed(Duration.zero).then(
-      (value) async {
-        print('3');
-        setState(() {
-          isLoading = true;
-        });
-        modalData = await callApi();
-        print('4');
-        setState(() {
-          isLoading = false;
-        });
-      },
-    );
+    _controller = GifController(vsync: this);
+    if (mounted) {
+      Future.delayed(Duration.zero).then(
+        (value) async {
+          print('3');
+          setState(() {
+            isLoading = true;
+          });
+          modalData = await callApi();
+          print('4');
+          setState(() {
+            isLoading = false;
+          });
+        },
+      );
+    }
     super.initState();
   }
 
   @override
+  void dispose() {
+    _controller?.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final GifController _controller = GifController(vsync: this);
     Size size = MediaQuery.of(context).size;
     return Container(
-      height: 200,
+      height: 400,
       width: size.width,
       decoration: const BoxDecoration(
         color: Colors.black,
@@ -422,69 +437,78 @@ class _ModalWidgetState extends State<ModalWidget>
                 print('5');
 
                 if (widget.model == 'gif') {
-                  return GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      mainAxisSpacing: 10,
-                      crossAxisSpacing: 10,
-                    ),
-                    itemCount: r.gif!.length,
-                    itemBuilder: (context, index) {
-                      return SizedBox(
-                        width: 100,
-                        height: 100,
-                        child: Gif(
-                          controller: _controller,
-                          image: NetworkImage(
-                            'https://farahigram.com/files${r.gif![index].url!}',
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 10,
+                      ),
+                      itemCount: r.gif!.length,
+                      itemBuilder: (context, index) {
+                        return SizedBox(
+                          width: 100,
+                          height: 100,
+                          child: Gif(
+                            controller: _controller,
+                            image: NetworkImage(
+                              'https://farahigram.com/files${r.gif![index].url!}',
+                            ),
+                            autostart: Autostart.loop,
+                            placeholder: (context) => const Text('Loading...'),
+                            onFetchCompleted: () {
+                              _controller?.reset();
+                              _controller?.forward();
+                            },
                           ),
-                          autostart: Autostart.loop,
-                          placeholder: (context) => const Text('Loading...'),
-                          onFetchCompleted: () {
-                            _controller.reset();
-                            _controller.forward();
-                          },
-                        ),
-                      );
-                    },
+                        );
+                      },
+                    ),
                   );
                 } else if (widget.model == 'bg') {
-                  return GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      mainAxisSpacing: 10,
-                      crossAxisSpacing: 10,
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 10,
+                      ),
+                      itemCount: r.background!.length,
+                      itemBuilder: (context, index) {
+                        return SizedBox(
+                          width: 100,
+                          height: 100,
+                          child: Image.network(
+                              'https://farahigram.com/files${r.background![index].url!}'),
+                        );
+                      },
                     ),
-                    itemCount: r.background!.length,
-                    itemBuilder: (context, index) {
-                      return SizedBox(
-                        width: 100,
-                        height: 100,
-                        child: Image.network(
-                            'https://farahigram.com/files${r.background![index].url!}'),
-                      );
-                    },
                   );
                 } else {
-                  return GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      mainAxisSpacing: 10,
-                      crossAxisSpacing: 10,
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 10,
+                      ),
+                      itemCount: r.gif!.length,
+                      itemBuilder: (context, index) {
+                        return SizedBox(
+                          width: 100,
+                          height: 100,
+                          child: Image.network(
+                            'https://farahigram.com/files${r.gif![index].url!}',
+                          ),
+                        );
+                      },
                     ),
-                    itemCount: r.gif!.length,
-                    itemBuilder: (context, index) {
-                      return SizedBox(
-                        width: 100,
-                        height: 100,
-                        child: Image.network(
-                          'https://farahigram.com/files${r.gif![index].url!}',
-                        ),
-                      );
-                    },
                   );
                 }
               },
