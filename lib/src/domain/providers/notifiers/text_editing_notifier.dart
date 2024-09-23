@@ -9,7 +9,7 @@ class TextEditingNotifier extends ChangeNotifier {
   int _fontFamilyIndex = 0;
   int _fontAnimationIndex = 0;
   TextAlign _textAlign = TextAlign.center;
-  Color _backGroundColor = Colors.red;
+  Color _backGroundColor = Colors.transparent;
   TextAnimationType _animationType = TextAnimationType.none;
   bool _isFontFamily = true;
   bool _isTextAnimation = false;
