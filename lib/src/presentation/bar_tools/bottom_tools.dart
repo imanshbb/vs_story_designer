@@ -372,7 +372,7 @@ class ModalWidget extends StatefulWidget {
 class _ModalWidgetState extends State<ModalWidget>
     with TickerProviderStateMixin {
   bool isLoading = false;
-  dartz.Either<Future, ModalApi>? modalData;
+  dartz.Either<dynamic, ModalApi>? modalData;
   @override
   void initState() {
     Future.delayed(Duration.zero).then(
@@ -494,7 +494,7 @@ class _ModalWidgetState extends State<ModalWidget>
     );
   }
 
-  callApi() async {
+  Future<dartz.Either<dynamic, ModalApi>> callApi() async {
     late ModalApi coverbuilderModel;
 
     try {
@@ -522,7 +522,7 @@ class _ModalWidgetState extends State<ModalWidget>
         coverbuilderModel = ModalApi.fromJson(e.response?.data);
         return const dartz.Left(null);
       }
-      const dartz.Left(null);
+      return const dartz.Left(null);
     }
   }
 }
