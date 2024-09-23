@@ -437,7 +437,7 @@ class _ModalWidgetState extends State<ModalWidget>
                         child: Gif(
                           controller: _controller,
                           image: AssetImage(
-                            'https://farahigram.com${r.gif![index].url!}',
+                            'https://farahigram.com/files${r.gif![index].url!}',
                           ),
                           autostart: Autostart.loop,
                           placeholder: (context) => const Text('Loading...'),
@@ -463,7 +463,7 @@ class _ModalWidgetState extends State<ModalWidget>
                         width: 100,
                         height: 100,
                         child: Image.network(
-                            'https://farahigram.com${r.background![index].url!}'),
+                            'https://farahigram.com/files${r.background![index].url!}'),
                       );
                     },
                   );
@@ -483,7 +483,7 @@ class _ModalWidgetState extends State<ModalWidget>
                         child: Gif(
                           controller: _controller,
                           image: AssetImage(
-                            'https://farahigram.com${r.gif![index].url!}',
+                            'https://farahigram.com/files${r.gif![index].url!}',
                           ),
                           autostart: Autostart.loop,
                           placeholder: (context) => const Text('Loading...'),
