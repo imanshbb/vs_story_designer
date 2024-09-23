@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:gal/gal.dart';
 import 'package:gif/gif.dart';
@@ -489,17 +490,12 @@ class _ModalWidgetState extends State<ModalWidget>
                             // Clipboard.setData(
 
                             // );
-                            final response = await Dio().get(
-                                'https://farahigram.com/files${r.gif![index].url!}');
+                            var fileName =
+                                '${Directory.systemTemp.path}/file.${extractExtension(r.gif![index].url!)}';
 
-                            final String dir =
-                                (await getApplicationDocumentsDirectory()).path;
-                            String imagePath = '$dir/${DateTime.now()}';
-                            File capturedFile = File(imagePath);
-                            await capturedFile.writeAsBytes(response.data);
-                            Clipboard.setData(
-                                ClipboardData(text: capturedFile.path));
-                            await Gal.putVideo(capturedFile.path);
+                            Dio().download(r.gif![index].url!, fileName);
+
+                            await Gal.putVideo(fileName);
                           },
                           child: SizedBox(
                             width: 100,
@@ -536,17 +532,12 @@ class _ModalWidgetState extends State<ModalWidget>
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () async {
-                            final response = await Dio().get(
-                                'https://farahigram.com/files${r.background![index].url!}');
+                            var fileName =
+                                '${Directory.systemTemp.path}/file.${extractExtension(r.background![index].url!)}';
 
-                            final String dir =
-                                (await getApplicationDocumentsDirectory()).path;
-                            String imagePath = '$dir/${DateTime.now()}';
-                            File capturedFile = File(imagePath);
-                            await capturedFile.writeAsBytes(response.data);
-                            Clipboard.setData(
-                                ClipboardData(text: capturedFile.path));
-                            await Gal.putImage(capturedFile.path);
+                            Dio().download(r.background![index].url!, fileName);
+
+                            await Gal.putImage(fileName);
                           },
                           child: SizedBox(
                             width: 100,
@@ -572,17 +563,12 @@ class _ModalWidgetState extends State<ModalWidget>
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () async {
-                            final response = await Dio().get(
-                                'https://farahigram.com/files${r.sticker![index].url!}');
+                            var fileName =
+                                '${Directory.systemTemp.path}/file.${extractExtension(r.sticker![index].url!)}';
 
-                            final String dir =
-                                (await getApplicationDocumentsDirectory()).path;
-                            String imagePath = '$dir/${DateTime.now()}';
-                            File capturedFile = File(imagePath);
-                            await capturedFile.writeAsBytes(response.data);
-                            Clipboard.setData(
-                                ClipboardData(text: capturedFile.path));
-                            await Gal.putImage(capturedFile.path);
+                            Dio().download(r.sticker![index].url!, fileName);
+
+                            await Gal.putImage(fileName);
                           },
                           child: SizedBox(
                             width: 100,
@@ -599,6 +585,15 @@ class _ModalWidgetState extends State<ModalWidget>
               },
             ),
     );
+  }
+
+  String extractExtension(String url) {
+    List<String> parts = url.split('.');
+    if (parts.length > 1) {
+      return parts.last;
+    } else {
+      return ''; // آدرسی بدون پسوند
+    }
   }
 
   Future<dartz.Either<dynamic, ModalApi>> callApi() async {
