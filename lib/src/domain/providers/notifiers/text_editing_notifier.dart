@@ -23,6 +23,7 @@ class TextEditingNotifier extends ChangeNotifier {
   final List<Color> _textColorBackGround = [
     Colors.transparent,
     Colors.black,
+    Colors.red,
     Colors.white
   ];
 

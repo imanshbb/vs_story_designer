@@ -173,7 +173,7 @@ class MainViewState extends State<MainView> {
       onPopInvoked: (val) => _popScope,
       child: Material(
         color: widget.editorBackgroundColor == Colors.transparent
-            ? Colors.red
+            ? Colors.black
             : widget.editorBackgroundColor ?? Colors.black,
         child: Consumer6<
             ControlNotifier,
