@@ -72,29 +72,42 @@ class _BottomToolsState extends State<BottomTools>
                     padding: const EdgeInsets.only(left: 15),
                     alignment: Alignment.centerLeft,
                     child: SizedBox(
-                      child: _preViewContainer(
-                        /// if [model.imagePath] is null/empty return preview image
-                        child: controlNotifier.mediaPath.isEmpty
-                            ? ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    /// scroll to gridView page
-                                    if (controlNotifier.mediaPath.isEmpty) {
-                                      scrollNotifier.pageController
-                                          .animateToPage(1,
-                                              duration: const Duration(
-                                                  milliseconds: 300),
-                                              curve: Curves.ease);
-                                    }
-                                  },
-                                  child: const CoverThumbnail(
-                                    thumbnailQuality: 150,
-                                  ),
-                                ))
-
-                            /// return clear [imagePath] provider
-                            : GestureDetector(
+                      child: controlNotifier.mediaPath.isEmpty
+                          ? GestureDetector(
+                              onTap: () {
+                                /// scroll to gridView page
+                                if (controlNotifier.mediaPath.isEmpty) {
+                                  scrollNotifier.pageController.animateToPage(1,
+                                      duration:
+                                          const Duration(milliseconds: 300),
+                                      curve: Curves.ease);
+                                }
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(8),
+                                    border: Border.all(
+                                        color: Colors.white, width: 1.5)),
+                                child: const Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.only(left: 0, right: 2),
+                                      child: Icon(
+                                        Icons.camera_alt_outlined,
+                                        size: 28,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            )
+                          : _preViewContainer(
+                              /// if [model.imagePath] is null/empty return preview image
+                              child: GestureDetector(
                                 onTap: () {
                                   /// clear image url variable
                                   controlNotifier.mediaPath = '';
@@ -113,7 +126,7 @@ class _BottomToolsState extends State<BottomTools>
                                   ),
                                 ),
                               ),
-                      ),
+                            ),
                     ),
                   ),
                 ],
@@ -191,7 +204,10 @@ class _BottomToolsState extends State<BottomTools>
                     children: [
                       Padding(
                         padding: EdgeInsets.only(left: 0, right: 2),
-                        child: Icon(Icons.emoji_emotions, size: 28),
+                        child: Icon(
+                          Icons.emoji_emotions_outlined,
+                          size: 28,
+                        ),
                       ),
                     ],
                   ),
@@ -221,7 +237,7 @@ class _BottomToolsState extends State<BottomTools>
                     children: [
                       Padding(
                         padding: EdgeInsets.only(left: 0, right: 2),
-                        child: Icon(Icons.image, size: 28),
+                        child: Icon(Icons.image_outlined, size: 28),
                       ),
                     ],
                   ),
@@ -251,90 +267,95 @@ class _BottomToolsState extends State<BottomTools>
                     children: [
                       Padding(
                         padding: EdgeInsets.only(left: 0, right: 2),
-                        child: Icon(Icons.gif, size: 28),
+                        child: Icon(
+                          Icons.gif,
+                          size: 28,
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
               AnimatedOnTapButton(
-                  onTap: () async {
-                    String pngUri;
-                    if (paintingNotifier.lines.isNotEmpty ||
-                        itemNotifier.draggableWidget.isNotEmpty) {
-                      showDialog(
-                          context: context,
-                          barrierDismissible: false,
-                          builder: (BuildContext context) {
-                            return Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Card(
-                                    color: Colors.white,
-                                    child: Container(
-                                        padding: const EdgeInsets.all(50),
-                                        child:
-                                            const CircularProgressIndicator())),
-                              ],
-                            );
-                          });
-
-                      for (var element in itemNotifier.draggableWidget) {
-                        if (element.type == ItemType.gif ||
-                            element.animationType != TextAnimationType.none) {
-                          // setState(() {
-                          _createVideo = true;
-                          // });
-                        }
-                      }
-                      if (_createVideo) {
-                        debugPrint('creating video');
-                        await widget.renderWidget!();
-                      } else {
-                        debugPrint('creating image');
-                        await takePicture(
-                                contentKey: widget.contentKey,
-                                context: context,
-                                saveToGallery: false,
-                                fileName: controlNotifier.folderName)
-                            .then((bytes) {
-                          Navigator.of(context, rootNavigator: true).pop();
-                          if (bytes != null) {
-                            pngUri = bytes;
-                            widget.onDone(pngUri);
-                          } else {
-                            // ignore: avoid_print
-                            print("error");
-                          }
+                onTap: () async {
+                  String pngUri;
+                  if (paintingNotifier.lines.isNotEmpty ||
+                      itemNotifier.draggableWidget.isNotEmpty) {
+                    showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (BuildContext context) {
+                          return Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Card(
+                                  color: Colors.white,
+                                  child: Container(
+                                      padding: const EdgeInsets.all(50),
+                                      child:
+                                          const CircularProgressIndicator())),
+                            ],
+                          );
                         });
+
+                    for (var element in itemNotifier.draggableWidget) {
+                      if (element.type == ItemType.gif ||
+                          element.animationType != TextAnimationType.none) {
+                        // setState(() {
+                        _createVideo = true;
+                        // });
                       }
-                    } else {
-                      showToast('یک تغییر ایجاد کنید');
                     }
-                    // setState(() {
-                    _createVideo = false;
-                    // });
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 15.0),
-                    child: widget.onDoneButtonStyle ??
-                        Container(
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(8),
-                              border:
-                                  Border.all(color: Colors.white, width: 1.5)),
-                          child: const Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(left: 0, right: 2),
-                                  child: Icon(Icons.share_sharp, size: 28),
-                                ),
-                              ]),
+                    if (_createVideo) {
+                      debugPrint('creating video');
+                      await widget.renderWidget!();
+                    } else {
+                      debugPrint('creating image');
+                      await takePicture(
+                              contentKey: widget.contentKey,
+                              context: context,
+                              saveToGallery: false,
+                              fileName: controlNotifier.folderName)
+                          .then((bytes) {
+                        Navigator.of(context, rootNavigator: true).pop();
+                        if (bytes != null) {
+                          pngUri = bytes;
+                          widget.onDone(pngUri);
+                        } else {
+                          // ignore: avoid_print
+                          print("error");
+                        }
+                      });
+                    }
+                  } else {
+                    showToast('یک تغییر ایجاد کنید');
+                  }
+                  // setState(() {
+                  _createVideo = false;
+                  // });
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 15.0),
+                  child: widget.onDoneButtonStyle ??
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8),
+                            border:
+                                Border.all(color: Colors.white, width: 1.5)),
+                        child: const Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(left: 0, right: 2),
+                              child: Icon(Icons.share_outlined, size: 28),
+                            ),
+                          ],
                         ),
-                  ))
+                      ),
+                ),
+              )
 
               // Padding(
               //   padding: const EdgeInsets.only(right: 10),
