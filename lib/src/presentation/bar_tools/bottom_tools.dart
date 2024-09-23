@@ -497,7 +497,13 @@ class _ModalWidgetState extends State<ModalWidget>
                                 'https://farahigram.com/files${r.gif![index].url!}',
                                 fileName);
 
-                            await Gal.putVideo(fileName);
+                            // Clipboard.setData(ClipboardData(text: fileName));
+
+                            await Gal.putImage(fileName).then(
+                              (value) {
+                                showToast('ذخیره سازی با موفقیت انجام شد');
+                              },
+                            );
                           },
                           child: SizedBox(
                             width: 100,
@@ -541,7 +547,11 @@ class _ModalWidgetState extends State<ModalWidget>
                                 'https://farahigram.com/files${r.background![index].url!}',
                                 fileName);
 
-                            await Gal.putImage(fileName);
+                            await Gal.putImage(fileName).then(
+                              (value) {
+                                showToast('ذخیره سازی با موفقیت انجام شد');
+                              },
+                            );
                           },
                           child: SizedBox(
                             width: 100,
@@ -574,7 +584,11 @@ class _ModalWidgetState extends State<ModalWidget>
                                 'https://farahigram.com/files${r.sticker![index].url!}',
                                 fileName);
 
-                            await Gal.putImage(fileName);
+                            await Gal.putImage(fileName).then(
+                              (value) {
+                                showToast('ذخیره سازی با موفقیت انجام شد');
+                              },
+                            );
                           },
                           child: SizedBox(
                             width: 100,
