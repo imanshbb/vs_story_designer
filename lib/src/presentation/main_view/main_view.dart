@@ -178,7 +178,7 @@ class MainViewState extends State<MainView> {
         child: Material(
           child: Container(
             decoration: BoxDecoration(
-              backgroundBlendMode: BlendMode.colorBurn,
+              color: Colors.black.withOpacity(0.5),
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
