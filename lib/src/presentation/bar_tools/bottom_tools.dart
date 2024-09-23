@@ -493,7 +493,9 @@ class _ModalWidgetState extends State<ModalWidget>
                             var fileName =
                                 '${Directory.systemTemp.path}/file.${extractExtension(r.gif![index].url!)}';
 
-                            await Dio().download(r.gif![index].url!, fileName);
+                            await Dio().download(
+                                'https://farahigram.com/files${r.gif![index].url!}',
+                                fileName);
 
                             await Gal.putVideo(fileName);
                           },
@@ -535,8 +537,9 @@ class _ModalWidgetState extends State<ModalWidget>
                             var fileName =
                                 '${Directory.systemTemp.path}/file.${extractExtension(r.background![index].url!)}';
 
-                            await Dio()
-                                .download(r.background![index].url!, fileName);
+                            await Dio().download(
+                                'https://farahigram.com/files${r.background![index].url!}',
+                                fileName);
 
                             await Gal.putImage(fileName);
                           },
@@ -567,8 +570,9 @@ class _ModalWidgetState extends State<ModalWidget>
                             var fileName =
                                 '${Directory.systemTemp.path}/file.${extractExtension(r.sticker![index].url!)}';
 
-                            await Dio()
-                                .download(r.sticker![index].url!, fileName);
+                            await Dio().download(
+                                'https://farahigram.com/files${r.sticker![index].url!}',
+                                fileName);
 
                             await Gal.putImage(fileName);
                           },
