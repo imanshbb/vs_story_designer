@@ -417,7 +417,8 @@ class MainViewState extends State<MainView> {
 
                             Visibility(
                               visible: !controlNotifier.isTextEditing &&
-                                  !controlNotifier.isPainting,
+                                  !controlNotifier.isPainting &&
+                                  _activeItem == null,
                               child: Align(
                                 alignment: Alignment.bottomCenter,
                                 child: Padding(

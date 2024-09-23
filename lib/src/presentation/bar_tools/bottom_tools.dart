@@ -275,23 +275,26 @@ class BottomTools extends StatelessWidget {
                     _createVideo = false;
                     // });
                   },
-                  child: onDoneButtonStyle ??
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(8),
-                            border:
-                                Border.all(color: Colors.white, width: 1.5)),
-                        child: const Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(left: 0, right: 2),
-                                child: Icon(Icons.share_sharp, size: 28),
-                              ),
-                            ]),
-                      ))
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 15.0),
+                    child: onDoneButtonStyle ??
+                        Container(
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(8),
+                              border:
+                                  Border.all(color: Colors.white, width: 1.5)),
+                          child: const Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(left: 0, right: 2),
+                                  child: Icon(Icons.share_sharp, size: 28),
+                                ),
+                              ]),
+                        ),
+                  ))
 
               // Padding(
               //   padding: const EdgeInsets.only(right: 10),
