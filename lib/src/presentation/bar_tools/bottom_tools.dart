@@ -5,9 +5,12 @@ import 'dart:io';
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gif/gif.dart';
 import 'package:oktoast/oktoast.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
@@ -482,7 +485,20 @@ class _ModalWidgetState extends State<ModalWidget>
                       itemCount: r.gif!.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
-                          onTap: () async {},
+                          onTap: () async {
+                            // Clipboard.setData(
+
+                            // );
+                            final response = await Dio().get(
+                                'https://farahigram.com/files${r.gif![index].url!}');
+
+                            final String dir =
+                                (await getApplicationDocumentsDirectory()).path;
+                            String imagePath = '$dir/${DateTime.now()}.png';
+                            File capturedFile = File(imagePath);
+                            await capturedFile.writeAsBytes(response.data);
+                            await Share.shareXFiles([XFile(capturedFile.path)]);
+                          },
                           child: SizedBox(
                             width: 100,
                             height: 100,
