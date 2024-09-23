@@ -499,9 +499,9 @@ class _ModalWidgetState extends State<ModalWidget>
 
     try {
       var response = await Dio().post(
-        'https://farahigram.com/MainApp/AppCover',
+        'https://farahigram.com/MainApp/AppImageDownloadWithoutToken',
         data: {
-          'token': 'ace6e4a8-4928-4e2b-857c-9b762718620b',
+          'token': '',
         },
         options: Options(
           headers: {
