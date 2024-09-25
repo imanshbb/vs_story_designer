@@ -96,7 +96,6 @@ class FontSelector extends StatelessWidget {
                         //     ? Colors.white
                         //     : Colors.black.withOpacity(0.4),
                         shape: BoxShape.rectangle,
-                        border: Border.all(color: Colors.white),
                         borderRadius: BorderRadius.circular(10),
                         gradient: LinearGradient(
                           colors: index == editorNotifier.fontFamilyIndex
