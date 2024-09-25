@@ -66,19 +66,20 @@ class FontSelector extends StatelessWidget {
           draggableWidgetNotifier, paintingNotifier, child) {
         return SizedBox(
           height: 60,
-          width: _size.width * 09,
+          width: _size.width,
           // alignment: Alignment.center,
-          child: PageView.builder(
+          child: ListView.builder(
             controller: editorNotifier.fontFamilyController,
             itemCount: controlNotifier.fontList!.length,
-            onPageChanged: (index) {
-              // editorNotifier.text = .
-              // editorNotifier.fontFamilyIndex = index;
-              HapticFeedback.heavyImpact();
-            },
+
+            // onPageChanged: (index) {
+            //   // editorNotifier.text = .
+            //   // editorNotifier.fontFamilyIndex = index;
+            //   HapticFeedback.heavyImpact();
+            // },
             physics: const BouncingScrollPhysics(),
-            allowImplicitScrolling: true,
-            pageSnapping: false,
+            // allowImplicitScrolling: true,
+            // pageSnapping: false,
             itemBuilder: (context, index) {
               return AnimatedOnTapButton(
                 onTap: () {
