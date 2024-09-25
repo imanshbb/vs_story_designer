@@ -543,7 +543,7 @@ class _ModalWidgetState extends State<ModalWidget>
                     child: GridView.builder(
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
+                        crossAxisCount: 4,
                         mainAxisSpacing: 10,
                         crossAxisSpacing: 10,
                       ),
@@ -633,7 +633,7 @@ class _ModalWidgetState extends State<ModalWidget>
                     child: GridView.builder(
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
+                        crossAxisCount: 4,
                         mainAxisSpacing: 10,
                         crossAxisSpacing: 10,
                       ),

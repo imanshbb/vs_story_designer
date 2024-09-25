@@ -161,6 +161,11 @@ class AppFonts {
   ];
 
   static TextTheme getTextThemeENUM(FontType val) {
+    // const TextTheme(
+    //       bodyLarge: TextStyle(
+    //         fontFamily: 'Lalezar',
+    //       ),
+    // )
     switch (val) {
       case FontType.openSans:
         return GoogleFonts.openSansTextTheme();
@@ -174,14 +179,8 @@ class AppFonts {
         return GoogleFonts.handjetTextTheme();
       case FontType.blaka:
         return GoogleFonts.blakaTextTheme();
-      // case FontType.qahiri:
-      //   return GoogleFonts.qahiriTextTheme();
       case FontType.qahiri:
-        return const TextTheme(
-          bodyLarge: TextStyle(
-            fontFamily: 'Lalezar',
-          ),
-        );
+        return GoogleFonts.qahiriTextTheme();
       case FontType.marhey:
         return GoogleFonts.marheyTextTheme();
       case FontType.gulzar:
