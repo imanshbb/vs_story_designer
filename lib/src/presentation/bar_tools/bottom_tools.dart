@@ -364,6 +364,80 @@ class _BottomToolsState extends State<BottomTools>
                         ),
                       ),
                 ),
+              ),
+              AnimatedOnTapButton(
+                onTap: () async {
+                  if (paintingNotifier.lines.isNotEmpty ||
+                      itemNotifier.draggableWidget.isNotEmpty) {
+                    showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (BuildContext context) {
+                          return Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Card(
+                                  color: Colors.white,
+                                  child: Container(
+                                      margin: const EdgeInsets.all(50),
+                                      child:
+                                          const CircularProgressIndicator())),
+                            ],
+                          );
+                        });
+                    for (var element in itemNotifier.draggableWidget) {
+                      if (element.type == ItemType.gif ||
+                          element.animationType != TextAnimationType.none) {
+                        setState(() {
+                          _createVideo = true;
+                        });
+                      }
+                    }
+                    if (_createVideo) {
+                      debugPrint('creating video');
+                      await widget.renderWidget!();
+                    } else {
+                      debugPrint('creating image');
+                      var response = await takePicture(
+                          contentKey: widget.contentKey,
+                          context: context,
+                          saveToGallery: true,
+                          fileName: controlNotifier.folderName);
+                      if (response) {
+                        showToast('Successfully saved');
+                      } else {}
+                    }
+                    // ignore: use_build_context_synchronously
+                    Navigator.of(context, rootNavigator: true).pop();
+                  } else {
+                    showToast('یک تغییر ایجاد کنید');
+                  }
+
+                  setState(() {
+                    _createVideo = false;
+                  });
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 15.0),
+                  child: widget.onDoneButtonStyle ??
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8),
+                            border:
+                                Border.all(color: Colors.white, width: 1.5)),
+                        child: const Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(left: 0, right: 2),
+                              child: Icon(Icons.download_outlined, size: 28),
+                            ),
+                          ],
+                        ),
+                      ),
+                ),
               )
 
               // Padding(
