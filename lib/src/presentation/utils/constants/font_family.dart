@@ -179,7 +179,7 @@ class AppFonts {
       case FontType.qahiri:
         return const TextTheme(
           bodyLarge: TextStyle(
-            fontFamily: 'assets/fonts/Lalezar.ttf',
+            fontFamily: 'Lalezar',
           ),
         );
       case FontType.marhey:
