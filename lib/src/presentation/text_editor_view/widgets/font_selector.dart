@@ -70,7 +70,7 @@ class FontSelector extends StatelessWidget {
           // alignment: Alignment.center,
           child: PageView.builder(
             controller: editorNotifier.fontFamilyController,
-            itemCount: controlNotifier.fontList!.length,
+            itemCount: 1,
             onPageChanged: (index) {
               // editorNotifier.text = .
               // editorNotifier.fontFamilyIndex = index;
