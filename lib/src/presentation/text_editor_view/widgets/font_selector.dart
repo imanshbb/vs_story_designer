@@ -88,7 +88,7 @@ class FontSelector extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(right: 3.0),
                   child: Container(
-                    height: _size.width * 0.017,
+                    height: _size.width * 0.016,
                     width: 160,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
