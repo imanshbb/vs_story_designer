@@ -103,8 +103,10 @@ class FontSelector extends StatelessWidget {
                                   Colors.white,
                                   Colors.white,
                                 ]
-                              : controlNotifier.gradientColors![
-                                  controlNotifier.gradientIndex],
+                              : [
+                                  const Color(0xffF4CB78),
+                                  const Color(0xffDF7E50),
+                                ],
                         )),
                     child: Center(
                       child: Text(
