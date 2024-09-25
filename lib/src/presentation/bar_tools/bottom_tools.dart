@@ -356,10 +356,7 @@ class _BottomToolsState extends State<BottomTools>
                         child: const Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Padding(
-                              padding: EdgeInsets.only(left: 0, right: 2),
-                              child: Icon(Icons.share_outlined, size: 28),
-                            ),
+                            Icon(Icons.share_outlined, size: 28),
                           ],
                         ),
                       ),
