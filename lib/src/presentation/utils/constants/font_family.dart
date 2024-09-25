@@ -174,8 +174,20 @@ class AppFonts {
         return GoogleFonts.handjetTextTheme();
       case FontType.blaka:
         return GoogleFonts.blakaTextTheme();
+      // case FontType.qahiri:
+      //   return GoogleFonts.qahiriTextTheme();
       case FontType.qahiri:
-        return GoogleFonts.qahiriTextTheme();
+        return const TextTheme(
+          bodyMedium: TextStyle(
+            fontFamily: 'assets/fonts/Lalezar.ttf',
+          ),
+          labelMedium: TextStyle(
+            fontFamily: 'assets/fonts/Lalezar.ttf',
+          ),
+          titleMedium: TextStyle(
+            fontFamily: 'assets/fonts/Lalezar.ttf',
+          ),
+        );
       case FontType.marhey:
         return GoogleFonts.marheyTextTheme();
       case FontType.gulzar:
