@@ -66,7 +66,7 @@ class FontSelector extends StatelessWidget {
           draggableWidgetNotifier, paintingNotifier, child) {
         return SizedBox(
           height: _size.width * 0.13,
-          width: _size.width,
+          width: _size.width * 2,
           // alignment: Alignment.center,
           child: PageView.builder(
             controller: editorNotifier.fontFamilyController,
@@ -80,8 +80,11 @@ class FontSelector extends StatelessWidget {
             allowImplicitScrolling: true,
             pageSnapping: false,
             itemBuilder: (context, index) {
-              return SizedBox(
-                width: 100,
+              return AnimatedOnTapButton(
+                onTap: () {
+                  editorNotifier.fontFamilyIndex = index;
+                  editorNotifier.fontFamilyController.jumpToPage(index);
+                },
                 child: Padding(
                   padding: const EdgeInsets.only(right: 21.0),
                   child: Container(
