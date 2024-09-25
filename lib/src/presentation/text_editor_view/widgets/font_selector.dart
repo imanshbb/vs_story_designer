@@ -69,7 +69,7 @@ class FontSelector extends StatelessWidget {
           width: _size.width,
           // alignment: Alignment.center,
           child: Padding(
-            padding: const EdgeInsets.only(left: 8.0),
+            padding: const EdgeInsets.only(left: 18.0),
             child: ListView.builder(
               controller: editorNotifier.fontFamilyController,
               itemCount: controlNotifier.fontList!.length,
