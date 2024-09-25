@@ -343,24 +343,20 @@ class _BottomToolsState extends State<BottomTools>
                   _createVideo = false;
                   // });
                 },
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 15.0),
-                  child: widget.onDoneButtonStyle ??
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(8),
-                            border:
-                                Border.all(color: Colors.white, width: 1.5)),
-                        child: const Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(Icons.share_outlined, size: 28),
-                          ],
-                        ),
+                child: widget.onDoneButtonStyle ??
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: Colors.white, width: 1.5)),
+                      child: const Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.share_outlined, size: 28),
+                        ],
                       ),
-                ),
+                    ),
               ),
               AnimatedOnTapButton(
                 onTap: () async {
