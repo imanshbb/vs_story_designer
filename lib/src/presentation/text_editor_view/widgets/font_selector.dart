@@ -71,6 +71,7 @@ class FontSelector extends StatelessWidget {
           child: ListView.builder(
             controller: editorNotifier.fontFamilyController,
             itemCount: controlNotifier.fontList!.length,
+            scrollDirection: Axis.horizontal,
 
             // onPageChanged: (index) {
             //   // editorNotifier.text = .
