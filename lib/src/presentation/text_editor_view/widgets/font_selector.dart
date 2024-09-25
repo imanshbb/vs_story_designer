@@ -65,7 +65,7 @@ class FontSelector extends StatelessWidget {
       builder: (context, editorNotifier, controlNotifier,
           draggableWidgetNotifier, paintingNotifier, child) {
         return SizedBox(
-          height: 60,
+          height: 80,
           width: _size.width,
           // alignment: Alignment.center,
           child: ListView.builder(
@@ -90,8 +90,7 @@ class FontSelector extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(right: 21.0),
                   child: Container(
-                    height: _size.width * 0.016,
-                    width: 160,
+                    width: 80,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         // color: index == editorNotifier.fontFamilyIndex
@@ -106,8 +105,8 @@ class FontSelector extends StatelessWidget {
                                   Colors.white,
                                 ]
                               : [
-                                  const Color(0xffF4CB78),
-                                  const Color(0xffDF7E50),
+                                  const Color(0xff274589),
+                                  const Color(0xff5AB7C2),
                                 ],
                         )),
                     child: Center(
