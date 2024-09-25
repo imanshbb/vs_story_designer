@@ -90,7 +90,7 @@ class FontSelector extends StatelessWidget {
                     editorNotifier.fontFamilyController.jumpToPage(index);
                   },
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 10.0),
+                    padding: const EdgeInsets.only(right: 7.0),
                     child: Container(
                       width: 65,
                       alignment: Alignment.center,
@@ -107,8 +107,8 @@ class FontSelector extends StatelessWidget {
                                     Colors.white,
                                   ]
                                 : [
-                                    const Color.fromARGB(255, 54, 90, 176),
-                                    const Color.fromARGB(255, 109, 211, 223),
+                                    const Color.fromARGB(255, 69, 111, 209),
+                                    const Color.fromARGB(255, 114, 218, 230),
                                   ],
                           )),
                       child: Center(
