@@ -76,37 +76,37 @@ flutter:
 
   fonts:
 
-    - family: IranSans
+    - family: alibaba-black.woff2-41970917
       fonts:
-        - asset: packages/vs_story_designer/assets/fonts/IranSans.ttf
+        - asset: packages/vs_story_designer/assets/fonts/alibaba-black.woff2-41970917.ttf
 
-    - family: Lalezar
+    - family: iran_Kharazmi
       fonts:
-        - asset: packages/vs_story_designer/assets/fonts/Lalezar.ttf
+        - asset: packages/vs_story_designer/assets/fonts/IRAN_Kharazmi.ttf
 
-    - family: MonoSpace.ttf
+    - family: IRANBlack
       fonts:
-        - asset: packages/vs_story_designer/assets/fonts/MonoSpace.ttf
+        - asset: packages/vs_story_designer/assets/fonts/IRANBlack.ttf
 
-    # - family: Varela
-    #   fonts:
-    #     - asset: packages/vs_story_designer/assets/fonts/Varela-Regular.ttf
+    - family: IranNastaliq_YasDL.com
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/IranNastaliq_YasDL.com.ttf
 
-    # - family: Vollkorn
-    #   fonts:
-    #     - asset: packages/vs_story_designer/assets/fonts/Vollkorn-Regular.ttf
+    - family: IRANSansX-Bold
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/IRANSansX-Bold.ttf
 
-    # - family: Rakkas
-    #   fonts:
-    #     - asset: packages/vs_story_designer/assets/fonts/Rakkas-Regular.ttf
+    - family: IRANSansX-Heavy
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/IRANSansX-Heavy.ttf
 
-    # - family: ConcertOne
-    #   fonts:
-    #     - asset: packages/vs_story_designer/assets/fonts/ConcertOne-Regular.ttf
+    - family: IRANSansX-Regular
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/IRANSansX-Regular.ttf
 
-    # - family: YatraOne
-    #   fonts:
-    #     - asset: packages/vs_story_designer/assets/fonts/YatraOne-Regular.ttf
+    - family: IRCompset
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/IRCompset.ttf
 
     # - family: OldStandardTT
     #   fonts:

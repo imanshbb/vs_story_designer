@@ -50,6 +50,14 @@ class AppFonts {
   static const fontFamilyListENUM = [
     FontType.openSans,
     FontType.laleZar,
+    FontType.alibabaBlackWoff,
+    FontType.iranKharazmi,
+    FontType.iranBlack,
+    FontType.iranNastaliqYasDL,
+    FontType.iranSansXBold,
+    FontType.iranSansXHeavy,
+    FontType.iranSansXRegular,
+    FontType.irCompset,
     FontType.vazirMatn,
     FontType.rubik,
     FontType.handJet,
@@ -161,16 +169,59 @@ class AppFonts {
   ];
 
   static TextTheme getTextThemeENUM(FontType val) {
-    // const TextTheme(
-    //       bodyLarge: TextStyle(
-    //         fontFamily: 'Lalezar',
-    //       ),
-    // )
     switch (val) {
       case FontType.openSans:
         return GoogleFonts.openSansTextTheme();
       case FontType.laleZar:
         return GoogleFonts.lalezarTextTheme();
+      case FontType.alibabaBlackWoff:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'alibaba-black.woff2-41970917',
+          ),
+        );
+      case FontType.iranKharazmi:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'iran_Kharazmi',
+          ),
+        );
+      case FontType.iranBlack:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'IRANBlack',
+          ),
+        );
+      case FontType.iranNastaliqYasDL:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'IranNastaliq_YasDL.com',
+          ),
+        );
+      case FontType.iranSansXBold:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'IRANSansX-Bold',
+          ),
+        );
+      case FontType.iranSansXHeavy:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'IRANSansX-Heavy',
+          ),
+        );
+      case FontType.iranSansXRegular:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'IRANSansX-Regular',
+          ),
+        );
+      case FontType.irCompset:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'IRCompset',
+          ),
+        );
       case FontType.vazirMatn:
         return GoogleFonts.vazirmatnTextTheme();
       case FontType.rubik:

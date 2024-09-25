@@ -19,6 +19,14 @@ enum ThemeType { dark, light }
 
 enum FontType {
   laleZar,
+  alibabaBlackWoff,
+  iranKharazmi,
+  iranBlack,
+  iranNastaliqYasDL,
+  iranSansXBold,
+  iranSansXHeavy,
+  iranSansXRegular,
+  irCompset,
   vazirMatn,
   rubik,
   handJet,

@@ -27,6 +27,31 @@ class FontSelector extends StatelessWidget {
         case FontType.laleZar:
           text.add('لاله‌زار');
           break;
+        case FontType.alibabaBlackWoff:
+          text.add('علی‌بابا');
+          break;
+        case FontType.iranKharazmi:
+          text.add('ایران‌خارزمی');
+          break;
+        case FontType.iranBlack:
+          text.add('ایران‌بلک');
+          break;
+        case FontType.iranNastaliqYasDL:
+          text.add('ایران‌نسخ‌طلیق');
+          break;
+        case FontType.iranSansXBold:
+          text.add('ایران‌سنس‌۱');
+          break;
+        case FontType.iranSansXHeavy:
+          text.add('ایران‌سنس۲');
+          break;
+        case FontType.iranSansXRegular:
+          text.add('ایران‌سنس۳');
+          break;
+        case FontType.irCompset:
+          text.add('ای‌ار کامپوست');
+          break;
+
         case FontType.vazirMatn:
           text.add('وزیر متن');
           break;
