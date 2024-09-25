@@ -65,8 +65,8 @@ class FontSelector extends StatelessWidget {
       builder: (context, editorNotifier, controlNotifier,
           draggableWidgetNotifier, paintingNotifier, child) {
         return SizedBox(
-          height: _size.width * 0.13,
-          width: _size.width * 2,
+          height: 50,
+          width: 100,
           // alignment: Alignment.center,
           child: PageView.builder(
             controller: editorNotifier.fontFamilyController,
