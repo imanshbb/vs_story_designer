@@ -10,7 +10,6 @@ import 'package:flutter/services.dart';
 import 'package:gal/gal.dart';
 import 'package:gif/gif.dart';
 import 'package:oktoast/oktoast.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
@@ -471,8 +470,6 @@ class _ModalWidgetState extends State<ModalWidget>
                 );
               },
               (r) {
-                print('5');
-
                 if (widget.model == 'gif') {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),

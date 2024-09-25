@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/font_family.dart';
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
@@ -58,8 +60,10 @@ class FontSelector extends StatelessWidget {
       }
     }
 
-    return Consumer2<TextEditingNotifier, ControlNotifier>(
-      builder: (context, editorNotifier, controlNotifier, child) {
+    return Consumer4<TextEditingNotifier, ControlNotifier,
+        DraggableWidgetNotifier, PaintingNotifier>(
+      builder: (context, editorNotifier, controlNotifier,
+          draggableWidgetNotifier, paintingNotifier, child) {
         return SizedBox(
           height: _size.width * 0.13,
           width: _size.width,
@@ -88,28 +92,21 @@ class FontSelector extends StatelessWidget {
                     width: 160,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      // color: index == editorNotifier.fontFamilyIndex
-                      //     ? Colors.white
-                      //     : Colors.black.withOpacity(0.4),
-                      shape: BoxShape.rectangle,
-                      border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(10),
-                      gradient: index == editorNotifier.fontFamilyIndex
-                          ? const LinearGradient(
-                              colors: [
-                                Colors.white,
-                                Colors.white,
-                              ],
-                            )
-                          : const LinearGradient(
-                              colors: [
-                                Color(0xff274589),
-                                Color(0xff5AB7C2),
-                              ],
-                              transform: GradientRotation(
-                                  BorderSide.strokeAlignCenter),
-                            ),
-                    ),
+                        // color: index == editorNotifier.fontFamilyIndex
+                        //     ? Colors.white
+                        //     : Colors.black.withOpacity(0.4),
+                        shape: BoxShape.rectangle,
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(10),
+                        gradient: LinearGradient(
+                          colors: index == editorNotifier.fontFamilyIndex
+                              ? [
+                                  Colors.white,
+                                  Colors.white,
+                                ]
+                              : controlNotifier.gradientColors![
+                                  controlNotifier.gradientIndex],
+                        )),
                     child: Center(
                       child: Text(
                         text[index],
