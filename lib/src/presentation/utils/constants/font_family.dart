@@ -178,13 +178,7 @@ class AppFonts {
       //   return GoogleFonts.qahiriTextTheme();
       case FontType.qahiri:
         return const TextTheme(
-          bodyMedium: TextStyle(
-            fontFamily: 'assets/fonts/Lalezar.ttf',
-          ),
-          labelMedium: TextStyle(
-            fontFamily: 'assets/fonts/Lalezar.ttf',
-          ),
-          titleMedium: TextStyle(
+          bodyLarge: TextStyle(
             fontFamily: 'assets/fonts/Lalezar.ttf',
           ),
         );
