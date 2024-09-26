@@ -75,9 +75,9 @@ flutter:
     - packages/vs_story_designer/assets/images/instagram_logo.png
 
   fonts:
-    - family: LaleZar
+    - family: IranSans
       fonts:
-        - asset: packages/vs_story_designer/assets/fonts/IranNastaliq_YasDL.com.ttf
+        - asset: packages/vs_story_designer/assets/fonts/IranSans.ttf
     - family: Alibabablackwoff2
       fonts:
         - asset: packages/vs_story_designer/assets/fonts/alibaba-black.woff2-41970917.ttf
