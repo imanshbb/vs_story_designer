@@ -159,7 +159,6 @@ class FontSelector extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               // allowImplicitScrolling: true,
               // pageSnapping: false,
-              shrinkWrap: true,
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: () {
