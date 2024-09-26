@@ -77,16 +77,16 @@ flutter:
   fonts:
     - family: Lalezar
       fonts:
-        - asset: packages/vs_story_designer/assets/fonts/Lalezar.ttf
+        - asset: packages/vs_story_designer/assets/fonts/IRAN_Kharazmi.ttf
     - family: Alibabablackwoff2
       fonts:
         - asset: packages/vs_story_designer/assets/fonts/alibaba-black.woff2-41970917.ttf
 
-    - family: iranKharazmi
+    - family: Irankharazmi
       fonts:
         - asset: packages/vs_story_designer/assets/fonts/IRAN_Kharazmi.ttf
 
-    - family: iranBlack
+    - family: Iranblack
       fonts:
         - asset: packages/vs_story_designer/assets/fonts/IRANBlack.ttf
 

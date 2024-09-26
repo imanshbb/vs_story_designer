@@ -177,19 +177,19 @@ class AppFonts {
       case FontType.alibabaBlackWoff:
         return const TextTheme(
           bodyLarge: TextStyle(
-            fontFamily: 'alibabaBlackWoff2',
+            fontFamily: 'Alibabablackwoff2',
           ),
         );
       case FontType.iranKharazmi:
         return const TextTheme(
           bodyLarge: TextStyle(
-            fontFamily: 'iranKharazmi',
+            fontFamily: 'Irankharazmi',
           ),
         );
       case FontType.iranBlack:
         return const TextTheme(
           bodyLarge: TextStyle(
-            fontFamily: 'iranBlack',
+            fontFamily: 'Iranblack',
           ),
         );
       case FontType.iranNastaliqYasDL:
@@ -227,7 +227,7 @@ class AppFonts {
       case FontType.rubik:
         return const TextTheme(
           bodyLarge: TextStyle(
-            fontFamily: 'Alibabablackwoff2',
+            fontFamily: 'Lalezar',
           ),
         );
       case FontType.handJet:
