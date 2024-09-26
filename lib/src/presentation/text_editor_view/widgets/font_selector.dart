@@ -1,6 +1,7 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -146,7 +147,7 @@ class FontSelector extends StatelessWidget {
           // alignment: Alignment.center,
           child: Padding(
             padding: const EdgeInsets.only(left: 18.0),
-            child: PageView.builder(
+            child: ListView.builder(
               controller: editorNotifier.fontFamilyController,
               itemCount: controlNotifier.fontList!.length,
               scrollDirection: Axis.horizontal,
@@ -157,8 +158,11 @@ class FontSelector extends StatelessWidget {
               //   HapticFeedback.heavyImpact();
               // },
               physics: const BouncingScrollPhysics(),
-              allowImplicitScrolling: true,
-              pageSnapping: false,
+              // allowImplicitScrolling: true,
+              // pageSnapping: false,
+              addAutomaticKeepAlives: false,
+              addRepaintBoundaries: false,
+              addSemanticIndexes: false,
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: () {
