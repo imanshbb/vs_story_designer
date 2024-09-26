@@ -51,7 +51,6 @@ class FontSelector extends StatelessWidget {
         case FontType.irCompset:
           text.add('ای‌ار کامپوست');
           break;
-
         case FontType.vazirMatn:
           text.add('وزیر متن');
           break;

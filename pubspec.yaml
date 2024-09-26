@@ -78,35 +78,35 @@ flutter:
 
     - family: alibaba-black.woff2-41970917
       fonts:
-        - asset: packages/vs_story_designer/lib/assets/fonts/alibaba-black.woff2-41970917.ttf
+        - asset: packages/vs_story_designer/assets/fonts/alibaba-black.woff2-41970917.ttf
 
     - family: iran_Kharazmi
       fonts:
-        - asset: packages/vs_story_designer/lib/assets/fonts/IRAN_Kharazmi.ttf
+        - asset: packages/vs_story_designer/assets/fonts/IRAN_Kharazmi.ttf
 
     - family: IRANBlack
       fonts:
-        - asset: packages/vs_story_designer/lib/assets/fonts/IRANBlack.ttf
+        - asset: packages/vs_story_designer/assets/fonts/IRANBlack.ttf
 
     - family: IranNastaliq_YasDL.com
       fonts:
-        - asset: packages/vs_story_designer/lib/assets/fonts/IranNastaliq_YasDL.com.ttf
+        - asset: packages/vs_story_designer/assets/fonts/IranNastaliq_YasDL.com.ttf
 
     - family: IRANSansX-Bold
       fonts:
-        - asset: packages/vs_story_designer/lib/assets/fonts/IRANSansX-Bold.ttf
+        - asset: packages/vs_story_designer/assets/fonts/IRANSansX-Bold.ttf
 
     - family: IRANSansX-Heavy
       fonts:
-        - asset: packages/vs_story_designer/lib/assets/fonts/IRANSansX-Heavy.ttf
+        - asset: packages/vs_story_designer/assets/fonts/IRANSansX-Heavy.ttf
 
     - family: IRANSansX-Regular
       fonts:
-        - asset: packages/vs_story_designer/lib/assets/fonts/IRANSansX-Regular.ttf
+        - asset: packages/vs_story_designer/assets/fonts/IRANSansX-Regular.ttf
 
     - family: IRCompset
       fonts:
-        - asset: packages/vs_story_designer/lib/assets/fonts/IRCompset.ttf
+        - asset: packages/vs_story_designer/assets/fonts/IRCompset.ttf
 
     # - family: OldStandardTT
     #   fonts:
