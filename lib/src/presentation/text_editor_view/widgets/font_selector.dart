@@ -148,6 +148,15 @@ class FontSelector extends StatelessWidget {
           // محاسبه موقعیت اسکرول بر اساس ایندکس
           double scrollPosition = index * itemWidth - centerPosition;
 
+          if (scrollPosition < 0) {
+            scrollPosition =
+                0; // اگر موقعیت کمتر از صفر است، اسکرول به ابتدای لیست
+          } else if (scrollPosition >
+              editorNotifier.fontFamilyController.position.maxScrollExtent) {
+            scrollPosition = editorNotifier.fontFamilyController.position
+                .maxScrollExtent; // اگر موقعیت بیشتر از انتهای لیست است، اسکرول به انتها
+          }
+
           // اسکرول به موقعیت محاسبه شده
           editorNotifier.fontFamilyController.animateTo(
             scrollPosition,
