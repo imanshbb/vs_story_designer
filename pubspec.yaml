@@ -112,47 +112,75 @@ flutter:
     - family: irCompset
       fonts:
         - asset: packages/vs_story_designer/assets/fonts/IRCompset.ttf
+        
+    - family: IRCompsetBold
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/IRCompsetBold.ttf
 
-    # - family: OldStandardTT
-    #   fonts:
-    #     - asset: packages/vs_story_designer/assets/fonts/OldStandardTT-Italic.ttf
+    - family: IRCompsetIra
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/IRCompsetIra.ttf
 
-    # - family: Neonderthaw
-    #   fonts:
-    #     - asset: packages/vs_story_designer/assets/fonts/Neonderthaw-Regular.ttf
+    - family: IRDastNevis
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/IRDastNevis.ttf
 
-    # - family: DancingScript
-    #   fonts:
-    #     - asset: packages/vs_story_designer/assets/fonts/DancingScript-VariableFont_wght.ttf
+    - family: irsans_YasDL
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/irsans_YasDL.com.ttf
 
-    # - family: SedgwickAve
-    #   fonts:
-    #     - asset: packages/vs_story_designer/assets/fonts/SedgwickAve-Regular.ttf
+    - family: KALAMEHـBLACK
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/KALAMEH BLACK.TTF
 
-    # - family: IndieFlower
-    #   fonts:
-    #     - asset: packages/vs_story_designer/assets/fonts/IndieFlower-Regular.ttf
+    - family: KalamehWeb_Bold
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/KalamehWeb_Bold.ttf
+    
+    - family: Mj_Saeed_YasDL
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/Mj_Saeed_YasDL.com.ttf
 
-    # - family: Sacramento
-    #   fonts:
-    #     - asset: packages/vs_story_designer/assets/fonts/Sacramento-Regular.ttf
+    - family: Peyda-Black
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/Peyda-Black.ttf
 
-    # - family: PressStart2P
-    #   fonts:
-    #     - asset: packages/vs_story_designer/assets/fonts/PressStart2P-Regular.ttf
+    - family: Peyda-Medium
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/Peyda-Medium.ttf
+      
+    - family: Peyda-Thin
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/Peyda-Thin.ttf
 
-    # - family: FrederickatheGreat
-    #   fonts:
-    #     - asset: packages/vs_story_designer/assets/fonts/FrederickatheGreat-Regular.ttf
+    - family: Pinar-Bold
+      fonts:
+        - asset: packages/vs_story_designer/assets/fontsPinar-Bold.ttf
 
-    # - family: ReenieBeanie
-    #   fonts:
-    #     - asset: packages/vs_story_designer/assets/fonts/ReenieBeanie-Regular.ttf
+    - family: Pinar-Medium
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/Pinar-Medium.ttf
 
-    # - family: BungeeShade
-    #   fonts:
-    #     - asset: packages/vs_story_designer/assets/fonts/BungeeShade-Regular.ttf
+    - family: RokhFaNum-Black
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/RokhFaNum-Black.ttf
 
-    # - family: UnifrakturMaguntia
-    #   fonts:
-    #     - asset: packages/vs_story_designer/assets/fonts/UnifrakturMaguntia-Regular.ttf
+    - family: RokhFaNum-Normal
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/RokhFaNum-Normal.ttf
+    
+    - family: YagutـBold_YasDL.com
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/Yagut Bold_YasDL.com.TTF
+
+    - family: YaldaـNormal_YasDL.com
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/Yalda Normal_YasDL.com.TTF
+   
+    - family: ZarـBold_YasDL.com
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/Zar Bold_YasDL.com.TTF
+    
+    - family: Zar Normal_YasDL.com
+      fonts:
+        - asset: packages/vs_story_designer/assets/fonts/Zar Normal_YasDL.com.TTF

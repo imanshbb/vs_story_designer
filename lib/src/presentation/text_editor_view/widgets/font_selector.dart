@@ -41,19 +41,70 @@ class FontSelector extends StatelessWidget {
           text.add('ایران‌نسخ‌طلیق');
           break;
         case FontType.iranSansXBold:
-          text.add('ایران‌سنس‌۱');
+          text.add('ایران‌سنس‌ضخیم');
           break;
         case FontType.iranSansXHeavy:
-          text.add('ایران‌سنس۲');
+          text.add('ایران‌سنس‌بزرک');
           break;
         case FontType.iranSansXRegular:
-          text.add('ایران‌سنس۳');
+          text.add('ایران‌سنس‌نازک');
           break;
         case FontType.irCompset:
           text.add('ای‌ار کامپوست');
           break;
-        case FontType.vazirMatn:
-          text.add('وزیر متن');
+        case FontType.irCompsetBold:
+          text.add('‌‌ای‌ار کامپوست‌ضخیم');
+          break;
+        case FontType.irCompsetIra:
+          text.add('‌‌ای‌ار کامپوست‌ایرا');
+          break;
+        case FontType.irDastNevis:
+          text.add('‌‌ای‌ار دست‌نویس');
+          break;
+        case FontType.irsansYasDL:
+          text.add('ایران‌سنس');
+          break;
+        case FontType.kALAMEHBLACK:
+          text.add('کلمه‌ بلک');
+          break;
+        case FontType.kalamehWebBold:
+          text.add('کلمه‌ وب‌ضخیم');
+          break;
+        case FontType.mjSaeedYasDL:
+          text.add('سعید');
+          break;
+        case FontType.peydaMedium:
+          text.add('پیدامتوسط');
+          break;
+        case FontType.peydaBlack:
+          text.add('پیدابلک');
+          break;
+        case FontType.peydaThin:
+          text.add('پیدانازک');
+          break;
+        case FontType.pinarBold:
+          text.add('پینار‌ضخیم');
+          break;
+        case FontType.pinarMedium:
+          text.add('پینارمتوسط');
+          break;
+        case FontType.rokhFaNumBlack:
+          text.add('رخ‌بلک');
+          break;
+        case FontType.rokhFaNumNormal:
+          text.add('رخ‌بلک');
+          break;
+        case FontType.yagutBoldYasDLcom:
+          text.add('یاقوت‌ضخیم');
+          break;
+        case FontType.yaldaNormalYasDLCom:
+          text.add('یاقوت‌متوسط');
+          break;
+        case FontType.zarBoldYasDLcom:
+          text.add('زارضخیم');
+          break;
+        case FontType.zarNormalYasDLcom:
+          text.add('زارمتوسط');
           break;
         case FontType.rubik:
           text.add('روبیک');

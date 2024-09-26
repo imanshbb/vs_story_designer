@@ -570,17 +570,28 @@ class _ModalWidgetState extends State<ModalWidget>
                           child: SizedBox(
                             width: 100,
                             height: 100,
-                            child: Gif(
-                              controller: _controller,
-                              image: NetworkImage(
-                                'https://farahigram.com/files${r.gif![index].url!}',
-                              ),
-                              autostart: Autostart.loop,
-                              placeholder: (context) =>
-                                  const Text('Loading...'),
-                              onFetchCompleted: () {
-                                _controller?.reset();
-                                _controller?.forward();
+                            child: Image.network(
+                              'https://farahigram.com/files${r.gif![index].url!}',
+                              loadingBuilder:
+                                  (context, child, loadingProgress) {
+                                if (loadingProgress != null) {
+                                  return Padding(
+                                    padding: const EdgeInsets.all(24.0),
+                                    child: CircularProgressIndicator(
+                                      value:
+                                          loadingProgress.expectedTotalBytes !=
+                                                  null
+                                              ? loadingProgress
+                                                      .cumulativeBytesLoaded /
+                                                  loadingProgress
+                                                      .expectedTotalBytes!
+                                              : null,
+                                      color: const Color(0xff3872E4),
+                                    ),
+                                  );
+                                } else {
+                                  return child;
+                                }
                               },
                             ),
                           ),
@@ -619,7 +630,29 @@ class _ModalWidgetState extends State<ModalWidget>
                             width: 100,
                             height: 100,
                             child: Image.network(
-                                'https://farahigram.com/files${r.background![index].url!}'),
+                              'https://farahigram.com/files${r.background![index].url!}',
+                              loadingBuilder:
+                                  (context, child, loadingProgress) {
+                                if (loadingProgress != null) {
+                                  return Padding(
+                                    padding: const EdgeInsets.all(24.0),
+                                    child: CircularProgressIndicator(
+                                      value:
+                                          loadingProgress.expectedTotalBytes !=
+                                                  null
+                                              ? loadingProgress
+                                                      .cumulativeBytesLoaded /
+                                                  loadingProgress
+                                                      .expectedTotalBytes!
+                                              : null,
+                                      color: const Color(0xff3872E4),
+                                    ),
+                                  );
+                                } else {
+                                  return child;
+                                }
+                              },
+                            ),
                           ),
                         );
                       },
@@ -657,6 +690,27 @@ class _ModalWidgetState extends State<ModalWidget>
                             height: 100,
                             child: Image.network(
                               'https://farahigram.com/files${r.sticker![index].url!}',
+                              loadingBuilder:
+                                  (context, child, loadingProgress) {
+                                if (loadingProgress != null) {
+                                  return Padding(
+                                    padding: const EdgeInsets.all(24.0),
+                                    child: CircularProgressIndicator(
+                                      value:
+                                          loadingProgress.expectedTotalBytes !=
+                                                  null
+                                              ? loadingProgress
+                                                      .cumulativeBytesLoaded /
+                                                  loadingProgress
+                                                      .expectedTotalBytes!
+                                              : null,
+                                      color: const Color(0xff3872E4),
+                                    ),
+                                  );
+                                } else {
+                                  return child;
+                                }
+                              },
                             ),
                           ),
                         );

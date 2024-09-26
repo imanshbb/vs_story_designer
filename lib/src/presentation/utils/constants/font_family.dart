@@ -58,6 +58,24 @@ class AppFonts {
     FontType.iranSansXHeavy,
     FontType.iranSansXRegular,
     FontType.irCompset,
+    FontType.irCompsetBold,
+    FontType.irCompsetIra,
+    FontType.irDastNevis,
+    FontType.irsansYasDL,
+    FontType.kALAMEHBLACK,
+    FontType.kalamehWebBold,
+    FontType.mjSaeedYasDL,
+    FontType.peydaMedium,
+    FontType.peydaBlack,
+    FontType.peydaThin,
+    FontType.pinarBold,
+    FontType.pinarMedium,
+    FontType.rokhFaNumBlack,
+    FontType.rokhFaNumNormal,
+    FontType.yagutBoldYasDLcom,
+    FontType.yaldaNormalYasDLCom,
+    FontType.zarBoldYasDLcom,
+    FontType.zarNormalYasDLcom,
     FontType.vazirMatn,
     FontType.rubik,
     FontType.handJet,
@@ -222,14 +240,118 @@ class AppFonts {
             fontFamily: 'irCompset',
           ),
         );
+      case FontType.irCompsetBold:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'IRCompsetBold',
+          ),
+        );
+      case FontType.irCompsetIra:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'IRCompsetIra',
+          ),
+        );
+      case FontType.irDastNevis:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'IRDastNevis',
+          ),
+        );
+      case FontType.irsansYasDL:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'irsans_YasDL',
+          ),
+        );
+      case FontType.kALAMEHBLACK:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'KALAMEHـBLACK',
+          ),
+        );
+      case FontType.kalamehWebBold:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'KalamehWeb_Bold',
+          ),
+        );
+      case FontType.mjSaeedYasDL:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'Mj_Saeed_YasDL',
+          ),
+        );
+      case FontType.peydaBlack:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'Peyda-Black',
+          ),
+        );
+      case FontType.peydaMedium:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'Peyda-Medium',
+          ),
+        );
+      case FontType.peydaThin:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'Peyda-Thin',
+          ),
+        );
+      case FontType.pinarBold:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'Pinar-Bold',
+          ),
+        );
+      case FontType.pinarMedium:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'Pinar-Medium',
+          ),
+        );
+      case FontType.rokhFaNumBlack:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'RokhFaNum-Black',
+          ),
+        );
+      case FontType.rokhFaNumNormal:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'RokhFaNum-Normal',
+          ),
+        );
+      case FontType.yagutBoldYasDLcom:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'YagutـBold_YasDL.com',
+          ),
+        );
+      case FontType.yaldaNormalYasDLCom:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'YaldaـNormal_YasDL.com',
+          ),
+        );
+      case FontType.zarBoldYasDLcom:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'ZarـBold_YasDL.com',
+          ),
+        );
+      case FontType.zarNormalYasDLcom:
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'Zar Normal_YasDL.com',
+          ),
+        );
       case FontType.vazirMatn:
         return GoogleFonts.vazirmatnTextTheme();
       case FontType.rubik:
-        return const TextTheme(
-          bodyLarge: TextStyle(
-            fontFamily: 'IranSans',
-          ),
-        );
+        return GoogleFonts.rubikTextTheme();
       case FontType.handJet:
         return GoogleFonts.handjetTextTheme();
       case FontType.blaka:
