@@ -50,13 +50,13 @@ class FontSelector extends StatelessWidget {
           text.add('ایران‌سنس‌نازک');
           break;
         case FontType.irCompset:
-          text.add('ای‌ار کامپوست');
+          text.add('کامپوست');
           break;
         case FontType.irCompsetBold:
-          text.add('‌‌ای‌ار کامپوست‌ضخیم');
+          text.add('‌‌کامپوست‌ضخیم');
           break;
         case FontType.irCompsetIra:
-          text.add('‌‌ای‌ار کامپوست‌ایرا');
+          text.add('‌‌کامپوست‌ایرا');
           break;
         case FontType.irDastNevis:
           text.add('‌‌ای‌ار دست‌نویس');

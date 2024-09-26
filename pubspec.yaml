@@ -155,7 +155,7 @@ flutter:
 
     - family: Pinar-Bold
       fonts:
-        - asset: packages/vs_story_designer/assets/fontsPinar-Bold.ttf
+        - asset: packages/vs_story_designer/assets/fonts/Pinar-Bold.ttf
 
     - family: Pinar-Medium
       fonts:
