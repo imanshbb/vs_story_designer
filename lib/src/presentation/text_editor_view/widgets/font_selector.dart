@@ -149,7 +149,7 @@ class FontSelector extends StatelessWidget {
           // alignment: Alignment.center,
           child: Padding(
             padding: const EdgeInsets.only(left: 18.0),
-            child: ListView.builder(
+            child: PageView.builder(
               controller: editorNotifier.fontFamilyController,
               itemCount: controlNotifier.fontList!.length,
               scrollDirection: Axis.horizontal,
@@ -175,25 +175,26 @@ class FontSelector extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.only(right: 7.0),
                       child: Container(
-                        width: 65 * scale,
+                        width: 100 * scale,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                            // color: index == editorNotifier.fontFamilyIndex
-                            //     ? Colors.white
-                            //     : Colors.black.withOpacity(0.4),
-                            shape: BoxShape.rectangle,
-                            borderRadius: BorderRadius.circular(10),
-                            gradient: LinearGradient(
-                              colors: index == editorNotifier.fontFamilyIndex
-                                  ? [
-                                      Colors.white,
-                                      Colors.white,
-                                    ]
-                                  : [
-                                      const Color.fromARGB(255, 69, 111, 209),
-                                      const Color.fromARGB(255, 98, 191, 201),
-                                    ],
-                            )),
+                          // color: index == editorNotifier.fontFamilyIndex
+                          //     ? Colors.white
+                          //     : Colors.black.withOpacity(0.4),
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.circular(10),
+                          gradient: LinearGradient(
+                            colors: index == editorNotifier.fontFamilyIndex
+                                ? [
+                                    Colors.white,
+                                    Colors.white,
+                                  ]
+                                : [
+                                    const Color.fromARGB(255, 69, 111, 209),
+                                    const Color.fromARGB(255, 98, 191, 201),
+                                  ],
+                          ),
+                        ),
                         child: Center(
                           child: Padding(
                             padding: const EdgeInsets.all(4.0),
