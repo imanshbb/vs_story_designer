@@ -141,21 +141,21 @@ class FontSelector extends StatelessWidget {
           draggableWidgetNotifier, paintingNotifier, child) {
         void _scrollToSelectedIndex(int index) {
           // محاسبه موقعیت مرکزی برای آیتم انتخابی
-          double screenWidth = MediaQuery.of(context).size.width;
-          double itemWidth = 65; // عرض هر آیتم
-          double centerPosition = (screenWidth / 2) - (itemWidth / 2);
+          // double screenWidth = MediaQuery.of(context).size.width;
+          // double itemWidth = 65; // عرض هر آیتم
+          // double centerPosition = (screenWidth / 2) - (itemWidth / 2);
 
           // محاسبه موقعیت اسکرول بر اساس ایندکس
-          double scrollPosition = index * itemWidth - centerPosition;
+          double scrollPosition = index * 65 - 130;
 
-          if (scrollPosition < 0) {
-            scrollPosition =
-                0; // اگر موقعیت کمتر از صفر است، اسکرول به ابتدای لیست
-          } else if (scrollPosition >
-              editorNotifier.fontFamilyController.position.maxScrollExtent) {
-            scrollPosition = editorNotifier.fontFamilyController.position
-                .maxScrollExtent; // اگر موقعیت بیشتر از انتهای لیست است، اسکرول به انتها
-          }
+          // if (scrollPosition < 0) {
+          //   scrollPosition =
+          //       0; // اگر موقعیت کمتر از صفر است، اسکرول به ابتدای لیست
+          // } else if (scrollPosition >
+          //     editorNotifier.fontFamilyController.position.maxScrollExtent) {
+          //   scrollPosition = editorNotifier.fontFamilyController.position
+          //       .maxScrollExtent; // اگر موقعیت بیشتر از انتهای لیست است، اسکرول به انتها
+          // }
 
           // اسکرول به موقعیت محاسبه شده
           editorNotifier.fontFamilyController.animateTo(
@@ -182,7 +182,6 @@ class FontSelector extends StatelessWidget {
               //   HapticFeedback.heavyImpact();
               // },
               physics: const BouncingScrollPhysics(),
-              padding: const EdgeInsets.all(20.0),
 
               itemBuilder: (context, index) {
                 return AnimatedOnTapButton(
