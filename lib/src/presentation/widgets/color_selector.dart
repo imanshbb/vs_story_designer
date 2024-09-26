@@ -56,7 +56,7 @@ class ColorSelector extends StatelessWidget {
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return AnimatedOnTapButton(
+                    return GestureDetector(
                       onTap: () {
                         if (controlProvider.isPainting) {
                           paintingProvider.lineColor = index;

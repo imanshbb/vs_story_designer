@@ -146,10 +146,7 @@ class FontSelector extends StatelessWidget {
           // alignment: Alignment.center,
           child: Padding(
             padding: const EdgeInsets.only(left: 18.0),
-            child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 1,
-              ),
+            child: ListView.builder(
               controller: editorNotifier.fontFamilyController,
               itemCount: controlNotifier.fontList!.length,
               scrollDirection: Axis.horizontal,
