@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:gal/gal.dart';
@@ -76,12 +77,23 @@ class _TopToolsState extends State<TopTools> {
                                 .screenshotController
                                 .capture()
                                 .then(
-                                  (value) {},
+                              (value) async {
+                                final String dir =
+                                    (await getApplicationDocumentsDirectory())
+                                        .path;
+                                // await Clipboard.setData(ClipboardData(
+                                //     text: 'content://$dir/image.png'));
+                                String imagePath = '$dir/${DateTime.now()}.png';
+                                File capturedFile = File(imagePath);
+                                await capturedFile.writeAsBytes(value!);
+
+                                copyImage(
+                                  await capturedFile.readAsBytes(),
+                                  imagePath,
                                 );
-                            File capturedFile = File(response);
-                            copyImage(
-                              await capturedFile.readAsBytes(),
-                              response,
+
+                                return true;
+                              },
                             );
 
                             if (response) {
