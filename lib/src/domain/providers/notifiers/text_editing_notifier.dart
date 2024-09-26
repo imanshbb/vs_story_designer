@@ -189,8 +189,9 @@ class TextEditingNotifier extends ChangeNotifier {
     _fontAnimationIndex = 0;
     _textAlign = TextAlign.center;
     _backGroundColor = Colors.transparent;
-    _fontFamilyController = PageController(viewportFraction: .125);
-    _textAnimationController = PageController(viewportFraction: .125);
+
+    _fontFamilyController = PageController(viewportFraction: .6);
+    _textAnimationController = PageController(viewportFraction: .6);
     _isFontFamily = true;
     _isTextAnimation = false;
     _textList = [];
