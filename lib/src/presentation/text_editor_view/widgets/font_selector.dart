@@ -1,11 +1,7 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
-import 'dart:math';
-
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
@@ -146,7 +142,7 @@ class FontSelector extends StatelessWidget {
         void _scrollToSelectedIndex(int index) {
           // محاسبه موقعیت مرکزی برای آیتم انتخابی
           double screenWidth = MediaQuery.of(context).size.width;
-          double itemWidth = 100; // عرض هر آیتم
+          double itemWidth = 65; // عرض هر آیتم
           double centerPosition = (screenWidth / 2) - (itemWidth / 2);
 
           // محاسبه موقعیت اسکرول بر اساس ایندکس
