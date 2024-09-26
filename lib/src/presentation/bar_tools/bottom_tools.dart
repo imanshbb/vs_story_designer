@@ -276,7 +276,7 @@ class _BottomToolsState extends State<BottomTools>
                         padding: EdgeInsets.only(left: 0, right: 2),
                         child: Icon(
                           Icons.gif,
-                          size: 34,
+                          size: 28,
                           color: Color.fromARGB(255, 66, 66, 66),
                         ),
                       ),
@@ -550,7 +550,7 @@ class _ModalWidgetState extends State<ModalWidget>
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () async {
-                            showToast('لطفا منتظر بمانید...');
+                            showToast('...لطفا منتظر بمانید');
                             // Clipboard.setData(
 
                             // );
@@ -611,7 +611,7 @@ class _ModalWidgetState extends State<ModalWidget>
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () async {
-                            showToast('لطفا منتظر بمانید...');
+                            showToast('...لطفا منتظر بمانید');
                             var fileName =
                                 '${Directory.systemTemp.path}/file.${extractExtension(r.background![index].url!)}';
 
@@ -669,7 +669,7 @@ class _ModalWidgetState extends State<ModalWidget>
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () async {
-                            showToast('لطفا منتظر بمانید...');
+                            showToast('...لطفا منتظر بمانید');
                             var fileName =
                                 '${Directory.systemTemp.path}/file.${extractExtension(r.sticker![index].url!)}';
 
