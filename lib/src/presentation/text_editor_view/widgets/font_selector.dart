@@ -182,6 +182,8 @@ class FontSelector extends StatelessWidget {
               //   HapticFeedback.heavyImpact();
               // },
               physics: const BouncingScrollPhysics(),
+              padding: const EdgeInsets.all(20.0),
+
               itemBuilder: (context, index) {
                 return AnimatedOnTapButton(
                   onTap: () {
