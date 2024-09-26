@@ -75,7 +75,7 @@ flutter:
     - packages/vs_story_designer/assets/images/instagram_logo.png
 
   fonts:
-    - family: Lalezar
+    - family: LaleZar
       fonts:
         - asset: packages/vs_story_designer/assets/fonts/IRAN_Kharazmi.ttf
     - family: Alibabablackwoff2
