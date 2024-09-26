@@ -225,7 +225,11 @@ class AppFonts {
       case FontType.vazirMatn:
         return GoogleFonts.vazirmatnTextTheme();
       case FontType.rubik:
-        return GoogleFonts.rubikTextTheme();
+        return const TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'alibabaBlackWoff2',
+          ),
+        );
       case FontType.handJet:
         return GoogleFonts.handjetTextTheme();
       case FontType.blaka:
