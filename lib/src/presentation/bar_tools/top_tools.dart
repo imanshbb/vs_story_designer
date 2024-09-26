@@ -76,19 +76,12 @@ class _TopToolsState extends State<TopTools> {
                                 .screenshotController
                                 .capture()
                                 .then(
-                              (value) async {
-                                final String dir =
-                                    (await getApplicationDocumentsDirectory())
-                                        .path;
-                                // await Clipboard.setData(ClipboardData(
-                                //     text: 'content://$dir/image.png'));
-                                String imagePath = '$dir/${DateTime.now()}.png';
-                                File capturedFile = File(imagePath);
-                                copyImage(
-                                  await capturedFile.readAsBytes(),
-                                  imagePath,
+                                  (value) {},
                                 );
-                              },
+                            File capturedFile = File(response);
+                            copyImage(
+                              await capturedFile.readAsBytes(),
+                              response,
                             );
 
                             if (response) {
