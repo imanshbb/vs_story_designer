@@ -72,25 +72,6 @@ class _TopToolsState extends State<TopTools> {
                         onTap: () async {
                           if (paintingNotifier.lines.isNotEmpty ||
                               itemNotifier.draggableWidget.isNotEmpty) {
-                            showDialog(
-                                context: context,
-                                barrierDismissible: false,
-                                builder: (BuildContext context) {
-                                  return Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Card(
-                                        color: Colors.white,
-                                        child: Container(
-                                          margin: const EdgeInsets.all(50),
-                                          child:
-                                              const CircularProgressIndicator(),
-                                        ),
-                                      ),
-                                    ],
-                                  );
-                                });
-
                             var response = await DraggableWidget
                                 .screenshotController
                                 .capture()
