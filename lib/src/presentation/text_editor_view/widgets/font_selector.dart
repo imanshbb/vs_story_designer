@@ -146,7 +146,7 @@ class FontSelector extends StatelessWidget {
           // double centerPosition = (screenWidth / 2) - (itemWidth / 2);
 
           // محاسبه موقعیت اسکرول بر اساس ایندکس
-          double scrollPosition = index * 65 - 130;
+          double scrollPosition = index * 73 - 140;
 
           // if (scrollPosition < 0) {
           //   scrollPosition =
