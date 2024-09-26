@@ -101,7 +101,6 @@ class _TopToolsState extends State<TopTools> {
                             } else {}
 
                             // ignore: use_build_context_synchronously
-                            Navigator.of(context, rootNavigator: true).pop();
                           } else {
                             showToast('یک تغییر ایجاد کنید');
                           }
