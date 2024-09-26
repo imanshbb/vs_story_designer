@@ -149,7 +149,7 @@ class FontSelector extends StatelessWidget {
           // alignment: Alignment.center,
           child: Padding(
             padding: const EdgeInsets.only(left: 18.0),
-            child: ListView.builder(
+            child: PageView.builder(
               controller: editorNotifier.fontFamilyController,
               itemCount: controlNotifier.fontList!.length,
               scrollDirection: Axis.horizontal,
@@ -160,12 +160,16 @@ class FontSelector extends StatelessWidget {
               //   HapticFeedback.heavyImpact();
               // },
               physics: const BouncingScrollPhysics(),
-              // allowImplicitScrolling: true,
-              // pageSnapping: false,
-              addAutomaticKeepAlives: false,
-              addRepaintBoundaries: false,
-              addSemanticIndexes: false,
+              allowImplicitScrolling: true,
+              pageSnapping: false,
+              onPageChanged: (index) {
+                editorNotifier.fontFamilyIndex = index;
+                HapticFeedback.heavyImpact();
+              },
               itemBuilder: (context, index) {
+                double scale = max(0.8,
+                    (1 - (editorNotifier.fontFamilyIndex - index).abs()) + 0.2);
+
                 return GestureDetector(
                   onTap: () {
                     editorNotifier.fontFamilyIndex = index;
@@ -174,7 +178,7 @@ class FontSelector extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(right: 7.0),
                     child: Container(
-                      width: 65,
+                      width: 65 * scale,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                           // color: index == editorNotifier.fontFamilyIndex
