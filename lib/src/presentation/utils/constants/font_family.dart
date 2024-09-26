@@ -176,10 +176,10 @@ class AppFonts {
         return GoogleFonts.lalezarTextTheme();
       case FontType.alibabaBlackWoff:
         return const TextTheme(
-          bodyLarge: TextStyle(
-            fontFamily: 'alibabaBlackWoff2',
-          ),
-        );
+            // bodyLarge: TextStyle(
+            //   fontFamily: 'alibabaBlackWoff2',
+            // ),
+            );
       case FontType.iranKharazmi:
         return const TextTheme(
           bodyLarge: TextStyle(
