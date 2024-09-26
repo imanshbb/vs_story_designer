@@ -177,49 +177,49 @@ class AppFonts {
       case FontType.alibabaBlackWoff:
         return const TextTheme(
           bodyLarge: TextStyle(
-            fontFamily: 'alibaba-black.woff2-41970917',
+            fontFamily: 'alibabaBlackWoff2',
           ),
         );
       case FontType.iranKharazmi:
         return const TextTheme(
           bodyLarge: TextStyle(
-            fontFamily: 'iran_Kharazmi',
+            fontFamily: 'iranKharazmi',
           ),
         );
       case FontType.iranBlack:
         return const TextTheme(
           bodyLarge: TextStyle(
-            fontFamily: 'IRANBlack',
+            fontFamily: 'iranBlack',
           ),
         );
       case FontType.iranNastaliqYasDL:
         return const TextTheme(
           bodyLarge: TextStyle(
-            fontFamily: 'IranNastaliq_YasDL.com',
+            fontFamily: 'iranNastaliqYasdlCom',
           ),
         );
       case FontType.iranSansXBold:
         return const TextTheme(
           bodyLarge: TextStyle(
-            fontFamily: 'IRANSansX-Bold',
+            fontFamily: 'iranSansXBold',
           ),
         );
       case FontType.iranSansXHeavy:
         return const TextTheme(
           bodyLarge: TextStyle(
-            fontFamily: 'IRANSansX-Heavy',
+            fontFamily: 'iranSansXHeavy',
           ),
         );
       case FontType.iranSansXRegular:
         return const TextTheme(
           bodyLarge: TextStyle(
-            fontFamily: 'IRANSansX-Regular',
+            fontFamily: 'iranSansXRegular',
           ),
         );
       case FontType.irCompset:
         return const TextTheme(
           bodyLarge: TextStyle(
-            fontFamily: 'IRCompset',
+            fontFamily: 'irCompset',
           ),
         );
       case FontType.vazirMatn:

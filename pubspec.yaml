@@ -76,35 +76,35 @@ flutter:
 
   fonts:
 
-    - family: alibaba-black.woff2-41970917
+    - family: alibabaBlackWoff2
       fonts:
         - asset: packages/vs_story_designer/assets/fonts/alibaba-black.woff2-41970917.ttf
 
-    - family: iran_Kharazmi
+    - family: iranKharazmi
       fonts:
         - asset: packages/vs_story_designer/assets/fonts/IRAN_Kharazmi.ttf
 
-    - family: IRANBlack
+    - family: iranBlack
       fonts:
         - asset: packages/vs_story_designer/assets/fonts/IRANBlack.ttf
 
-    - family: IranNastaliq_YasDL.com
+    - family: iranNastaliqYasdlCom
       fonts:
         - asset: packages/vs_story_designer/assets/fonts/IranNastaliq_YasDL.com.ttf
 
-    - family: IRANSansX-Bold
+    - family: iranSansXBold
       fonts:
         - asset: packages/vs_story_designer/assets/fonts/IRANSansX-Bold.ttf
 
-    - family: IRANSansX-Heavy
+    - family: iranSansXHeavy
       fonts:
         - asset: packages/vs_story_designer/assets/fonts/IRANSansX-Heavy.ttf
 
-    - family: IRANSansX-Regular
+    - family: iranSansXRegular
       fonts:
         - asset: packages/vs_story_designer/assets/fonts/IRANSansX-Regular.ttf
 
-    - family: IRCompset
+    - family: irCompset
       fonts:
         - asset: packages/vs_story_designer/assets/fonts/IRCompset.ttf
 
