@@ -177,7 +177,7 @@ class AppFonts {
       case FontType.alibabaBlackWoff:
         return const TextTheme(
           bodyLarge: TextStyle(
-            fontFamily: 'Alibabablackwoff2',
+            fontFamily: 'AlibabaWoff',
           ),
         );
       case FontType.iranKharazmi:
