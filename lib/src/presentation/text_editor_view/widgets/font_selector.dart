@@ -8,7 +8,6 @@ import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widge
 import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/font_family.dart';
-import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
 import 'package:vs_story_designer/vs_story_designer.dart';
 
 class FontSelector extends StatelessWidget {
@@ -171,87 +170,92 @@ class FontSelector extends StatelessWidget {
           // alignment: Alignment.center,
           child: Padding(
             padding: const EdgeInsets.only(left: 18.0),
-            child: ListView.builder(
-              controller: editorNotifier.fontFamilyController,
-              itemCount: controlNotifier.fontList!.length,
-              scrollDirection: Axis.horizontal,
+            child: GestureDetector(
+              onTap: () {},
+              child: ListView.builder(
+                controller: editorNotifier.fontFamilyController,
+                itemCount: controlNotifier.fontList!.length,
+                scrollDirection: Axis.horizontal,
 
-              // onPageChanged: (index) {
-              //   // editorNotifier.text = .
-              //   // editorNotifier.fontFamilyIndex = index;
-              //   HapticFeedback.heavyImpact();
-              // },
-              physics: const BouncingScrollPhysics(),
+                // onPageChanged: (index) {
+                //   // editorNotifier.text = .
+                //   // editorNotifier.fontFamilyIndex = index;
+                //   HapticFeedback.heavyImpact();
+                // },
+                physics: const BouncingScrollPhysics(),
 
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTapDown: (details) {
-                    if (editorNotifier.fontFamilyController.hasClients &&
-                        editorNotifier.fontFamilyController.position
-                            .isScrollingNotifier.value) {
-                      editorNotifier.fontFamilyController.jumpTo(editorNotifier
-                          .fontFamilyController.position.pixels); // توقف اسکرول
-                    }
-                  },
-                  onTap: () {
-                    editorNotifier.fontFamilyIndex = index;
-                    // editorNotifier.fontFamilyController.jumpToPage(index);
-                    _scrollToSelectedIndex(index);
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 7.0),
-                    child: Container(
-                      width: 65,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                          // color: index == editorNotifier.fontFamilyIndex
-                          //     ? Colors.white
-                          //     : Colors.black.withOpacity(0.4),
-                          shape: BoxShape.rectangle,
-                          borderRadius: BorderRadius.circular(10),
-                          gradient: LinearGradient(
-                            colors: index == editorNotifier.fontFamilyIndex
-                                ? [
-                                    Colors.white,
-                                    Colors.white,
-                                  ]
-                                : [
-                                    const Color.fromARGB(255, 69, 111, 209),
-                                    const Color.fromARGB(255, 98, 191, 201),
-                                  ],
-                          )),
-                      child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(4.0),
-                          child: AutoSizeText(
-                            text[index],
-                            textAlign: TextAlign.center,
-                            maxLines: 1,
-                            minFontSize: 6.0,
-                            maxFontSize: 18.0,
-                            style: AppFonts.getTextThemeENUM(
-                                    controlNotifier.fontList![index])
-                                .bodyLarge!
-                                .merge(const TextStyle(
-                                    // fontFamily: controlNotifier.fontList![index],
-                                    // package: controlNotifier.isCustomFontList
-                                    //     ? null
-                                    //     : 'vs_story_designer'
-                                    ))
-                                .copyWith(
-                                  fontSize: 18.0,
-                                  color: index == editorNotifier.fontFamilyIndex
-                                      ? const Color(0xff274589)
-                                      : Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTapDown: (details) {
+                      if (editorNotifier.fontFamilyController.hasClients &&
+                          editorNotifier.fontFamilyController.position
+                              .isScrollingNotifier.value) {
+                        editorNotifier.fontFamilyController.jumpTo(
+                            editorNotifier.fontFamilyController.position
+                                .pixels); // توقف اسکرول
+                      }
+                    },
+                    onTap: () {
+                      editorNotifier.fontFamilyIndex = index;
+                      // editorNotifier.fontFamilyController.jumpToPage(index);
+                      _scrollToSelectedIndex(index);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 7.0),
+                      child: Container(
+                        width: 65,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            // color: index == editorNotifier.fontFamilyIndex
+                            //     ? Colors.white
+                            //     : Colors.black.withOpacity(0.4),
+                            shape: BoxShape.rectangle,
+                            borderRadius: BorderRadius.circular(10),
+                            gradient: LinearGradient(
+                              colors: index == editorNotifier.fontFamilyIndex
+                                  ? [
+                                      Colors.white,
+                                      Colors.white,
+                                    ]
+                                  : [
+                                      const Color.fromARGB(255, 69, 111, 209),
+                                      const Color.fromARGB(255, 98, 191, 201),
+                                    ],
+                            )),
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: AutoSizeText(
+                              text[index],
+                              textAlign: TextAlign.center,
+                              maxLines: 1,
+                              minFontSize: 6.0,
+                              maxFontSize: 18.0,
+                              style: AppFonts.getTextThemeENUM(
+                                      controlNotifier.fontList![index])
+                                  .bodyLarge!
+                                  .merge(const TextStyle(
+                                      // fontFamily: controlNotifier.fontList![index],
+                                      // package: controlNotifier.isCustomFontList
+                                      //     ? null
+                                      //     : 'vs_story_designer'
+                                      ))
+                                  .copyWith(
+                                    fontSize: 18.0,
+                                    color:
+                                        index == editorNotifier.fontFamilyIndex
+                                            ? const Color(0xff274589)
+                                            : Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
           ),
         );

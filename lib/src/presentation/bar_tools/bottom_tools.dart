@@ -7,6 +7,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:gal/gal.dart';
 import 'package:gif/gif.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
@@ -576,17 +577,11 @@ class _ModalWidgetState extends State<ModalWidget>
                                   (context, child, loadingProgress) {
                                 if (loadingProgress != null) {
                                   return Padding(
-                                    padding: const EdgeInsets.all(24.0),
-                                    child: CircularProgressIndicator(
-                                      value:
-                                          loadingProgress.expectedTotalBytes !=
-                                                  null
-                                              ? loadingProgress
-                                                      .cumulativeBytesLoaded /
-                                                  loadingProgress
-                                                      .expectedTotalBytes!
-                                              : null,
-                                      color: const Color(0xff3872E4),
+                                    padding: const EdgeInsets.all(34.0),
+                                    child: LoadingAnimationWidget
+                                        .threeRotatingDots(
+                                      color: Colors.grey,
+                                      size: 25,
                                     ),
                                   );
                                 } else {
@@ -635,17 +630,11 @@ class _ModalWidgetState extends State<ModalWidget>
                                   (context, child, loadingProgress) {
                                 if (loadingProgress != null) {
                                   return Padding(
-                                    padding: const EdgeInsets.all(24.0),
-                                    child: CircularProgressIndicator(
-                                      value:
-                                          loadingProgress.expectedTotalBytes !=
-                                                  null
-                                              ? loadingProgress
-                                                      .cumulativeBytesLoaded /
-                                                  loadingProgress
-                                                      .expectedTotalBytes!
-                                              : null,
-                                      color: const Color(0xff3872E4),
+                                    padding: const EdgeInsets.all(34.0),
+                                    child: LoadingAnimationWidget
+                                        .threeRotatingDots(
+                                      color: Colors.grey,
+                                      size: 25,
                                     ),
                                   );
                                 } else {
@@ -694,17 +683,11 @@ class _ModalWidgetState extends State<ModalWidget>
                                   (context, child, loadingProgress) {
                                 if (loadingProgress != null) {
                                   return Padding(
-                                    padding: const EdgeInsets.all(24.0),
-                                    child: CircularProgressIndicator(
-                                      value:
-                                          loadingProgress.expectedTotalBytes !=
-                                                  null
-                                              ? loadingProgress
-                                                      .cumulativeBytesLoaded /
-                                                  loadingProgress
-                                                      .expectedTotalBytes!
-                                              : null,
-                                      color: const Color(0xff3872E4),
+                                    padding: const EdgeInsets.all(34.0),
+                                    child: LoadingAnimationWidget
+                                        .threeRotatingDots(
+                                      color: Colors.grey,
+                                      size: 25,
                                     ),
                                   );
                                 } else {
