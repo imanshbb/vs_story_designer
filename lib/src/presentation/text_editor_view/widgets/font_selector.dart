@@ -184,7 +184,15 @@ class FontSelector extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
 
               itemBuilder: (context, index) {
-                return AnimatedOnTapButton(
+                return GestureDetector(
+                  onTapDown: (details) {
+                    if (editorNotifier.fontFamilyController.hasClients &&
+                        editorNotifier.fontFamilyController.position
+                            .isScrollingNotifier.value) {
+                      editorNotifier.fontFamilyController.jumpTo(editorNotifier
+                          .fontFamilyController.position.pixels); // توقف اسکرول
+                    }
+                  },
                   onTap: () {
                     editorNotifier.fontFamilyIndex = index;
                     // editorNotifier.fontFamilyController.jumpToPage(index);
