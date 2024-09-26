@@ -1,5 +1,6 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -138,10 +139,12 @@ class FontSelector extends StatelessWidget {
                       child: Center(
                         child: Padding(
                           padding: const EdgeInsets.all(4.0),
-                          child: Text(
+                          child: AutoSizeText(
                             text[index],
                             textAlign: TextAlign.center,
                             maxLines: 1,
+                            minFontSize: 6.0,
+                            maxFontSize: 18.0,
                             style: AppFonts.getTextThemeENUM(
                                     controlNotifier.fontList![index])
                                 .bodyLarge!
@@ -152,7 +155,6 @@ class FontSelector extends StatelessWidget {
                                     //     : 'vs_story_designer'
                                     ))
                                 .copyWith(
-                                  fontSize: 18.0,
                                   color: index == editorNotifier.fontFamilyIndex
                                       ? const Color(0xff274589)
                                       : Colors.white,

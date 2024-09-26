@@ -38,6 +38,8 @@ dependencies:
   gif: ^2.3.0
   dio: ^5.7.0
   dartz: ^0.10.1
+  auto_size_text: ^3.0.0
+
 
 dev_dependencies:
   flutter_test:

@@ -178,14 +178,12 @@ class AppFonts {
         return const TextTheme(
           bodyLarge: TextStyle(
             fontFamily: 'AlibabaWoff',
-            fontSize: 14.0,
           ),
         );
       case FontType.iranKharazmi:
         return const TextTheme(
           bodyLarge: TextStyle(
             fontFamily: 'Irankharazmi',
-            fontSize: 8.0,
           ),
         );
       case FontType.iranBlack:
@@ -204,21 +202,18 @@ class AppFonts {
         return const TextTheme(
           bodyLarge: TextStyle(
             fontFamily: 'iranSansXBold',
-            fontSize: 8.0,
           ),
         );
       case FontType.iranSansXHeavy:
         return const TextTheme(
           bodyLarge: TextStyle(
             fontFamily: 'iranSansXHeavy',
-            fontSize: 8.0,
           ),
         );
       case FontType.iranSansXRegular:
         return const TextTheme(
           bodyLarge: TextStyle(
             fontFamily: 'iranSansXRegular',
-            fontSize: 8.0,
           ),
         );
       case FontType.irCompset:
