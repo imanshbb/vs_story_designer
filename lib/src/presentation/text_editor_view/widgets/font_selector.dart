@@ -146,7 +146,10 @@ class FontSelector extends StatelessWidget {
           // alignment: Alignment.center,
           child: Padding(
             padding: const EdgeInsets.only(left: 18.0),
-            child: ListView.builder(
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 1,
+              ),
               controller: editorNotifier.fontFamilyController,
               itemCount: controlNotifier.fontList!.length,
               scrollDirection: Axis.horizontal,
@@ -184,7 +187,7 @@ class FontSelector extends StatelessWidget {
                                   ]
                                 : [
                                     const Color.fromARGB(255, 69, 111, 209),
-                                    const Color.fromARGB(255, 114, 218, 230),
+                                    const Color.fromARGB(255, 98, 191, 201),
                                   ],
                           )),
                       child: Center(
