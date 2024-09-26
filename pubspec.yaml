@@ -40,6 +40,7 @@ dependencies:
   dartz: ^0.10.1
   auto_size_text: ^3.0.0
   loading_animation_widget: ^1.2.1
+  super_clipboard: ^0.8.22
 
 
 dev_dependencies:

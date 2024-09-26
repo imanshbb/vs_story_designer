@@ -1,15 +1,16 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:gal/gal.dart';
 import 'package:gif/gif.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
+import 'package:super_clipboard/super_clipboard.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
@@ -560,13 +561,15 @@ class _ModalWidgetState extends State<ModalWidget>
                                 'https://farahigram.com/files${r.gif![index].url!}',
                                 fileName);
 
-                            // Clipboard.setData(ClipboardData(text: fileName));
+                            // copy file
+                            File file = File(fileName);
+                            copyImage(await file.readAsBytes(), fileName);
 
-                            await Gal.putImage(fileName).then(
-                              (value) {
-                                showToast('ذخیره سازی با موفقیت انجام شد');
-                              },
-                            );
+                            // await Gal.putImage(fileName).then(
+                            //   (value) {
+                            //     showToast('ذخیره سازی با موفقیت انجام شد');
+                            //   },
+                            // );
                           },
                           child: SizedBox(
                             width: 100,
@@ -615,11 +618,15 @@ class _ModalWidgetState extends State<ModalWidget>
                                 'https://farahigram.com/files${r.background![index].url!}',
                                 fileName);
 
-                            await Gal.putImage(fileName).then(
-                              (value) {
-                                showToast('ذخیره سازی با موفقیت انجام شد');
-                              },
-                            );
+                            // copy file
+                            File file = File(fileName);
+                            copyImage(await file.readAsBytes(), fileName);
+
+                            // await Gal.putImage(fileName).then(
+                            //   (value) {
+                            //     showToast('ذخیره سازی با موفقیت انجام شد');
+                            //   },
+                            // );
                           },
                           child: SizedBox(
                             width: 100,
@@ -668,11 +675,15 @@ class _ModalWidgetState extends State<ModalWidget>
                                 'https://farahigram.com/files${r.sticker![index].url!}',
                                 fileName);
 
-                            await Gal.putImage(fileName).then(
-                              (value) {
-                                showToast('ذخیره سازی با موفقیت انجام شد');
-                              },
-                            );
+                            // copy file
+                            File file = File(fileName);
+                            copyImage(await file.readAsBytes(), fileName);
+
+                            // await Gal.putImage(fileName).then(
+                            //   (value) {
+                            //     showToast('ذخیره سازی با موفقیت انجام شد');
+                            //   },
+                            // );
                           },
                           child: SizedBox(
                             width: 100,
@@ -704,6 +715,37 @@ class _ModalWidgetState extends State<ModalWidget>
               },
             ),
     );
+  }
+
+  void copyImage(Uint8List image, String fileName) async {
+    final clipboard = SystemClipboard.instance;
+
+    if (clipboard != null) {
+      final item = DataWriterItem();
+      if (extractExtension(fileName) == 'gif') {
+        item.add(Formats.gif(image));
+        await clipboard.write([item]).then(
+          (value) {
+            showToast('کپی گیف با موفقیت انجام شد');
+          },
+        );
+        ;
+      } else if (extractExtension(fileName) == 'webp') {
+        item.add(Formats.webp(image));
+        await clipboard.write([item]).then(
+          (value) {
+            showToast('کپی تصویر با موفقیت انجام شد');
+          },
+        );
+      } else {
+        item.add(Formats.png(image));
+        await clipboard.write([item]).then(
+          (value) {
+            showToast('کپی تصویر با موفقیت انجام شد');
+          },
+        );
+      }
+    }
   }
 
   String extractExtension(String url) {
