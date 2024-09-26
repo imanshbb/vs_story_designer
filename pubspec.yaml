@@ -80,7 +80,7 @@ flutter:
         - asset: packages/vs_story_designer/assets/fonts/IranSans.ttf
     - family: AlibabaWoff
       fonts:
-        - asset: packages/vs_story_designer/assets/fonts/alibaba_black_Woff.ttf
+        - asset: packages/vs_story_designer/assets/fonts/IranSans.ttf
 
     - family: Irankharazmi
       fonts:
