@@ -139,18 +139,6 @@ enum FontType {
   notoSansGujarati,
   oldStandardTT,
   neonderthaw,
-  bungeeShade,
-  passionsConflict,
-  sedgwickAve,
-  notoNastaliqUrdu,
-  sacramento,
-  pressStart2P,
-  cabinSketch,
-  frederickatheGreat,
-  tiroDevanagariHindi,
-  rubikVinyl,
-  ewert,
-  unifrakturMaguntia,
 }
 
 class VSStoryDesigner extends StatefulWidget {

@@ -172,18 +172,6 @@ class AppFonts {
     FontType.notoSansGujarati,
     FontType.oldStandardTT,
     FontType.neonderthaw,
-    FontType.bungeeShade,
-    FontType.passionsConflict,
-    FontType.sedgwickAve,
-    FontType.notoNastaliqUrdu,
-    FontType.sacramento,
-    FontType.pressStart2P,
-    FontType.cabinSketch,
-    FontType.frederickatheGreat,
-    //FontType.TiroDevanagariHindi,
-    FontType.rubikVinyl,
-    FontType.ewert,
-    FontType.unifrakturMaguntia,
   ];
 
   static TextTheme getTextThemeENUM(FontType val) {
@@ -574,30 +562,6 @@ class AppFonts {
         return GoogleFonts.oldStandardTtTextTheme();
       case FontType.neonderthaw:
         return GoogleFonts.neonderthawTextTheme();
-      case FontType.bungeeShade:
-        return GoogleFonts.bungeeShadeTextTheme();
-      case FontType.passionsConflict:
-        return GoogleFonts.passionsConflictTextTheme();
-      case FontType.sedgwickAve:
-        return GoogleFonts.sedgwickAveTextTheme();
-      case FontType.notoNastaliqUrdu:
-        return GoogleFonts.notoNastaliqUrduTextTheme();
-      case FontType.sacramento:
-        return GoogleFonts.sacramentoTextTheme();
-      case FontType.pressStart2P:
-        return GoogleFonts.pressStart2pTextTheme();
-      case FontType.cabinSketch:
-        return GoogleFonts.cabinSketchTextTheme();
-      case FontType.frederickatheGreat:
-        return GoogleFonts.frederickaTheGreatTextTheme();
-      // case  FontType.TiroDevanagariHindi:return GoogleFonts.
-      case FontType.rubikVinyl:
-        return GoogleFonts.rubikTextTheme();
-      case FontType.ewert:
-        return GoogleFonts.ewertTextTheme();
-      case FontType.unifrakturMaguntia:
-        return GoogleFonts.unifrakturMaguntiaTextTheme();
-
 ////////////////////////////////////////////////
       default:
         return GoogleFonts.openSansTextTheme();
