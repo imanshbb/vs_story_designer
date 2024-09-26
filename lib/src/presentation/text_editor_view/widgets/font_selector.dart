@@ -146,7 +146,7 @@ class FontSelector extends StatelessWidget {
           // alignment: Alignment.center,
           child: Padding(
             padding: const EdgeInsets.only(left: 18.0),
-            child: ListView.builder(
+            child: PageView.builder(
               controller: editorNotifier.fontFamilyController,
               itemCount: controlNotifier.fontList!.length,
               scrollDirection: Axis.horizontal,
@@ -157,8 +157,8 @@ class FontSelector extends StatelessWidget {
               //   HapticFeedback.heavyImpact();
               // },
               physics: const BouncingScrollPhysics(),
-              // allowImplicitScrolling: true,
-              // pageSnapping: false,
+              allowImplicitScrolling: true,
+              pageSnapping: false,
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: () {
