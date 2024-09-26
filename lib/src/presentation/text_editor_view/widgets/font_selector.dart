@@ -95,7 +95,7 @@ class FontSelector extends StatelessWidget {
           text.add('رخ‌بلک');
           break;
         case FontType.rokhFaNumNormal:
-          text.add('رخ‌بلک');
+          text.add('رخ‌متوسط');
           break;
         case FontType.yagutBoldYasDLcom:
           text.add('یاقوت‌ضخیم');
