@@ -227,7 +227,7 @@ class AppFonts {
       case FontType.rubik:
         return const TextTheme(
           bodyLarge: TextStyle(
-            fontFamily: 'IranSans',
+            fontFamily: 'AlibabaWoff',
           ),
         );
       case FontType.handJet:
