@@ -225,11 +225,7 @@ class AppFonts {
       case FontType.vazirMatn:
         return GoogleFonts.vazirmatnTextTheme();
       case FontType.rubik:
-        return const TextTheme(
-          bodyLarge: TextStyle(
-            fontFamily: 'LaleZar',
-          ),
-        );
+        return GoogleFonts.rubikTextTheme();
       case FontType.handJet:
         return GoogleFonts.handjetTextTheme();
       case FontType.blaka:
