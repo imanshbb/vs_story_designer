@@ -178,7 +178,7 @@ class FontSelector extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(right: 7.0),
                     child: Container(
-                      width: 65 * scale,
+                      width: 200 * scale,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                           // color: index == editorNotifier.fontFamilyIndex
