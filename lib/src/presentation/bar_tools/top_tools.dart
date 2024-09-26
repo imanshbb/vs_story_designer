@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
-import 'package:vs_story_designer/src/domain/sevices/save_as_image.dart';
+import 'package:vs_story_designer/src/presentation/bar_tools/copy_file.dart';
 import 'package:vs_story_designer/src/presentation/draggable_items/draggable_widget.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/item_type.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/text_animation_type.dart';
@@ -64,17 +64,6 @@ class _TopToolsState extends State<TopTools> {
                       color: Colors.white,
                     )),
 
-                // ToolButton(
-                //   child: ImageIcon(
-                //     const AssetImage('assets/icons/photo_filter.png',
-                //         package: 'vs_story_designer'),
-                //     color: controlNotifier.isPhotoFilter ? Colors.black : Colors.white,
-                //     size: 20,
-                //   ),
-                //   backGroundColor:  controlNotifier.isPhotoFilter ? Colors.white70 : Colors.black12,
-                //   onTap: () => controlNotifier.isPhotoFilter =
-                //   !controlNotifier.isPhotoFilter,
-                // ),
                 Row(
                   children: [
                     Padding(
@@ -91,53 +80,40 @@ class _TopToolsState extends State<TopTools> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Card(
-                                          color: Colors.white,
-                                          child: Container(
-                                              margin: const EdgeInsets.all(50),
-                                              child:
-                                                  const CircularProgressIndicator())),
+                                        color: Colors.white,
+                                        child: Container(
+                                          margin: const EdgeInsets.all(50),
+                                          child:
+                                              const CircularProgressIndicator(),
+                                        ),
+                                      ),
                                     ],
                                   );
                                 });
-                            for (var element in itemNotifier.draggableWidget) {
-                              if (element.type == ItemType.gif ||
-                                  element.animationType !=
-                                      TextAnimationType.none) {
-                                setState(() {
-                                  _createVideo = true;
-                                });
-                              }
-                            }
-                            if (_createVideo) {
-                              debugPrint('creating video');
-                              await widget.renderWidget!();
-                            } else {
-                              debugPrint('creating image');
 
-                              var response = await DraggableWidget
-                                  .screenshotController
-                                  .capture()
-                                  .then(
-                                (value) async {
-                                  final String dir =
-                                      (await getApplicationDocumentsDirectory())
-                                          .path;
-                                  // await Clipboard.setData(ClipboardData(
-                                  //     text: 'content://$dir/image.png'));
-                                  String imagePath =
-                                      '$dir/${DateTime.now()}.png';
-                                  File capturedFile = File(imagePath);
-                                  await capturedFile.writeAsBytes(value!);
+                            var response = await DraggableWidget
+                                .screenshotController
+                                .capture()
+                                .then(
+                              (value) async {
+                                final String dir =
+                                    (await getApplicationDocumentsDirectory())
+                                        .path;
+                                // await Clipboard.setData(ClipboardData(
+                                //     text: 'content://$dir/image.png'));
+                                String imagePath = '$dir/${DateTime.now()}.png';
+                                File capturedFile = File(imagePath);
+                                copyImage(
+                                  await capturedFile.readAsBytes(),
+                                  imagePath,
+                                );
+                              },
+                            );
 
-                                  await Gal.putImage(capturedFile.path);
-                                  return true;
-                                },
-                              );
+                            if (response) {
+                              showToast('متن با موفقیت در کلیپ‌بورد ذخیره شد');
+                            } else {}
 
-                              if (response) {
-                                showToast('Successfully saved');
-                              } else {}
-                            }
                             // ignore: use_build_context_synchronously
                             Navigator.of(context, rootNavigator: true).pop();
                           } else {

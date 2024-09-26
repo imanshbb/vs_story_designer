@@ -1,7 +1,6 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:dio/dio.dart';
@@ -10,13 +9,13 @@ import 'package:gif/gif.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
-import 'package:super_clipboard/super_clipboard.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/scroll_notifier.dart';
 import 'package:vs_story_designer/src/domain/sevices/save_as_image.dart';
 import 'package:vs_story_designer/src/presentation/bar_tools/Model/modal.dart';
+import 'package:vs_story_designer/src/presentation/bar_tools/copy_file.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/item_type.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/text_animation_type.dart';
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
@@ -551,6 +550,7 @@ class _ModalWidgetState extends State<ModalWidget>
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () async {
+                            showToast('لطفا منتظر بمانید...');
                             // Clipboard.setData(
 
                             // );
@@ -611,6 +611,7 @@ class _ModalWidgetState extends State<ModalWidget>
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () async {
+                            showToast('لطفا منتظر بمانید...');
                             var fileName =
                                 '${Directory.systemTemp.path}/file.${extractExtension(r.background![index].url!)}';
 
@@ -668,6 +669,7 @@ class _ModalWidgetState extends State<ModalWidget>
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () async {
+                            showToast('لطفا منتظر بمانید...');
                             var fileName =
                                 '${Directory.systemTemp.path}/file.${extractExtension(r.sticker![index].url!)}';
 
@@ -715,46 +717,6 @@ class _ModalWidgetState extends State<ModalWidget>
               },
             ),
     );
-  }
-
-  void copyImage(Uint8List image, String fileName) async {
-    final clipboard = SystemClipboard.instance;
-
-    if (clipboard != null) {
-      final item = DataWriterItem();
-      if (extractExtension(fileName) == 'gif') {
-        item.add(Formats.gif(image));
-        await clipboard.write([item]).then(
-          (value) {
-            showToast('کپی گیف با موفقیت انجام شد');
-          },
-        );
-        ;
-      } else if (extractExtension(fileName) == 'webp') {
-        item.add(Formats.webp(image));
-        await clipboard.write([item]).then(
-          (value) {
-            showToast('کپی تصویر با موفقیت انجام شد');
-          },
-        );
-      } else {
-        item.add(Formats.png(image));
-        await clipboard.write([item]).then(
-          (value) {
-            showToast('کپی تصویر با موفقیت انجام شد');
-          },
-        );
-      }
-    }
-  }
-
-  String extractExtension(String url) {
-    List<String> parts = url.split('.');
-    if (parts.length > 1) {
-      return parts.last;
-    } else {
-      return ''; // آدرسی بدون پسوند
-    }
   }
 
   Future<dartz.Either<dynamic, ModalApi>> callApi() async {
