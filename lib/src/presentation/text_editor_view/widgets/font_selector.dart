@@ -137,7 +137,7 @@ class FontSelector extends StatelessWidget {
                           )),
                       child: Center(
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(4.0),
                           child: Text(
                             text[index],
                             textAlign: TextAlign.center,
