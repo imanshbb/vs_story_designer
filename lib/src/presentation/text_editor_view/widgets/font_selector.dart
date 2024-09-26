@@ -143,6 +143,23 @@ class FontSelector extends StatelessWidget {
         DraggableWidgetNotifier, PaintingNotifier>(
       builder: (context, editorNotifier, controlNotifier,
           draggableWidgetNotifier, paintingNotifier, child) {
+        void _scrollToSelectedIndex(int index) {
+          // محاسبه موقعیت مرکزی برای آیتم انتخابی
+          double screenWidth = MediaQuery.of(context).size.width;
+          double itemWidth = 100; // عرض هر آیتم
+          double centerPosition = (screenWidth / 2) - (itemWidth / 2);
+
+          // محاسبه موقعیت اسکرول بر اساس ایندکس
+          double scrollPosition = index * itemWidth - centerPosition;
+
+          // اسکرول به موقعیت محاسبه شده
+          editorNotifier.fontFamilyController.animateTo(
+            scrollPosition,
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.easeInOut,
+          );
+        }
+
         return SizedBox(
           height: 65,
           width: _size.width,
@@ -161,23 +178,18 @@ class FontSelector extends StatelessWidget {
               // },
               physics: const BouncingScrollPhysics(),
               itemBuilder: (context, index) {
-                double scale = max(0.8,
-                    (1 - (editorNotifier.fontFamilyIndex - index).abs()) + 0.2);
                 return AnimatedOnTapButton(
                   onTap: () {
                     editorNotifier.fontFamilyIndex = index;
-                    editorNotifier.fontFamilyController.jumpToPage(index);
+                    // editorNotifier.fontFamilyController.jumpToPage(index);
+                    _scrollToSelectedIndex(index);
                   },
-                  child: Transform.scale(
-                    scale:
-                        scale, // استفاده از Transform برای تغییر مقیاس آیتم‌ها
-
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 7.0),
-                      child: Container(
-                        width: 100 * scale,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 7.0),
+                    child: Container(
+                      width: 65,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
                           // color: index == editorNotifier.fontFamilyIndex
                           //     ? Colors.white
                           //     : Colors.black.withOpacity(0.4),
@@ -193,35 +205,32 @@ class FontSelector extends StatelessWidget {
                                     const Color.fromARGB(255, 69, 111, 209),
                                     const Color.fromARGB(255, 98, 191, 201),
                                   ],
-                          ),
-                        ),
-                        child: Center(
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: AutoSizeText(
-                              text[index],
-                              textAlign: TextAlign.center,
-                              maxLines: 1,
-                              minFontSize: 6.0,
-                              maxFontSize: 18.0,
-                              style: AppFonts.getTextThemeENUM(
-                                      controlNotifier.fontList![index])
-                                  .bodyLarge!
-                                  .merge(const TextStyle(
-                                      // fontFamily: controlNotifier.fontList![index],
-                                      // package: controlNotifier.isCustomFontList
-                                      //     ? null
-                                      //     : 'vs_story_designer'
-                                      ))
-                                  .copyWith(
-                                    fontSize: 18.0,
-                                    color:
-                                        index == editorNotifier.fontFamilyIndex
-                                            ? const Color(0xff274589)
-                                            : Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                            ),
+                          )),
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: AutoSizeText(
+                            text[index],
+                            textAlign: TextAlign.center,
+                            maxLines: 1,
+                            minFontSize: 6.0,
+                            maxFontSize: 18.0,
+                            style: AppFonts.getTextThemeENUM(
+                                    controlNotifier.fontList![index])
+                                .bodyLarge!
+                                .merge(const TextStyle(
+                                    // fontFamily: controlNotifier.fontList![index],
+                                    // package: controlNotifier.isCustomFontList
+                                    //     ? null
+                                    //     : 'vs_story_designer'
+                                    ))
+                                .copyWith(
+                                  fontSize: 18.0,
+                                  color: index == editorNotifier.fontFamilyIndex
+                                      ? const Color(0xff274589)
+                                      : Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
                           ),
                         ),
                       ),
